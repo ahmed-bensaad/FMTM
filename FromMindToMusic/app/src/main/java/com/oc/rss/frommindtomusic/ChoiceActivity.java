@@ -19,6 +19,16 @@ public class ChoiceActivity extends AppCompatActivity {
                 Intent I = new Intent(ChoiceActivity.this,ResultActivity.class);
                 startActivity(I);
             }
+
+        });
+        Button harmonize= (Button) findViewById(R.id.button7);
+        harmonize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent In = new Intent(ChoiceActivity.this,HarmonizeActivity.class);
+                startActivity(In);
+            }
+
         });
     }
 

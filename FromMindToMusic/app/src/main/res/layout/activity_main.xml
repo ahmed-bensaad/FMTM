@@ -11,24 +11,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.oc.rss.frommindtomusic.MainActivity">
 
-    <Button
-        android:text="Start!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Start"
-        android:background="@android:drawable/presence_online"
-        android:layout_marginBottom="57dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         app:srcCompat="@drawable/accueil"
         android:id="@+id/imageView"
-        android:layout_height="fill_parent"
-        android:scaleType="center"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
         android:foregroundGravity="center_vertical|fill_vertical|fill_horizontal|center"
         android:adjustViewBounds="false"
         android:saveEnabled="false"
         android:layout_alignParentTop="true" />
+
+    <Button
+        android:text="Start!"
+        android:id="@+id/Start"
+        android:background="@android:drawable/presence_online"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp" />
 </RelativeLayout>
