@@ -22,13 +22,10 @@
         <activity android:name=".RecordActivity" />
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".ResultActivity" />
-<<<<<<< HEAD
-        <activity android:name="java.com.oc.rss.frommindtomusic.DIYActivity" />
-        <activity android:name="java.com.oc.rss.frommindtomusic.InstrumentSelectionActivity" />
         <activity android:name=".InstrumentsChoiceActivity"></activity>
-=======
         <activity android:name=".HarmonizeActivity"></activity>
->>>>>>> origin/ANDROID
+        <activity android:name=".OrchestrateActivity"></activity>
+
     </application>
 
 </manifest>
