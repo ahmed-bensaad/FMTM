@@ -6,17 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class ChoiceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button b= (Button) findViewById(R.id.Start);
-        b.setOnClickListener(new View.OnClickListener(){
+        setContentView(R.layout.activity_choice);
+        Button result= (Button) findViewById(R.id.button6);
+        result.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Intent I = new Intent(MainActivity.this,RecordActivity.class);
+            public void onClick(View v) {
+                Intent I = new Intent(ChoiceActivity.this,ResultActivity.class);
                 startActivity(I);
             }
         });

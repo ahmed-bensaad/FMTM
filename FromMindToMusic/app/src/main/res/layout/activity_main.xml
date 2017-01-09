@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,8 +11,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.oc.rss.frommindtomusic.MainActivity">
 
-    <TextView
+    <Button
+        android:text="Start!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/Start"
+        android:background="@android:drawable/presence_online"
+        android:layout_marginBottom="57dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        app:srcCompat="@drawable/accueil"
+        android:id="@+id/imageView"
+        android:layout_height="fill_parent"
+        android:scaleType="center"
+        android:foregroundGravity="center_vertical|fill_vertical|fill_horizontal|center"
+        android:adjustViewBounds="false"
+        android:saveEnabled="false"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>
