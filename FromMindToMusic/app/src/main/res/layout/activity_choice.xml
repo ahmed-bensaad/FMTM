@@ -37,7 +37,7 @@
         android:layout_below="@+id/button7"
         android:layout_alignEnd="@+id/button7"
         android:layout_marginTop="32dp"
-        android:id="@+id/button8"
+        android:id="@+id/orchestrateButton"
         android:layout_alignStart="@+id/button7"
         android:textSize="11sp" />
 
