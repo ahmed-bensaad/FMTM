@@ -16,15 +16,18 @@ import static com.oc.rss.frommindtomusic.RecordActivity.i;
 
 public class ResultActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
+    Button play,stop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        Button play = (Button) findViewById(R.id.button10);
+         play = (Button) findViewById(R.id.button10);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                stop.setEnabled(true);
+                play.setEnabled(false);
                String AudioSavePathInDevice =
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +
                                 "template" +i+ "AudioRecording.3gp";
@@ -43,10 +46,12 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-        Button stop = (Button) findViewById(R.id.button11);
+        stop = (Button) findViewById(R.id.button11);
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                stop.setEnabled(false);
+                play.setEnabled(true);
                 if (mediaPlayer != null) {
                     mediaPlayer.stop();
                     mediaPlayer.release();
