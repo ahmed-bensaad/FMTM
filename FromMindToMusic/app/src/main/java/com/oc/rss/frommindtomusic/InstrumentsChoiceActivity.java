@@ -12,14 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InstrumentsChoiceActivity extends AppCompatActivity {
-    private Spinner listeInstruments=null;
+    private Spinner listeInstruments1=null;
+    private Spinner listeInstruments2=null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruments_choice);
 
-        listeInstruments = (Spinner) findViewById(R.id.instruments);
+        listeInstruments1 = (Spinner) findViewById(R.id.instrument1);
         List<String> instruments = new ArrayList<String>();
         instruments.add("Piano");
         instruments.add("Violon");
@@ -28,7 +29,10 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        listeInstruments.setAdapter(adapter);
+        listeInstruments1.setAdapter(adapter);
+
+        listeInstruments2 = (Spinner) findViewById(R.id.instrument2);
+        listeInstruments2.setAdapter(adapter);
 
         Button ok= (Button) findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {

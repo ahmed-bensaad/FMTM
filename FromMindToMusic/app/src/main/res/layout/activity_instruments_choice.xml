@@ -20,14 +20,6 @@
         android:layout_marginTop="26dp"
         android:id="@+id/chooseInstruments" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="184dp"
-        android:id="@+id/instruments" />
-
     <Button
         android:text="Ok"
         android:textSize="30dp"
@@ -37,5 +29,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="69dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:id="@+id/instrument1"
+        android:layout_below="@+id/chooseInstruments"
+        android:layout_alignEnd="@+id/chooseInstruments" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/instrument2"
+        android:layout_below="@+id/instrument1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp" />
 
 </RelativeLayout>
