@@ -41,6 +41,15 @@
         android:layout_above="@+id/diyButton"
         android:layout_alignStart="@+id/diyButton"
         android:onClick="onClick"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backButtonOrchestrate"
+        android:gravity="bottom|right|center_vertical"
+        android:background="@android:drawable/ic_menu_revert"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick"/>
 
 
 </RelativeLayout>

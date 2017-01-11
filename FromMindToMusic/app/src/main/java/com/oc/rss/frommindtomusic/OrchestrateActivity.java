@@ -26,6 +26,11 @@ public void onClick (View v){
         case R.id.diyButton:
             //a completer
             break;
+        case R.id.backButtonOrchestrate:
+            Intent j = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
+            startActivity(j);
+            break;
+
     }
 }
 }
