@@ -26,7 +26,6 @@ public class RecordActivity extends AppCompatActivity {
     String AudioSavePathInDevice = null;
     MediaRecorder mediaRecorder;
     Random random;
-    String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     MediaPlayer mediaPlayer;
     static int i=0;
     @Override
@@ -153,17 +152,7 @@ public class RecordActivity extends AppCompatActivity {
         mediaRecorder.setOutputFile(AudioSavePathInDevice);
     }
 
-    public String CreateRandomAudioFileName(int string) {
-        StringBuilder stringBuilder = new StringBuilder(string);
-        int i = 0;
-        while (i < string) {
-            stringBuilder.append(RandomAudioFileName.
-                    charAt(random.nextInt(RandomAudioFileName.length())));
 
-            i++;
-        }
-        return stringBuilder.toString();
-    }
 
     private void requestPermission() {
         ActivityCompat.requestPermissions(RecordActivity.this, new String[]{WRITE_EXTERNAL_STORAGE, RECORD_AUDIO}, RequestPermissionCode);
