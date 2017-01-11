@@ -22,7 +22,11 @@
         <activity android:name=".RecordActivity" />
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".HarmonizeActivity"></activity>
+        <activity android:name=".InstrumentsChoiceActivity" />
+        <activity android:name=".HarmonizeActivity" />
+        <activity android:name=".OrchestrateActivity" />
+        <activity android:name=".DoItYourselfActivity" />
+        <activity android:name=".SingInstrumentActivity"></activity>
     </application>
 
 </manifest>

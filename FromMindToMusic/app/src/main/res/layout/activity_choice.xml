@@ -11,7 +11,7 @@
     tools:context="com.oc.rss.frommindtomusic.ChoiceActivity">
 
     <TextView
-        android:text="What do you want to do ?"
+        android:text="What would you like to do ?"
         android:layout_width="match_parent"
         android:layout_marginStart="25dp"
         android:layout_marginTop="67dp"
@@ -37,7 +37,7 @@
         android:layout_below="@+id/button7"
         android:layout_alignEnd="@+id/button7"
         android:layout_marginTop="32dp"
-        android:id="@+id/button8"
+        android:id="@+id/orchestrateButton"
         android:layout_alignStart="@+id/button7"
         android:textSize="11sp" />
 

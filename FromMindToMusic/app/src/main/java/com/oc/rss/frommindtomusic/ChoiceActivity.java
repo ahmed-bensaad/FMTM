@@ -30,6 +30,15 @@ public class ChoiceActivity extends AppCompatActivity {
             }
 
         });
+       Button orchestrate= (Button) findViewById(R.id.orchestrateButton);
+        orchestrate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChoiceActivity.this,OrchestrateActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
 }
