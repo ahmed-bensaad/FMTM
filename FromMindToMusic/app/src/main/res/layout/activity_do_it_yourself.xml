@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_do_it_yourself"
@@ -9,5 +14,43 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.oc.rss.frommindtomusic.DoItYourselfActivity">
+
+    <Button
+        android:text="sing  a new melody! "
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="76dp"
+        android:id="@+id/singNewButton"
+        android:layout_width="200sp"
+        android:onClick="onClick"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="133dp"
+        android:id="@+id/spinner"
+        android:layout_alignStart="@+id/singNewButton"
+        android:layout_alignEnd="@+id/singNewButton" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backButtonDIY"
+        android:gravity="bottom|right|center_vertical"
+        android:background="@android:drawable/ic_menu_revert"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:text="Choose your instrument and sing the melody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:id="@+id/textView2"
+        android:textSize="20sp" />
+
 
 </RelativeLayout>

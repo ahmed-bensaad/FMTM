@@ -24,11 +24,12 @@ public void onClick (View v){
             startActivity(i);
             break;
         case R.id.diyButton:
-            //a completer
+            Intent j = new Intent(OrchestrateActivity.this, DoItYourselfActivity.class);
+            startActivity(j);
             break;
         case R.id.backButtonOrchestrate:
-            Intent j = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
-            startActivity(j);
+            Intent k = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
+            startActivity(k);
             break;
 
     }

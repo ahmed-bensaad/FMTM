@@ -25,7 +25,8 @@
         <activity android:name=".InstrumentsChoiceActivity" />
         <activity android:name=".HarmonizeActivity" />
         <activity android:name=".OrchestrateActivity" />
-        <activity android:name=".DoItYourselfActivity"></activity>
+        <activity android:name=".DoItYourselfActivity" />
+        <activity android:name=".SingInstrumentActivity"></activity>
     </application>
 
 </manifest>
