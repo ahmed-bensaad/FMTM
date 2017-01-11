@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * Created by Raphael on 09/01/2017.
+ */
 public class HarmonizeActivity extends AppCompatActivity {
 
     @Override
