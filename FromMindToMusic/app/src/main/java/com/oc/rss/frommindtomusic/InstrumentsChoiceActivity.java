@@ -12,15 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InstrumentsChoiceActivity extends AppCompatActivity {
-    private Spinner listeInstruments1=null;
-    private Spinner listeInstruments2=null;
+    private  ArrayList<Spinner> spinnersList=new ArrayList<Spinner>();
+
+    private Spinner spinner1=null;
+    private Spinner spinner2=null;
+    int i=2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruments_choice);
 
-        listeInstruments1 = (Spinner) findViewById(R.id.instrument1);
+        spinnersList.add((Spinner) findViewById(R.id.spinner1));
+        spinnersList.add((Spinner) findViewById(R.id.spinner2));
+        spinnersList.add((Spinner) findViewById(R.id.spinner3));
+        spinnersList.add((Spinner) findViewById(R.id.spinner4));
+        spinnersList.add((Spinner) findViewById(R.id.spinner5));
+        spinnersList.add((Spinner) findViewById(R.id.spinner6));
+        spinnersList.add((Spinner) findViewById(R.id.spinner7));
+        spinnersList.add((Spinner) findViewById(R.id.spinner8));
+        spinnersList.add((Spinner) findViewById(R.id.spinner9));
+        spinnersList.add((Spinner) findViewById(R.id.spinner10));
+        spinnersList.add((Spinner) findViewById(R.id.spinner11));
+        spinnersList.add((Spinner) findViewById(R.id.spinner12));
+
+       spinner1 = (Spinner) findViewById(R.id.spinner1);
         List<String> instruments = new ArrayList<String>();
         instruments.add("Piano");
         instruments.add("Violon");
@@ -29,10 +45,11 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        listeInstruments1.setAdapter(adapter);
+        spinner1.setAdapter(adapter);
 
-        listeInstruments2 = (Spinner) findViewById(R.id.instrument2);
-        listeInstruments2.setAdapter(adapter);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner2.setAdapter(adapter);
+
 
         Button ok= (Button) findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +57,17 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InstrumentsChoiceActivity.this,ResultActivity.class);
                 startActivity(intent);
+            }
+
+        });
+
+        Button add= (Button) findViewById(R.id.add);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Spinner spinner=spinnersList.get(i);
+                spinner.setVisibility(View.VISIBLE);
+                i++;
             }
 
         });
