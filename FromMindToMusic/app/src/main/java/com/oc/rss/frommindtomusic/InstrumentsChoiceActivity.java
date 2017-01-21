@@ -43,12 +43,14 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         instruments.add("Trompette");
         instruments.add("Sabre laser");
 
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
+        final ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
 
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         spinner2.setAdapter(adapter);
+
+
 
 
         Button ok= (Button) findViewById(R.id.ok);
@@ -67,6 +69,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Spinner spinner=spinnersList.get(i);
                 spinner.setVisibility(View.VISIBLE);
+                spinner.setAdapter(adapter);
                 i++;
             }
 
