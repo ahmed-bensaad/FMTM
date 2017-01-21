@@ -39,6 +39,16 @@ public class ChoiceActivity extends AppCompatActivity {
             }
 
         });
+
+        Button style= (Button) findViewById(R.id.style);
+        style.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentS = new Intent(ChoiceActivity.this,StyleActivity.class);
+                startActivity(intentS);
+            }
+
+        });
     }
 
 }
