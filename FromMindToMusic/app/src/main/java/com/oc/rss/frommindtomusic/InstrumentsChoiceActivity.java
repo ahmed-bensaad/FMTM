@@ -61,7 +61,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
 
         });
 
-        Button add= (Button) findViewById(R.id.add);
+        Button add= (Button) findViewById(R.id.add); //A COMPLETER pour que spinners invisibles deviennent visibles
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
