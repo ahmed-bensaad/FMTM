@@ -12,46 +12,76 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="STOP"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_centerHorizontal="true"
-        />
+        android:text="STOP PLAYING RECORDING "
+        android:id="@+id/button4"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
-        android:layout_alignTop="@+id/button2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:drawable/ic_media_play" />
+        android:background="@android:drawable/ic_media_play"
+        android:layout_alignBaseline="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_alignStart="@+id/button" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="STOP PLAYING RECORDING "
-        android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="31dp" />
+        android:text="STOP"
+        android:id="@+id/button2"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignStart="@+id/button4"
+        android:layout_marginStart="56dp" />
+
+    <TextView
+        android:text="Listen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textSize="30sp"
+        android:layout_above="@+id/button4"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toStartOf="@+id/button4"
+        android:layout_marginEnd="22dp" />
 
-        android:layout_above="@+id/button4"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginBottom="31dp"
-        android:background="@android:drawable/ic_btn_speak_now" />
+    <TextView
+        android:text="Sing :)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textSize="30sp"
+        android:layout_marginEnd="14dp"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button4"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="14dp"
         android:id="@+id/button5"
-        android:background="@android:drawable/ic_menu_send" />
+        android:background="@android:drawable/ic_menu_send"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/button3"
+        android:layout_marginBottom="53dp" />
+
+    <TextView
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp"
+        android:id="@+id/textView9"
+        android:textSize="30sp" />
 </RelativeLayout>
