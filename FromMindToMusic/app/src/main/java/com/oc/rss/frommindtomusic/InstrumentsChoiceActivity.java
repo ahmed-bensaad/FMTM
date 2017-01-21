@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +34,13 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         spinnersList.add((Spinner) findViewById(R.id.spinner8));
         spinnersList.add((Spinner) findViewById(R.id.spinner9));
         spinnersList.add((Spinner) findViewById(R.id.spinner10));
-        spinnersList.add((Spinner) findViewById(R.id.spinner11));
-        spinnersList.add((Spinner) findViewById(R.id.spinner12));
 
        spinner1 = (Spinner) findViewById(R.id.spinner1);
         List<String> instruments = new ArrayList<String>();
         instruments.add("Piano");
         instruments.add("Violon");
         instruments.add("Trompette");
+        instruments.add("Clarinette");
         instruments.add("Sabre laser");
 
         final ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
@@ -63,14 +63,18 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
 
         });
 
-        Button add= (Button) findViewById(R.id.add); //A COMPLETER pour que spinners invisibles deviennent visibles
-        ok.setOnClickListener(new View.OnClickListener() {
+        Button add= (Button) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Spinner spinner=spinnersList.get(i);
-                spinner.setVisibility(View.VISIBLE);
-                spinner.setAdapter(adapter);
-                i++;
+                if (i<10){
+                    Spinner spinner=spinnersList.get(i);
+                    spinner.setVisibility(View.VISIBLE);
+                    spinner.setAdapter(adapter);
+                    i++;}
+                else {
+                    Toast.makeText(InstrumentsChoiceActivity.this, "10 instruments max", Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
