@@ -1,7 +1,7 @@
 function [result] = notes(x,fe)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
-fr = front(x) ; 
+fr = front(x,fe) ; 
 N = length(fr) ; 
 F = [] ;
 for i=1:N-1

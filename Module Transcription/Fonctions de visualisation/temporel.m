@@ -8,7 +8,7 @@ t = (0:N-1)*Te ;
 plot(t,x,color)
 xlabel('t en secondes')
 ylabel('x(t)')
-title('TracÃ© temporel du signal x(t)')
+title('Tracé temporel du signal x(t)')
 
 
 end
