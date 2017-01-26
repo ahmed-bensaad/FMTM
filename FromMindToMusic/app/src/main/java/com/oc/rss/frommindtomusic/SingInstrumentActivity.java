@@ -22,18 +22,16 @@ public class SingInstrumentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_instrument);
-        Button recordIn= (Button)findViewById(R.id.recordIn);
+        final Button recordIn= (Button)findViewById(R.id.recordIn);
         recordIn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Toast.makeText(SingInstrumentActivity.this, "Recording started",
-                            Toast.LENGTH_LONG).show();
+                    recordIn.setBackgroundResource(android.R.drawable.presence_audio_away);
                     j++;
                     AudioSavePathInDevice =
                             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +
                                     "Demo_ins" +j+ ".3gp";
-
                     MediaRecorderReady();
                     try {
                         mediaRecorder.prepare();
@@ -47,9 +45,17 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     }
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    recordIn.setBackgroundResource(android.R.drawable.presence_audio_online);
                     Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
                             Toast.LENGTH_LONG).show();
-                    mediaRecorder.stop();
+                    try {
+                        mediaRecorder.stop();
+                    }
+                    catch (Exception e){
+                        Toast.makeText(SingInstrumentActivity.this, "Hold this button to record",
+                                Toast.LENGTH_LONG).show();
+
+                    }
                 }
                 return true;
 

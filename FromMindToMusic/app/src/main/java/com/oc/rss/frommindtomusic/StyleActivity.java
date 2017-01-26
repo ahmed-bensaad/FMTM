@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class StyleActivity extends AppCompatActivity {
 
@@ -18,14 +19,20 @@ public class StyleActivity extends AppCompatActivity {
     public void onClick (View v){
         switch (v.getId()) {
             case R.id.jazzy:
+                Toast.makeText(StyleActivity.this, "Go Jazzy :)",
+                Toast.LENGTH_LONG).show();
                 Intent i = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(i);
                 break;
             case R.id.funky:
+                Toast.makeText(StyleActivity.this, "Go funky :)",
+                Toast.LENGTH_LONG).show();
                 Intent j = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(j);
                 break;
             case R.id.groovy:
+                Toast.makeText(StyleActivity.this, "Go groovy :)",
+                Toast.LENGTH_LONG).show();
                 Intent k = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(k);
                 break;
