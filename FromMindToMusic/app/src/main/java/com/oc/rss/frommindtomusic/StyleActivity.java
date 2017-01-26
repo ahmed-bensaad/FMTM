@@ -36,6 +36,13 @@ public class StyleActivity extends AppCompatActivity {
                 Intent k = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(k);
                 break;
+            case R.id.backButtonStyle:
+                Intent m = new Intent(StyleActivity.this, ChoiceActivity.class);
+                startActivity(m);
+                break;
         }
     }
+
+
+    
 }

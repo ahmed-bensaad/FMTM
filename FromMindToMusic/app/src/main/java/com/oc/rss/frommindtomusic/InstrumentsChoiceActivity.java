@@ -113,4 +113,9 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         }
 
     }
-}
+    public void onClick (View v) {
+        Intent k = new Intent(InstrumentsChoiceActivity.this, ChoiceActivity.class);
+        startActivity(k);
+
+    }
+    }
