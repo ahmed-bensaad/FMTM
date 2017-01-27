@@ -39,12 +39,19 @@
 
         <TextView
             android:text="Choose your instruments :"
-            android:textSize="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/chooseInstruments"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textSize="20dp" />
+
+        <TextView
+            android:text="Use the buttons on the up right to add new instruments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView11"
+            android:textSize="20dp" />
 
         <Spinner
             android:layout_width="match_parent"

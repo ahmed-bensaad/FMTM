@@ -46,13 +46,13 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     recordIn.setBackgroundResource(android.R.drawable.presence_audio_online);
-                    Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
-                            Toast.LENGTH_LONG).show();
                     try {
                         mediaRecorder.stop();
+                        //Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
+                        // Toast.LENGTH_LONG).show();
                     }
                     catch (Exception e){
-                        Toast.makeText(SingInstrumentActivity.this, "Hold this button to record",
+                        Toast.makeText(SingInstrumentActivity.this, "You must hold this button to record",
                                 Toast.LENGTH_LONG).show();
 
                     }
