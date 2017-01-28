@@ -22,18 +22,18 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="152dp"
         android:id="@+id/button10"
         android:textSize="36sp"
         tools:text="Play"
-        android:text="PLAY" />
+        android:text="PLAY"
+        android:layout_height="80dp" />
 
     <Button
         android:text="STOP"
         android:layout_width="match_parent"
-        android:layout_height="123dp"
         android:id="@+id/button11"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:layout_height="80dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -29,7 +29,8 @@
         <activity android:name=".DoItYourselfActivity" />
         <activity android:name=".SingInstrumentActivity" />
         <activity android:name=".SavedActivity" />
-        <activity android:name=".StyleActivity"></activity>
+        <activity android:name=".StyleActivity" />
+        <activity android:name=".FirstInstrumentActivity"></activity>
     </application>
 
 </manifest>
