@@ -12,11 +12,21 @@ public class SavedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved);
-        Button GO = (Button)findViewById(R.id.GO);
-        GO.setOnClickListener(new View.OnClickListener() {
+
+        Button end = (Button)findViewById(R.id.end);
+        end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (SavedActivity.this,ChoiceActivity.class);
+                Intent i = new Intent (SavedActivity.this,ResultActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button more = (Button)findViewById(R.id.more);
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (SavedActivity.this,DoItYourselfActivity.class);
                 startActivity(i);
             }
         });
