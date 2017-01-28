@@ -6,6 +6,8 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -85,7 +87,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
         valid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SingInstrumentActivity.this,ResultActivity.class);
+                Intent i = new Intent(SingInstrumentActivity.this,SavedActivity.class);
                 Toast.makeText(SingInstrumentActivity.this, "Sound added",
                         Toast.LENGTH_LONG).show();
                 startActivity(i);
@@ -101,5 +103,19 @@ public class SingInstrumentActivity extends AppCompatActivity {
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(AudioSavePathInDevice);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu m){
+        getMenuInflater().inflate(R.menu.add_menu,m);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onClick();
+        return super.onOptionsItemSelected(item);
+    }
+    public void onClick () {
+        Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
+        startActivity(m);
+
     }
 }

@@ -28,13 +28,9 @@
         <activity android:name=".OrchestrateActivity" />
         <activity android:name=".DoItYourselfActivity" />
         <activity android:name=".SingInstrumentActivity" />
-<<<<<<< HEAD
-        <activity android:name=".StyleActivity"></activity>
-=======
         <activity android:name=".SavedActivity" />
-        <activity android:name=".StyleActivity" />
+        <activity android:name=".StyleActivity"></activity>
         <activity android:name=".FirstInstrumentActivity"></activity>
->>>>>>> e5587334cbfdf46d93348a88a7c5b3daa490d353
     </application>
 
 </manifest>

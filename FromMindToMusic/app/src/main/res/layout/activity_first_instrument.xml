@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="Choose the instrument you want"
+            android:text="Choose the first instrument you want"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
