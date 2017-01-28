@@ -136,7 +136,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent I = new Intent(RecordActivity.this,ChoiceActivity.class);
+                Intent I = new Intent(RecordActivity.this,FirstInstrumentActivity.class);
                 I.putExtra("nbr",i);
                 startActivity(I);
             }
