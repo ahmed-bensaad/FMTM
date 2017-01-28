@@ -6,6 +6,8 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -60,14 +62,21 @@ public class ResultActivity extends AppCompatActivity {
                 }
             }
             });
-        Button back = (Button) findViewById(R.id.button13);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent back= new Intent(ResultActivity.this,ChoiceActivity.class);
-                startActivity(back);
-            }
-        });
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu m){
+        getMenuInflater().inflate(R.menu.add_menu,m);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onClick();
+        return super.onOptionsItemSelected(item);
+    }
+    public void onClick () {
+        Intent m = new Intent(ResultActivity.this,ChoiceActivity.class);
+        startActivity(m);
+
     }
 
 }

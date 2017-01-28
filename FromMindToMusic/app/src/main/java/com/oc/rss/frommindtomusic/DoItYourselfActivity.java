@@ -3,6 +3,8 @@ package com.oc.rss.frommindtomusic;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -23,14 +25,24 @@ public class DoItYourselfActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
     }
     public void onClick (View v){
-        switch (v.getId()){
-            case R.id.singNewButton:
+
                 Intent i = new Intent(DoItYourselfActivity.this, SingInstrumentActivity.class);
                 startActivity(i);
-                break;
-            case R.id.backButtonDIY:
-                Intent k = new Intent(DoItYourselfActivity.this, OrchestrateActivity.class);
-                startActivity(k);
-                break;}
+
+
 }
+    @Override
+    public boolean onCreateOptionsMenu(Menu m){
+        getMenuInflater().inflate(R.menu.add_menu,m);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onClick();
+        return super.onOptionsItemSelected(item);
+    }
+    public void onClick () {
+        Intent m = new Intent(DoItYourselfActivity.this, OrchestrateActivity.class);
+        startActivity(m);
+
+    }
 }

@@ -48,8 +48,10 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     recordIn.setBackgroundResource(android.R.drawable.presence_audio_online);
                     try {
                         mediaRecorder.stop();
-                        //Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
-                        // Toast.LENGTH_LONG).show();
+                        final Button Done = (Button) findViewById(R.id.ValidateIns);
+                        Done.setEnabled(true);
+                        Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
+                         Toast.LENGTH_LONG).show();
                     }
                     catch (Exception e){
                         Toast.makeText(SingInstrumentActivity.this, "You must hold this button to record",
@@ -83,7 +85,9 @@ public class SingInstrumentActivity extends AppCompatActivity {
         valid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SingInstrumentActivity.this,SavedActivity.class);
+                Intent i = new Intent(SingInstrumentActivity.this,ResultActivity.class);
+                Toast.makeText(SingInstrumentActivity.this, "Sound added",
+                        Toast.LENGTH_LONG).show();
                 startActivity(i);
 
             }

@@ -3,6 +3,8 @@ package com.oc.rss.frommindtomusic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 /**
@@ -27,11 +29,22 @@ public void onClick (View v){
             Intent j = new Intent(OrchestrateActivity.this, DoItYourselfActivity.class);
             startActivity(j);
             break;
-        case R.id.backButtonOrchestrate:
-            Intent k = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
-            startActivity(k);
-            break;
+
 
     }
 }
+    @Override
+    public boolean onCreateOptionsMenu(Menu m){
+        getMenuInflater().inflate(R.menu.add_menu,m);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onClick();
+        return super.onOptionsItemSelected(item);
+    }
+    public void onClick () {
+        Intent m = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
+        startActivity(m);
+
+    }
 }

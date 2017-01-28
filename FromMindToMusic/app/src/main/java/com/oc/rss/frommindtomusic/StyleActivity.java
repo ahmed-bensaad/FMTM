@@ -3,6 +3,8 @@ package com.oc.rss.frommindtomusic;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -36,11 +38,22 @@ public class StyleActivity extends AppCompatActivity {
                 Intent k = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(k);
                 break;
-            case R.id.backButtonStyle:
-                Intent m = new Intent(StyleActivity.this, ChoiceActivity.class);
-                startActivity(m);
-                break;
+
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu m){
+        getMenuInflater().inflate(R.menu.add_menu,m);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onClick();
+        return super.onOptionsItemSelected(item);
+    }
+    public void onClick () {
+        Intent m = new Intent(StyleActivity.this, ChoiceActivity.class);
+        startActivity(m);
+
     }
 
 

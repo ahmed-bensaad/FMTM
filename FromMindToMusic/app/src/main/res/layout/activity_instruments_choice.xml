@@ -11,15 +11,6 @@
     tools:context="com.oc.rss.frommindtomusic.InstrumentsChoiceActivity">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/backButtonOrchestrate"
-        android:gravity="bottom|right|center_vertical"
-        android:background="@android:drawable/ic_menu_revert"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClick"/>
-    <Button
         android:text="Ok"
         android:textSize="30dp"
         android:layout_width="wrap_content"
@@ -32,10 +23,9 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="26dp">
+        android:layout_height="300dp">
 
         <TextView
             android:text="Choose your instruments :"
@@ -44,13 +34,6 @@
             android:id="@+id/chooseInstruments"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:textSize="20dp" />
-
-        <TextView
-            android:text="Use the buttons on the up right to add new instruments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView11"
             android:textSize="20dp" />
 
         <Spinner
@@ -117,5 +100,25 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ok"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp"
+        android:onClick="add"
+        android:id="@+id/Add_Ins" />
+
+    <Button
+        android:text="Remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ok"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="38dp"
+        android:onClick="remove"
+        android:id="@+id/Remove_Ins" />
 
 </RelativeLayout>

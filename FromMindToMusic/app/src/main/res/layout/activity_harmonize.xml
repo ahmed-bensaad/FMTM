@@ -11,15 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.oc.rss.frommindtomusic.HarmonizeActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button14"
-        android:gravity="bottom|right|center_vertical"
-        android:background="@android:drawable/ic_menu_revert"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

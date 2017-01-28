@@ -14,8 +14,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.oc.rss.frommindtomusic.R.id.app_bar_add;
-import static com.oc.rss.frommindtomusic.R.id.app_bar_remove;
+
+
 
 public class InstrumentsChoiceActivity extends AppCompatActivity {
     private  ArrayList<Spinner> spinnersList=new ArrayList<Spinner>();
@@ -75,22 +75,15 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         return true;
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        switch(id){
-            case(app_bar_add): {
-                add();
-                break;
-            }
-            case(app_bar_remove):{
-                remove();
-                break;
-            }
-
-
-        }
+        onClick();
         return super.onOptionsItemSelected(item);
     }
-    public void add(){
+    public void onClick () {
+        Intent k = new Intent(InstrumentsChoiceActivity.this, OrchestrateActivity.class);
+        startActivity(k);
+
+    }
+    public void add(View v){
         if (i<10){
             Spinner spinner=spinnersList.get(i);
             spinner.setVisibility(View.VISIBLE);
@@ -101,7 +94,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         }
 
     }
-    public void remove(){
+    public void remove(View v){
         if (i>1){
             i--;
             Spinner spinner=spinnersList.get(i);
@@ -113,9 +106,5 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         }
 
     }
-    public void onClick (View v) {
-        Intent k = new Intent(InstrumentsChoiceActivity.this, ChoiceActivity.class);
-        startActivity(k);
 
-    }
     }
