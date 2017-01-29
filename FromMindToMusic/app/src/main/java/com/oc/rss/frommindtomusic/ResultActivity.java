@@ -76,6 +76,8 @@ public class ResultActivity extends AppCompatActivity {
                 moveFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp",
                         "template" +RecordActivity.i+ "AudioRecording.3gp",
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"perm");
+                Toast.makeText(ResultActivity.this, "Audio successfully saved",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
