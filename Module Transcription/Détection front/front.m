@@ -1,5 +1,6 @@
 function [result] = front(x,fe)
 %FRONT Cette fonction renvoie la liste des indices des débuts de notes
+
 [M I] = max(x) ; 
 x_norm = x/M ; 
 temporel(x_norm,fe,'-b')
@@ -30,7 +31,7 @@ for i = 1:K
         R = [R locs(i)] ; 
     end 
 end 
-result = R*10 ;  
+result = R*10;  
 
 
 
