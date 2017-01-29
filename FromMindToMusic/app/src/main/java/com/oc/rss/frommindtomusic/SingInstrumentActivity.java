@@ -32,17 +32,15 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     recordIn.setBackgroundResource(android.R.drawable.presence_audio_away);
                     j++;
                     AudioSavePathInDevice =
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +
+                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
                                     "Demo_ins" +j+ ".3gp";
                     MediaRecorderReady();
                     try {
                         mediaRecorder.prepare();
                         mediaRecorder.start();
                     } catch (IllegalStateException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 

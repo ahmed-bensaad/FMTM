@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class RecordActivity extends AppCompatActivity {
                 if (checkPermission()) {
                     i++;
                     AudioSavePathInDevice =
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +
+                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp"+"/"+
                                     "template" +i+ "AudioRecording.3gp";
 
                     MediaRecorderReady();
@@ -60,10 +61,8 @@ public class RecordActivity extends AppCompatActivity {
                         mediaRecorder.prepare();
                         mediaRecorder.start();
                     } catch (IllegalStateException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
@@ -114,6 +113,8 @@ public class RecordActivity extends AppCompatActivity {
                 mediaPlayer.start();
                 Toast.makeText(RecordActivity.this, "Recording Playing",
                         Toast.LENGTH_LONG).show();
+
+
             }
         });
 
