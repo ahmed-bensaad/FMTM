@@ -1,6 +1,6 @@
 function [To] = estperioautoco(x,Te)
-  % x=signal échantillonner  à étudier %
-  % Te = pas d'échantillonage de x%
+  % x=signal ï¿½chantillonner  ï¿½ ï¿½tudier %
+  % Te = pas d'ï¿½chantillonage de x%
 
 N=length(x); 
 Rxx=zeros(1,N);
@@ -17,4 +17,4 @@ for j=1:N-1
 end
 
 [Max,Ind]=max(Wxx);
-To= Te*(Ind);
+To = Ind ;

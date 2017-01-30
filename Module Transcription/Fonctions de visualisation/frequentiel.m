@@ -4,13 +4,16 @@ function [ output_args ] = frequentiel(x,fe)
 N = length(x) ;
 L = 2^nextpow2(N) ; 
 xprime = [x' zeros(1,L-N)]';
-X = fft(xprime,L)/L ; 
-f = (0:L-1)*(fe/L) ; 
-plot(f,abs(X)) ; 
+X = fft(xprime,L) ; 
+[M I] = max(X) ; 
+X = X/M ;
+f = (1:floor(L/2))*(fe/L) ; 
+Y = abs(X) ; 
+Y = Y(1:floor(L/2)) ; 
+plot(f,Y) ; 
 title('Spectre de x(t)')
 xlabel('f(Hz)')
 ylabel('abs(X(f))')
-
 
 
 
