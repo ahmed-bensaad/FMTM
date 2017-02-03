@@ -1,4 +1,4 @@
-function [result] = notes(x,fe,L)
+function [result] = notes(x,fe,Npoints,prominence)
 % Fonction qui renvoie un vecteur à deux colonnes : une pour les instants
 % de début des notes, l'autre pour la fréquence de la note jouée correspondante
 

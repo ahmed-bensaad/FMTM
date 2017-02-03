@@ -1,4 +1,4 @@
-function [fondamental] = fondamental(x,fe)
+function [fondamental] = fondamental_Fourier(x,fe)
 % Cette fonction renvoie la fréquence fondamentale d'un son donné 
 
 % Nombre d'échantillon du signal 

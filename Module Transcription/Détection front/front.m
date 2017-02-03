@@ -1,14 +1,18 @@
-function [result] = front(x,fe,L)
-%FRONT Cette fonction renvoie la liste des indices des d√©buts de notes, et
-%fait un trac√© superpos√© du signal, de son enveloppe, de ses fronts 
-% x : signal √† analyser 
-% fe : fr√©quence d'√©chantillonage de ce signal 
-% L : nombre de points √† utiliser pour la d√©riv√©e sur plusieurs points
+function [result] = front(x,fe,Npoints,prominence)
 
-% On se r√©duit √† un canal si le signal est st√©r√©o
+% Cette fonction renvoie la liste des indices des dÈbuts de notes, et
+%fait un tracÈ superposÈ du signal, de son enveloppe et de ses fronts. 
+% x : signal ‡†analyser 
+% fe : frÈquence d'Èchantillonage de ce signal 
+% Npoints : nombre de points ‡ utiliser pour la dÈrivÈe sur plusieurs points
+% prominence : seuil de proÈminence des pics ‡ utiliser pour la fonction de
+%dÈtection
+
+
+% On se rÈduit ‡†un canal si le signal est stÈrÈo
 x = x(:,1) ; 
 
-% On trace le signal renormalis√©
+% On trace le signal renormalisÈ
 [M I] = max(x) ; 
 x_norm = x/M ; 
 temporel(x_norm,fe,'-b')
@@ -17,46 +21,34 @@ hold on
 % Nombre de points du signal
 N = length(x) ; 
 
-% Filtrage du signal par la formule y(n) = a*y(n-1) + x¬≤(n) 
-y = filter(1,[1 -0.99],2*(x.*x)) ; 
+% Filtrage du signal par la formule y(n) = a*y(n-1) + x(n)^2 
+y = filter(1,[1 -0.99],x.*x) ; 
 
-% Trac√© de l'enveloppe √©nerg√©tique renormalis√©e
+% TracÈ de l'enveloppe ÈnergÈtique renormalisÈe
 env = sqrt(0.01*y) ; 
 [M I] = max(env) ; 
 env_norm  = env/M ; 
 temporel(env_norm(1:N),fe,'-g') ;
 
-% On d√©rive le signal avec L points autour de chaque valeur : on obtient
-% les fronts montants
-fr =  filter([ones(1,L) ones(1,L)*(-1)],1,y) ;
+% On dÈrive le signal avec Npoints points autour de chaque valeur : on obtient
+%les fronts montants
+fr =  filter([ones(1,Npoints) ones(1,Npoints)*(-1)],1,y) ;
 
-% Trac√© de la partie positive des fronts montants 
+% TracÈ de la partie positive des fronts montants 
 fr = max(0,fr) ; 
 [M I] = max(fr);
 fr_norm = fr/M ; 
 temporel(fr_norm,fe,'-r') 
 hold off
 
+% on cherche les maximums locaux dans le vecteur de l'enveloppe dÈrivÈe
+[peaks,locs,w,p] = findpeaks(fr_norm,fe) ; 
 
-% Fonction de d√©tection : on note les indices pour lesquels on d√©passe le seuil
-% 0.1 en montant, et lorsque cela se produit, on incr√©mente jusqu'√†
-% repasser par 0 en descendant. 
-% Remarque : on fait cela sur la courbe de fronts normalis√©e, Donc en
-% r√©alit√© le 0.1 correspond √† 0.1*max(fr) ie. c'est bien un seuil qui
-% d√©pend de l'entr√©e donn√©e.
-R = [] ; 
-i = 1 ; 
-while i < length(fr_norm)
-    if fr_norm(i) > 0.1 
-        R = [R i] ;  
-        while fr_norm(i) > 0 
-           i = i+1 ;  
-        end 
-    end 
-    i = i+1 ;
-end 
-    
-result = R ; 
+% on renvoie la liste des positions des fronts dont la proÈminence est
+%supÈrieure ‡ prominence.
+result = locs(p>prominence) ; 
+
+
 
 end
 
