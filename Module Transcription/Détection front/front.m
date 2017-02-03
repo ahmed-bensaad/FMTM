@@ -42,11 +42,11 @@ temporel(fr_norm,fe,'-r')
 hold off
 
 % on cherche les maximums locaux dans le vecteur de l'enveloppe dérivée
-[peaks,locs,w,p] = findpeaks(fr_norm,fe) ; 
+[peaks,locs,w,p] = findpeaks(fr_norm) ; 
 
 % on renvoie la liste des positions des fronts dont la proéminence est
 %supérieure à prominence.
-result = locs(p>prominence) ; 
+result = locs(p>prominence)' ; 
 
 
 

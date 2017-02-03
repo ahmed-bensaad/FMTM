@@ -3,7 +3,7 @@ function [result] = notes(x,fe,Npoints,prominence)
 % de début des notes, l'autre pour la fréquence de la note jouée correspondante
 
 % On appelle la fonction front sur le signal
-fr = front(x,fe,L) ; 
+fr = front(x,fe,Npoints,prominence) ; 
 
 % Nombre d'attaques détectées dans le signal
 N = length(fr) ; 
@@ -14,10 +14,13 @@ F = [] ;
 % On applique la fonction de détection de fréquence fondamentale à la
 % partie du signal contenue entre deux indices successifs
 for i=1:N-1
-    note = fondamental(x(fr(i):fr(i+1)),fe) ;
+    note = fondamental_Fourier(x(fr(i):fr(i+1)),fe) ;
     F = [F note] ; 
 end
-F = [F fondamental(x(fr(N):end),fe)] ; 
+
+% on traite � part le cas du dernier son rep�r�
+F = [F fondamental_Fourier(x(fr(N):end),fe)] ; 
+
 result = [fr*(1/fe) ; F]'
 end
 
