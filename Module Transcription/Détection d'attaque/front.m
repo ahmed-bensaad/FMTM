@@ -15,7 +15,7 @@ x = x(:,1) ;
 % On trace le signal renormalisé
 [M I] = max(x) ; 
 x_norm = x/M ; 
-temporel(x_norm,fe,'-b')
+%temporel(x_norm,fe,'-b')
 hold on 
 
 % Nombre de points du signal
@@ -28,7 +28,7 @@ y = filter(1,[1 -0.99],x.*x) ;
 env = sqrt(0.01*y) ; 
 [M I] = max(env) ; 
 env_norm  = env/M ; 
-temporel(env_norm(1:N),fe,'-g') ;
+%temporel(env_norm(1:N),fe,'-g') ;
 
 % On dérive le signal avec Npoints points autour de chaque valeur : on obtient
 %les fronts montants
