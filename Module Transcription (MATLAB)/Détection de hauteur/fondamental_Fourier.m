@@ -10,7 +10,7 @@ N = length(x) ;
 L = 2^nextpow2(N*100) ; 
 
 % On calcule la transformée de Fourier. Le zero-padding est fait
-% automatiquemeent 
+% automatiquement 
 X = fft(x,L) ;  
 
 % On repère le max de la TF 
