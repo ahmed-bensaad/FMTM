@@ -24,7 +24,9 @@
         android:layout_marginBottom="76dp"
         android:id="@+id/singNewButton"
         android:layout_width="200sp"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <Spinner
         android:layout_width="wrap_content"

@@ -27,20 +27,26 @@
         android:textSize="20sp"
         tools:text="Play"
         android:text="PLAY"
-        android:layout_height="49dp" />
+        android:layout_height="49dp"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:text="STOP"
         android:layout_width="match_parent"
         android:id="@+id/button11"
         android:textSize="20sp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:text="Save project"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Save"
-        android:layout_weight="0.17" />
+        android:layout_weight="0.17"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
 </LinearLayout>

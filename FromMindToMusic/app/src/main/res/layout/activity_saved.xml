@@ -28,7 +28,9 @@
         android:id="@+id/more"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
+        android:layout_marginTop="46dp"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:text="View results"
@@ -37,5 +39,7 @@
         android:id="@+id/end"
         android:layout_below="@+id/more"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_marginTop="55dp"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 </RelativeLayout>

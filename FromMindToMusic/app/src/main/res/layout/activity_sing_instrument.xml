@@ -40,6 +40,8 @@
         android:enabled="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
          />
 
     <TextView

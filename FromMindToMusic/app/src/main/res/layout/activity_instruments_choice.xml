@@ -19,14 +19,17 @@
         android:id="@+id/ok"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        >
 
         <TextView
             android:text="Choose your instruments :"
@@ -110,7 +113,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="11dp"
         android:onClick="add"
-        android:id="@+id/Add_Ins" />
+        android:id="@+id/Add_Ins"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:text="Remove"
@@ -120,6 +125,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="38dp"
         android:onClick="remove"
-        android:id="@+id/Remove_Ins" />
+        android:id="@+id/Remove_Ins"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>

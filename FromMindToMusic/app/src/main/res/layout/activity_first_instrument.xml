@@ -42,7 +42,9 @@
             android:onClick="onClick"
             android:textSize="30sp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="#FFFFFF"/>
 
         <Spinner
             android:layout_width="match_parent"
