@@ -19,7 +19,8 @@
         android:layout_marginTop="68dp"
         android:id="@+id/textView4"
         android:textSize="36sp"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@android:color/white"/>
 
     <Button
         android:text="Add one more instrument"

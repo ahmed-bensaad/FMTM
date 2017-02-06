@@ -68,5 +68,6 @@
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        tools:textAlignment="center" />
+        tools:textAlignment="center"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

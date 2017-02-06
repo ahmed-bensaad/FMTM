@@ -19,7 +19,8 @@
         android:id="@+id/textView5"
         android:layout_marginTop="29dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"/>
 
     <Button
         android:text="Make it jazzy"

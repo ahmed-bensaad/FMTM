@@ -38,7 +38,8 @@
             android:id="@+id/chooseInstruments"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@android:color/white"/>
 
         <Spinner
             android:layout_width="match_parent"

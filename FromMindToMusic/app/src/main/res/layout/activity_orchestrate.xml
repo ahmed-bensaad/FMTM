@@ -21,7 +21,8 @@
         android:id="@+id/orchestrate"
         android:textSize="50sp"
         android:textColor="@android:color/white"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        />
 
     <Button
         android:text="DIY"
