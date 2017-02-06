@@ -11,6 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.oc.rss.frommindtomusic.ResultActivity"
     android:orientation="vertical"
+    android:background="@drawable/gradient_background"
     android:weightSum="1">
 
     <ImageView
