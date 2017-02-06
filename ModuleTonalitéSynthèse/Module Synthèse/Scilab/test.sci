@@ -1,11 +1,11 @@
-function [y4]=test(x)
-    fs=5*440;
-    ts=1/fs;
-    x=[0:ts:2];
+function []=test()
+    t=[0:0.1:8];
+    y=[0:0.1:8];
+    n=length(y);
     
-    y4=[0:ts:2];
-    n=length(y4);
     for i=1:n
-        y4(i)=enveloppe_ADSR(x(i));
+        y(i)=enveloppe_basse(1,t(i),0.01);
     end
+    
+    plot(t,y);
 endfunction

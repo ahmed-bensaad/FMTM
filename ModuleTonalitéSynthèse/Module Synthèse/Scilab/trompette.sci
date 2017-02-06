@@ -1,4 +1,4 @@
-function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> amplitude  
+function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> amplitude du sinus modulant 
     
    Te=1/Fe; // temps echantillonage
    
@@ -32,8 +32,8 @@ function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> ampli
   for i=1:n
       s(i)=s(i)*enveloppe_ADSR(x(i)); 
   end
-   
-
+  B=0;
+  //s=cuivrage(s,B,1/Fe);
   //plot(s);
     
    //sound(s,Fe);

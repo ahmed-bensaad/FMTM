@@ -1,6 +1,6 @@
 function [s]= oscFM(f,m,Fe,d) //f-> fréquence(t) , d-> durée  ,m amplitude(t), Fe -> frequence echantillonage, d-> durée son
     
-    // on veut retourné s(t)=m(t)cos(phi(t)) avec phi(t)=2*pi*(intégrale entre 0 et t de f(t) + f(0)) cf poly. synthèse FM
+    // on veut retourner s(t)=m(t)cos(phi(t)) avec phi(t)=2*pi*(intégrale entre 0 et t de f(t) + f(0)) cf poly. synthèse FM
     pi=3.14159;
     
     Te= 1/Fe; //temps échantillonage

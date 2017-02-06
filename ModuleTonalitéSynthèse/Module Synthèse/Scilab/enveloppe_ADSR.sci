@@ -1,10 +1,10 @@
-function [y]=enveloppe_ADSR(t,d)
-    a=1/16;
-    d2=1/16;
-    s=d-1/4;
+function [y]=enveloppe_ADSR(t,d,m)
+    a=1/24;
+    d2=1/24;
+    s=d-3/16;
     r=1/8;
     
-    m=0.1;
+    //m=0.5;
     
     if (0<=t) & (t<a)
         y=1/a*t;
