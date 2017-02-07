@@ -93,6 +93,7 @@ public class ResultActivity extends AppCompatActivity {
     public void onClick () {
         Intent m = new Intent(ResultActivity.this,ChoiceActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
     private void moveFile(String inputPath, String inputFile, String outputPath) {

@@ -86,6 +86,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SingInstrumentActivity.this,SavedActivity.class);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                 Toast.makeText(SingInstrumentActivity.this, "Sound added",
                         Toast.LENGTH_LONG).show();
                 startActivity(i);
@@ -114,6 +115,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
     public void onClick () {
         Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
 }

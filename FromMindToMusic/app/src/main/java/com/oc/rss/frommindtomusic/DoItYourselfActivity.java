@@ -28,6 +28,7 @@ public class DoItYourselfActivity extends AppCompatActivity {
 
                 Intent i = new Intent(DoItYourselfActivity.this, SingInstrumentActivity.class);
                 startActivity(i);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
 
 }
@@ -43,6 +44,7 @@ public class DoItYourselfActivity extends AppCompatActivity {
     public void onClick () {
         Intent m = new Intent(DoItYourselfActivity.this, OrchestrateActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
 }

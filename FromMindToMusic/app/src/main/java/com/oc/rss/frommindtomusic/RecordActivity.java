@@ -140,6 +140,7 @@ public class RecordActivity extends AppCompatActivity {
                 Intent I = new Intent(RecordActivity.this,FirstInstrumentActivity.class);
                 I.putExtra("nbr",i);
                 startActivity(I);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
 

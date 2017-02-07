@@ -64,6 +64,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InstrumentsChoiceActivity.this,ResultActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -81,6 +82,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
     public void onClick () {
         Intent k = new Intent(InstrumentsChoiceActivity.this, OrchestrateActivity.class);
         startActivity(k);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
     public void add(View v){

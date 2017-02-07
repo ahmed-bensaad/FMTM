@@ -34,6 +34,7 @@ public class FirstInstrumentActivity extends AppCompatActivity {
     public void onClick (View v) {
         Intent k = new Intent(FirstInstrumentActivity.this, ChoiceActivity.class);
         startActivity(k);
+        overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
     }
 }

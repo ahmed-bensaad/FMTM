@@ -19,6 +19,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent I = new Intent(ChoiceActivity.this,ResultActivity.class);
                 startActivity(I);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -28,6 +29,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent In = new Intent(ChoiceActivity.this,HarmonizeActivity.class);
                 startActivity(In);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -37,6 +39,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChoiceActivity.this,OrchestrateActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -47,6 +50,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentS = new Intent(ChoiceActivity.this,StyleActivity.class);
                 startActivity(intentS);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
