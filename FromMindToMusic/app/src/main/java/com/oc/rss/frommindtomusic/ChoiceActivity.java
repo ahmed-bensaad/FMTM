@@ -1,6 +1,7 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,8 +61,16 @@ public class ChoiceActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         if (f) {
-            Toast.makeText(ChoiceActivity.this, "So, what else ?",
-                    Toast.LENGTH_LONG).show();
+            final Toast a=Toast.makeText(ChoiceActivity.this, "So, what else ?",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
         else{
             f=true;

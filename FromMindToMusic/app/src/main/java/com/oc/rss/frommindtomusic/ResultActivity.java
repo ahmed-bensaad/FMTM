@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,8 +51,16 @@ public class ResultActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                Toast.makeText(ResultActivity.this, "Result Playing",
-                        Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(ResultActivity.this, "Record Playing",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
             }
         });
 
@@ -64,8 +73,16 @@ public class ResultActivity extends AppCompatActivity {
                 if (mediaPlayer != null) {
                     mediaPlayer.stop();
                     mediaPlayer.release();
-                    Toast.makeText(ResultActivity.this, "So,are you impressed?",
-                            Toast.LENGTH_LONG).show();
+                    final Toast a=Toast.makeText(ResultActivity.this, "So, are you impressed?",
+                            Toast.LENGTH_SHORT);
+                    a.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            a.cancel();
+                        }
+                    }, 1000);
                 }
             }
             });
@@ -76,8 +93,16 @@ public class ResultActivity extends AppCompatActivity {
                 moveFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp",
                         "template" +RecordActivity.i+ "AudioRecording.3gp",
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"perm");
-                Toast.makeText(ResultActivity.this, "Audio successfully saved",
-                        Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(ResultActivity.this, "Audio successfully saved",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
             }
         });
     }

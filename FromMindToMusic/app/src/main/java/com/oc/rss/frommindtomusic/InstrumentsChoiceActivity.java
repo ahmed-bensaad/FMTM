@@ -1,6 +1,7 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -48,7 +49,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         instruments.add("Clarinette");
         instruments.add("Sabre laser");
 
-        adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
+        adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
 
@@ -92,7 +93,16 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             spinner.setAdapter(adapter);
             i++;}
         else {
-            Toast.makeText(InstrumentsChoiceActivity.this, "10 instruments max", Toast.LENGTH_SHORT).show();
+            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "10 instruments max",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
 
     }
@@ -104,7 +114,16 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             spinner.setAdapter(adapter);
             }
         else {
-            Toast.makeText(InstrumentsChoiceActivity.this, "1 instrument min", Toast.LENGTH_SHORT).show();
+            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "1 instrument min",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
 
     }

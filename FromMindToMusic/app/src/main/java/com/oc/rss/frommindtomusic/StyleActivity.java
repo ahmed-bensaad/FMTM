@@ -1,6 +1,7 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,20 +22,44 @@ public class StyleActivity extends AppCompatActivity {
     public void onClick (View v){
         switch (v.getId()) {
             case R.id.jazzy:
-                Toast.makeText(StyleActivity.this, "Go Jazzy :)",
-                Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(StyleActivity.this, "Go Jazzy",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
                 Intent i = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(i);
                 break;
             case R.id.funky:
-                Toast.makeText(StyleActivity.this, "Go funky :)",
-                Toast.LENGTH_LONG).show();
+                final Toast b=Toast.makeText(StyleActivity.this, "Go Funky",
+                        Toast.LENGTH_SHORT);
+                b.show();
+                Handler handler1 = new Handler();
+                handler1.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        b.cancel();
+                    }
+                }, 1000);
                 Intent j = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(j);
                 break;
             case R.id.groovy:
-                Toast.makeText(StyleActivity.this, "Go groovy :)",
-                Toast.LENGTH_LONG).show();
+                final Toast c=Toast.makeText(StyleActivity.this, "Go Groovy",
+                        Toast.LENGTH_SHORT);
+                c.show();
+                Handler handler2 = new Handler();
+                handler2.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        c.cancel();
+                    }
+                }, 1000);
                 Intent k = new Intent(StyleActivity.this, ResultActivity.class);
                 startActivity(k);
                 break;
