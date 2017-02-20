@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * @author chagneux
+ *
+ */
+package wavfile;
