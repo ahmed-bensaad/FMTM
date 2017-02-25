@@ -23,22 +23,49 @@
         android:background="@drawable/rounded_corners_button"
         android:textColor="#FFFFFF"/>
 
+    <TextView
+        android:text="Choose your instruments :"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chooseInstruments"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="299dp"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Remove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="remove"
+        android:id="@+id/Remove_Ins"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:layout_above="@+id/ok"
+        android:layout_toEndOf="@+id/ok" />
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="add"
+        android:id="@+id/Add_Ins"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:layout_above="@+id/ok"
+        android:layout_toStartOf="@+id/ok" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_height="380dp">
-
-        <TextView
-            android:text="Choose your instruments :"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/chooseInstruments"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"/>
+        android:layout_height="380dp"
+        android:layout_above="@+id/Remove_Ins"
+        android:layout_alignParentStart="true">
 
         <Spinner
             android:layout_width="match_parent"
@@ -90,43 +117,7 @@
             android:id="@+id/spinner8"
             android:visibility="invisible"/>
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner9"
-            android:visibility="invisible"/>
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner10"
-            android:visibility="invisible"/>
-
 
     </LinearLayout>
-
-    <Button
-        android:text="Add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ok"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="11dp"
-        android:onClick="add"
-        android:id="@+id/Add_Ins"
-        android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
-
-    <Button
-        android:text="Remove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ok"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="38dp"
-        android:onClick="remove"
-        android:id="@+id/Remove_Ins"
-        android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>

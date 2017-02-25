@@ -39,8 +39,6 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         spinnersList.add((Spinner) findViewById(R.id.spinner6));
         spinnersList.add((Spinner) findViewById(R.id.spinner7));
         spinnersList.add((Spinner) findViewById(R.id.spinner8));
-        spinnersList.add((Spinner) findViewById(R.id.spinner9));
-        spinnersList.add((Spinner) findViewById(R.id.spinner10));
 
        spinner1 = (Spinner) findViewById(R.id.spinner1);
         List<String> instruments = new ArrayList<String>();
@@ -88,13 +86,13 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
 
     }
     public void add(View v){
-        if (i<10){
+        if (i<8){
             Spinner spinner=spinnersList.get(i);
             spinner.setVisibility(View.VISIBLE);
             spinner.setAdapter(adapter);
             i++;}
         else {
-            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "10 instruments max",
+            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "8 instruments max",
                     Toast.LENGTH_SHORT);
             a.show();
             Handler handler = new Handler();

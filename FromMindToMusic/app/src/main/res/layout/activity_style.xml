@@ -13,18 +13,17 @@
 
     <TextView
         android:text="Choose the style"
-        android:textSize="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
         android:layout_marginTop="29dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="35sp" />
 
     <Button
-        android:text="Make it jazzy"
-        android:layout_width="wrap_content"
+        android:text="Make it jazzy !"
         android:layout_height="wrap_content"
         android:id="@+id/jazzy"
         android:layout_marginTop="73dp"
@@ -32,11 +31,12 @@
         android:layout_centerHorizontal="true"
         android:onClick="onClick"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="190dp" />
 
     <Button
-        android:text="Make it funky"
-        android:layout_width="wrap_content"
+        android:text="Make it funky !"
         android:layout_height="wrap_content"
         android:id="@+id/funky"
         android:layout_marginTop="54dp"
@@ -44,11 +44,12 @@
         android:layout_alignStart="@+id/jazzy"
         android:onClick="onClick"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="190dp" />
 
     <Button
-        android:text="Make it groovy"
-        android:layout_width="wrap_content"
+        android:text="Make it electro !"
         android:layout_height="wrap_content"
         android:layout_marginTop="51dp"
         android:id="@+id/groovy"
@@ -56,5 +57,7 @@
         android:layout_alignStart="@+id/funky"
         android:onClick="onClick"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="190dp" />
 </RelativeLayout>
