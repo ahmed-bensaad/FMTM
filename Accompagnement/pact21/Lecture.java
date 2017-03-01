@@ -3,18 +3,26 @@ import java.lang.Math;
 public class Lecture {
 	
 	
-	public static String[] note(double f)
+	public static String note(double f)
 	{	
 		double x=Math.log(f/440)/Math.log(Math.pow(2,(1/12)));
 		int y= (int) (Math.round(x) + 45) ;
 		int oct = Math.floorDiv(y,12);
 		int m = y% 12;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
-		String n = G[m+1];
-		String[] d = {Integer.toString(oct), n};
+		String n = G[m];
+		String d =  n;
 		return d;
 	}
-	
+	public static String [] frequenceToNote(double f []){
+		int n = f.length;
+		String [] notes = new String [n];
+		for(int i =0; i<n; i++){
+			notes[i]= note(f[i]);
+		}
+		return notes;
+		
+	}
 	public static String tonaliteMaj(String[] N){
 		int k=0;
 		int l=0;
