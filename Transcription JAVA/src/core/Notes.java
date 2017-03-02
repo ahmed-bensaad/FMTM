@@ -1,16 +1,14 @@
 package core;
-import java.io.*;
-import java.util.*;
-public class Main {
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Notes {
 	
-	public static void main(String[] args) throws IOException {
-		
-		
-		
+	public static ArrayList<ArrayList<Double>> notes(String fileName){
 		
 		// Opens the file and reads frames into a double[], gets the sampling rate 
-		convert(args[0]) ; 
-		Audio audio = new Audio("output.wav") ; 
+		Audio audio = new Audio(fileName) ; 
 		double[] signal = audio.getSignal(); 
 		double fe = audio.getFe() ; 
 		
@@ -48,21 +46,8 @@ public class Main {
 			
 			else output = null ; 
 			
-			System.out.println(output) ; 
+			return output ; 
 
 	}
-	
 
-	public static void convert(String fileName) throws IOException{
-	      Runtime.getRuntime().exec("ffmpeg -i Clock_Bips.wav output.wav", null, new File("C:\\Users\\Mathis\\workspace\\Transcription JAVA"));
-	}
-	
-	
 }
-
-		
-
-	
-
-	 
-
