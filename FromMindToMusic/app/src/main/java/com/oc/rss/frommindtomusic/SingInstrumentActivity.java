@@ -94,7 +94,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Recording playing",
+                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Record playing",
                         Toast.LENGTH_SHORT);
                 a.show();
                 Handler handler = new Handler();

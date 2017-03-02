@@ -23,15 +23,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:background="@android:drawable/ic_btn_speak_now"
-        android:layout_marginTop="146dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/chronometer2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="STOP"
         android:id="@+id/button2"
         android:layout_marginTop="30dp"
@@ -41,29 +32,52 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button5"
-        android:background="@android:drawable/ic_menu_send"
+        android:id="@+id/button4"
+        android:background="@android:drawable/ic_media_pause"
+        android:layout_marginStart="64dp"
         android:layout_alignBaseline="@+id/button3"
         android:layout_alignBottom="@+id/button3"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignStart="@+id/button5" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:background="@android:drawable/ic_media_play"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp" />
+        android:layout_above="@+id/button5"
+        android:layout_toStartOf="@+id/button4"
+        android:layout_marginBottom="31dp" />
+
+    <Button
+        android:text="OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
+        android:id="@+id/button5"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginBottom="22dp" />
+
+    <TextView
+        android:text="Sing your melody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="30sp"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button4"
-        android:background="@android:drawable/ic_media_pause"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_toEndOf="@+id/button3"
-        android:layout_marginStart="17dp" />
+        android:id="@+id/button"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/chronometer2" />
 
 </RelativeLayout>
