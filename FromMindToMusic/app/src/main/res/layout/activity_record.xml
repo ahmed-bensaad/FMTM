@@ -66,6 +66,6 @@
         android:layout_above="@+id/button4"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:id="@+id/chronometer2" />
+        android:id="@+id/recordchrono" />
 
 </RelativeLayout>

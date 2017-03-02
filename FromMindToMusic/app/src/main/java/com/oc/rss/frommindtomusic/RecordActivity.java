@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -32,10 +33,12 @@ public class RecordActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     static int i = 0;
     static boolean clicked = false;
+    Chronometer recordchrono;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
+        recordchrono=(Chronometer) findViewById(R.id.recordchrono);
         buttonStart = (Button) findViewById(R.id.button);
         buttonPlayLastRecordAudio = (Button) findViewById(R.id.button3);
         buttonStopPlayingRecording = (Button) findViewById(R.id.button4);
@@ -65,6 +68,8 @@ public class RecordActivity extends AppCompatActivity {
                         try {
                             mediaRecorder.prepare();
                             mediaRecorder.start();
+                            recordchrono.setBase(SystemClock.elapsedRealtime());
+                            recordchrono.start();
                         } catch (IllegalStateException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
@@ -87,6 +92,7 @@ public class RecordActivity extends AppCompatActivity {
                     clicked = false;
                     buttonStart.setBackgroundResource(android.R.drawable.presence_audio_online);
                     mediaRecorder.stop();
+                    recordchrono.stop();
                     buttonPlayLastRecordAudio.setEnabled(true);
                     buttonValidate.setEnabled(true);
                     final Toast a = Toast.makeText(RecordActivity.this, "Record completed",
