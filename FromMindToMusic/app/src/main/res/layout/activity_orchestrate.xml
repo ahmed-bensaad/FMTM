@@ -8,39 +8,46 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:background="@drawable/gradient_background"
     tools:context="com.oc.rss.frommindtomusic.OrchestrateActivity">
 
     <TextView
         android:text="Orchestrate"
-        android:textSize="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:id="@+id/orchestrate"
+        android:textSize="40sp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:id="@+id/orchestrate" />
-
-    <Button
-        android:text="DIY"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/diyButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="150dp"
-        android:onClick="onClick"/>
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Auto"
-        android:textSize="30dp"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/autoButton"
-        android:layout_marginBottom="90dp"
-        android:layout_above="@+id/diyButton"
+        android:onClick="onClick"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/orchestrate"
         android:layout_alignStart="@+id/diyButton"
-        android:onClick="onClick"/>
+        android:layout_marginTop="90dp"
+        android:textSize="25dp"
+        android:layout_width="170dp" />
+
+    <Button
+        android:text="DIY"
+        android:layout_height="wrap_content"
+        android:id="@+id/diyButton"
+        android:onClick="onClick"
+        android:background="@drawable/rounded_corners_button"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="89dp"
+        android:textSize="25dp"
+        android:layout_width="170dp"
+        android:layout_alignTop="@+id/autoButton"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

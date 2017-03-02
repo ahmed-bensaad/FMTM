@@ -1,6 +1,8 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -37,8 +39,6 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         spinnersList.add((Spinner) findViewById(R.id.spinner6));
         spinnersList.add((Spinner) findViewById(R.id.spinner7));
         spinnersList.add((Spinner) findViewById(R.id.spinner8));
-        spinnersList.add((Spinner) findViewById(R.id.spinner9));
-        spinnersList.add((Spinner) findViewById(R.id.spinner10));
 
        spinner1 = (Spinner) findViewById(R.id.spinner1);
         List<String> instruments = new ArrayList<String>();
@@ -48,7 +48,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
         instruments.add("Clarinette");
         instruments.add("Sabre laser");
 
-        adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, instruments);
+        adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
 
@@ -64,6 +64,7 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(InstrumentsChoiceActivity.this,ResultActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -81,16 +82,26 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
     public void onClick () {
         Intent k = new Intent(InstrumentsChoiceActivity.this, OrchestrateActivity.class);
         startActivity(k);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
     public void add(View v){
-        if (i<10){
+        if (i<8){
             Spinner spinner=spinnersList.get(i);
             spinner.setVisibility(View.VISIBLE);
             spinner.setAdapter(adapter);
             i++;}
         else {
-            Toast.makeText(InstrumentsChoiceActivity.this, "10 instruments max", Toast.LENGTH_SHORT).show();
+            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "8 instruments max",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
 
     }
@@ -102,7 +113,16 @@ public class InstrumentsChoiceActivity extends AppCompatActivity {
             spinner.setAdapter(adapter);
             }
         else {
-            Toast.makeText(InstrumentsChoiceActivity.this, "1 instrument min", Toast.LENGTH_SHORT).show();
+            final Toast a=Toast.makeText(InstrumentsChoiceActivity.this, "1 instrument min",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
 
     }

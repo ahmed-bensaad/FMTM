@@ -1,6 +1,7 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent I = new Intent(ChoiceActivity.this,ResultActivity.class);
                 startActivity(I);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -28,6 +30,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent In = new Intent(ChoiceActivity.this,HarmonizeActivity.class);
                 startActivity(In);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -37,6 +40,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChoiceActivity.this,OrchestrateActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -47,6 +51,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentS = new Intent(ChoiceActivity.this,StyleActivity.class);
                 startActivity(intentS);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
 
         });
@@ -56,8 +61,16 @@ public class ChoiceActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         if (f) {
-            Toast.makeText(ChoiceActivity.this, "So, what else ?",
-                    Toast.LENGTH_LONG).show();
+            final Toast a=Toast.makeText(ChoiceActivity.this, "So, what else ?",
+                    Toast.LENGTH_SHORT);
+            a.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    a.cancel();
+                }
+            }, 1000);
         }
         else{
             f=true;

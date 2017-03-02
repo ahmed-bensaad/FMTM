@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -50,12 +51,28 @@ public class SingInstrumentActivity extends AppCompatActivity {
                         mediaRecorder.stop();
                         final Button Done = (Button) findViewById(R.id.ValidateIns);
                         Done.setEnabled(true);
-                        Toast.makeText(SingInstrumentActivity.this, "Recording Completed",
-                         Toast.LENGTH_LONG).show();
+                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "Recording completed",
+                                Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);
                     }
                     catch (Exception e){
-                        Toast.makeText(SingInstrumentActivity.this, "You must hold this button to record",
-                                Toast.LENGTH_LONG).show();
+                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "You must hold the button to record",
+                                Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);
 
                     }
                 }
@@ -77,8 +94,16 @@ public class SingInstrumentActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                Toast.makeText(SingInstrumentActivity.this, "Recording Playing",
-                        Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Recording playing",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
             }
         });
         Button valid=(Button)findViewById(R.id.ValidateIns);
@@ -86,8 +111,17 @@ public class SingInstrumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(SingInstrumentActivity.this,SavedActivity.class);
-                Toast.makeText(SingInstrumentActivity.this, "Sound added",
-                        Toast.LENGTH_LONG).show();
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Sound added",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
                 startActivity(i);
 
             }
@@ -114,6 +148,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
     public void onClick () {
         Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
 }

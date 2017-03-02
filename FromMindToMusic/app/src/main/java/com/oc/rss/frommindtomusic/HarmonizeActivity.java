@@ -30,6 +30,7 @@ public class HarmonizeActivity extends AppCompatActivity {
     public void onClick () {
         Intent m = new Intent(HarmonizeActivity.this,ChoiceActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
 }

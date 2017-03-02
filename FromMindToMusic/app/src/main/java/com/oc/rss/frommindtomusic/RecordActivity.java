@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -69,8 +70,16 @@ public class RecordActivity extends AppCompatActivity {
                     buttonStart.setEnabled(false);
                     buttonStop.setEnabled(true);
 
-                    Toast.makeText(RecordActivity.this, "Recording started",
-                            Toast.LENGTH_LONG).show();
+                    final Toast a=Toast.makeText(RecordActivity.this, "Recording starting",
+                            Toast.LENGTH_SHORT);
+                    a.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            a.cancel();
+                        }
+                    }, 1000);
                 } else {
                     requestPermission();
                 }
@@ -88,8 +97,16 @@ public class RecordActivity extends AppCompatActivity {
                 buttonStopPlayingRecording.setEnabled(false);
                 buttonValidate.setEnabled(true);
 
-                Toast.makeText(RecordActivity.this, "Recording Completed",
-                        Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(RecordActivity.this, "Recording complete",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
             }
         });
 
@@ -111,8 +128,16 @@ public class RecordActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                Toast.makeText(RecordActivity.this, "Recording Playing",
-                        Toast.LENGTH_LONG).show();
+                final Toast a=Toast.makeText(RecordActivity.this, "Recording playing",
+                        Toast.LENGTH_SHORT);
+                a.show();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        a.cancel();
+                    }
+                }, 1000);
 
 
             }
@@ -140,6 +165,7 @@ public class RecordActivity extends AppCompatActivity {
                 Intent I = new Intent(RecordActivity.this,FirstInstrumentActivity.class);
                 I.putExtra("nbr",i);
                 startActivity(I);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
 
@@ -170,11 +196,27 @@ public class RecordActivity extends AppCompatActivity {
                             PackageManager.PERMISSION_GRANTED;
 
                     if (StoragePermission && RecordPermission) {
-                        Toast.makeText(RecordActivity.this, "Permission Granted",
-                                Toast.LENGTH_LONG).show();
+                        final Toast a=Toast.makeText(RecordActivity.this, "Permission Granted",
+                                Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);
                     } else {
-                        Toast.makeText(RecordActivity.this, "Permission Denied",Toast.LENGTH_LONG).show();
-                    }
+                        final Toast a=Toast.makeText(RecordActivity.this, "Permission Denied",
+                                Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);}
                 }
                 break;
         }

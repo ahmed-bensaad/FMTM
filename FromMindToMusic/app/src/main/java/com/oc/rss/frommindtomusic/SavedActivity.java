@@ -19,6 +19,7 @@ public class SavedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent (SavedActivity.this,ResultActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
 
@@ -28,6 +29,7 @@ public class SavedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent (SavedActivity.this,DoItYourselfActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
             }
         });
     }

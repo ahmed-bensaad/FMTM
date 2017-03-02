@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/gradient_background"
     tools:context="com.oc.rss.frommindtomusic.FirstInstrumentActivity">
 
     <RelativeLayout
@@ -30,7 +31,8 @@
             android:layout_marginTop="35dp"
             android:id="@+id/textView2"
             android:textSize="30sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
 
         <Button
             android:text="Ok"
@@ -41,14 +43,17 @@
             android:onClick="onClick"
             android:textSize="30sp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corners_button"
+            android:textColor="#FFFFFF"/>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            />
 
 
     </RelativeLayout>

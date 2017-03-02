@@ -24,10 +24,12 @@ public void onClick (View v){
         case R.id.autoButton:
             Intent i = new Intent(OrchestrateActivity.this, InstrumentsChoiceActivity.class);
             startActivity(i);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             break;
         case R.id.diyButton:
             Intent j = new Intent(OrchestrateActivity.this, DoItYourselfActivity.class);
             startActivity(j);
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             break;
 
 
@@ -45,6 +47,7 @@ public void onClick (View v){
     public void onClick () {
         Intent m = new Intent(OrchestrateActivity.this, ChoiceActivity.class);
         startActivity(m);
+        overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
 }
