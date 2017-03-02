@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.Toast;
 
 import java.io.File;
@@ -24,53 +25,71 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class RecordActivity extends AppCompatActivity {
 
     public static final int RequestPermissionCode = 1;
-    Button buttonStart, buttonStop, buttonPlayLastRecordAudio,buttonValidate, buttonStopPlayingRecording;
+    Button buttonStart, buttonPlayLastRecordAudio, buttonValidate, buttonStopPlayingRecording;
     String AudioSavePathInDevice = null;
     MediaRecorder mediaRecorder;
     Random random;
     MediaPlayer mediaPlayer;
-    static int i=0;
+    static int i = 0;
+    static boolean clicked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
         buttonStart = (Button) findViewById(R.id.button);
-        buttonStop = (Button) findViewById(R.id.button2);
         buttonPlayLastRecordAudio = (Button) findViewById(R.id.button3);
         buttonStopPlayingRecording = (Button) findViewById(R.id.button4);
-        buttonValidate=(Button) findViewById(R.id.button5);
-        buttonStop.setEnabled(false);
+        buttonValidate = (Button) findViewById(R.id.button5);
         buttonPlayLastRecordAudio.setEnabled(false);
         buttonStopPlayingRecording.setEnabled(false);
         buttonValidate.setEnabled(false);
 
         random = new Random();
 
+        buttonStart.setBackgroundResource(android.R.drawable.presence_audio_online);
+
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (clicked == false) {
+                    clicked = true;
+                    if (checkPermission()) {
+                        buttonStart.setBackgroundResource(android.R.drawable.presence_audio_away);
+                        i++;
+                        AudioSavePathInDevice =
+                                Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
+                                        "template" + i + "AudioRecording.wav";
 
-                if (checkPermission()) {
-                    i++;
-                    AudioSavePathInDevice =
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp"+"/"+
-                                    "template" +i+ "AudioRecording.wav";
+                        MediaRecorderReady();
 
-                    MediaRecorderReady();
-
-                    try {
-                        mediaRecorder.prepare();
-                        mediaRecorder.start();
-                    } catch (IllegalStateException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        try {
+                            mediaRecorder.prepare();
+                            mediaRecorder.start();
+                        } catch (IllegalStateException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        final Toast a = Toast.makeText(RecordActivity.this, "Recording",
+                                Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);
+                    } else {
+                        requestPermission();
                     }
-
-                    buttonStart.setEnabled(false);
-                    buttonStop.setEnabled(true);
-
-                    final Toast a=Toast.makeText(RecordActivity.this, "Recording starting",
+                } else if (clicked = true) {
+                    clicked = false;
+                    buttonStart.setBackgroundResource(android.R.drawable.presence_audio_online);
+                    mediaRecorder.stop();
+                    buttonPlayLastRecordAudio.setEnabled(true);
+                    buttonValidate.setEnabled(true);
+                    final Toast a = Toast.makeText(RecordActivity.this, "Record completed",
                             Toast.LENGTH_SHORT);
                     a.show();
                     Handler handler = new Handler();
@@ -80,42 +99,18 @@ public class RecordActivity extends AppCompatActivity {
                             a.cancel();
                         }
                     }, 1000);
-                } else {
-                    requestPermission();
+
                 }
 
             }
         });
 
-        buttonStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mediaRecorder.stop();
-                buttonStop.setEnabled(false);
-                buttonPlayLastRecordAudio.setEnabled(true);
-                buttonStart.setEnabled(true);
-                buttonStopPlayingRecording.setEnabled(false);
-                buttonValidate.setEnabled(true);
-
-                final Toast a=Toast.makeText(RecordActivity.this, "Recording complete",
-                        Toast.LENGTH_SHORT);
-                a.show();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        a.cancel();
-                    }
-                }, 1000);
-            }
-        });
 
         buttonPlayLastRecordAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) throws IllegalArgumentException,
                     SecurityException, IllegalStateException {
 
-                buttonStop.setEnabled(false);
                 buttonStart.setEnabled(false);
                 buttonStopPlayingRecording.setEnabled(true);
 
@@ -128,7 +123,7 @@ public class RecordActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                final Toast a=Toast.makeText(RecordActivity.this, "Recording playing",
+                final Toast a = Toast.makeText(RecordActivity.this, "Record playing",
                         Toast.LENGTH_SHORT);
                 a.show();
                 Handler handler = new Handler();
@@ -146,7 +141,6 @@ public class RecordActivity extends AppCompatActivity {
         buttonStopPlayingRecording.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonStop.setEnabled(false);
                 buttonStart.setEnabled(true);
                 buttonStopPlayingRecording.setEnabled(false);
                 buttonPlayLastRecordAudio.setEnabled(true);
@@ -155,15 +149,24 @@ public class RecordActivity extends AppCompatActivity {
                     mediaPlayer.stop();
                     mediaPlayer.release();
                     MediaRecorderReady();
+                    final Toast a = Toast.makeText(RecordActivity.this, "Record stop playing",
+                            Toast.LENGTH_SHORT);
+                    a.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            a.cancel();
+                        }
+                    }, 1000);
                 }
             }
         });
-        buttonValidate.setOnClickListener(new View.OnClickListener(){
+        buttonValidate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent I = new Intent(RecordActivity.this,FirstInstrumentActivity.class);
-                I.putExtra("nbr",i);
+            public void onClick(View view) {
+                Intent I = new Intent(RecordActivity.this, FirstInstrumentActivity.class);
+                I.putExtra("nbr", i);
                 startActivity(I);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
@@ -178,7 +181,6 @@ public class RecordActivity extends AppCompatActivity {
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(AudioSavePathInDevice);
     }
-
 
 
     private void requestPermission() {
@@ -196,7 +198,7 @@ public class RecordActivity extends AppCompatActivity {
                             PackageManager.PERMISSION_GRANTED;
 
                     if (StoragePermission && RecordPermission) {
-                        final Toast a=Toast.makeText(RecordActivity.this, "Permission Granted",
+                        final Toast a = Toast.makeText(RecordActivity.this, "Permission Granted",
                                 Toast.LENGTH_SHORT);
                         a.show();
                         Handler handler = new Handler();
@@ -207,7 +209,7 @@ public class RecordActivity extends AppCompatActivity {
                             }
                         }, 1000);
                     } else {
-                        final Toast a=Toast.makeText(RecordActivity.this, "Permission Denied",
+                        final Toast a = Toast.makeText(RecordActivity.this, "Permission Denied",
                                 Toast.LENGTH_SHORT);
                         a.show();
                         Handler handler = new Handler();
@@ -216,7 +218,8 @@ public class RecordActivity extends AppCompatActivity {
                             public void run() {
                                 a.cancel();
                             }
-                        }, 1000);}
+                        }, 1000);
+                    }
                 }
                 break;
         }

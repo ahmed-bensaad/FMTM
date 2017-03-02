@@ -20,29 +20,30 @@ public class SingInstrumentActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     MediaRecorder mediaRecorder;
     String AudioSavePathInDevice;
-    static boolean clicked=false;
-    static int j=0;
+    static boolean clicked = false;
+    static int j = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_instrument);
 
-        final Button record= (Button)findViewById(R.id.record);
+        final Button record = (Button) findViewById(R.id.record);
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(clicked==false) {
-                    clicked=true;
+                if (clicked == false) {
+                    clicked = true;
                     record.setBackgroundResource(android.R.drawable.presence_audio_away);
                     j++;
                     AudioSavePathInDevice =
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
-                                    "Demo_ins" +j+ ".3gp";
+                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
+                                    "Demo_ins" + j + ".3gp";
                     MediaRecorderReady();
                     try {
                         mediaRecorder.prepare();
                         mediaRecorder.start();
-                        final Toast b=Toast.makeText(SingInstrumentActivity.this, "Record started",
+                        final Toast b = Toast.makeText(SingInstrumentActivity.this, "Record started",
                                 Toast.LENGTH_SHORT);
                         b.show();
                     } catch (IllegalStateException e) {
@@ -51,43 +52,30 @@ public class SingInstrumentActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                } else if (clicked==true) {
-                    clicked=false;
+                } else if (clicked == true) {
+                    clicked = false;
                     record.setBackgroundResource(android.R.drawable.presence_audio_online);
-                    try {
-                        mediaRecorder.stop();
-                        final Button Done = (Button) findViewById(R.id.ValidateIns);
-                        Done.setEnabled(true);
-                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "Record completed",
-                                Toast.LENGTH_SHORT);
-                        a.show();
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                a.cancel();
-                            }
-                        }, 1000);
-                    }
-                    catch (Exception e){
-                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "You must hold the button to record",
-                                Toast.LENGTH_SHORT);
-                        a.show();
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                a.cancel();
-                            }
-                        }, 1000);
+                    mediaRecorder.stop();
+                    final Button Done = (Button) findViewById(R.id.ValidateIns);
+                    Done.setEnabled(true);
+                    final Toast a = Toast.makeText(SingInstrumentActivity.this, "Record completed",
+                            Toast.LENGTH_SHORT);
+                    a.show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            a.cancel();
+                        }
+                    }, 1000);
 
-                    }
+
                 }
             }
         });
 
 
-        Button playIns =(Button)findViewById(R.id.playIn);
+        Button playIns = (Button) findViewById(R.id.playIn);
         playIns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) throws IllegalArgumentException,
@@ -101,7 +89,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
                 }
 
                 mediaPlayer.start();
-                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Record playing",
+                final Toast a = Toast.makeText(SingInstrumentActivity.this, "Record playing",
                         Toast.LENGTH_SHORT);
                 a.show();
                 Handler handler = new Handler();
@@ -113,13 +101,13 @@ public class SingInstrumentActivity extends AppCompatActivity {
                 }, 1000);
             }
         });
-        Button valid=(Button)findViewById(R.id.ValidateIns);
+        Button valid = (Button) findViewById(R.id.ValidateIns);
         valid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SingInstrumentActivity.this,SavedActivity.class);
+                Intent i = new Intent(SingInstrumentActivity.this, SavedActivity.class);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-                final Toast a=Toast.makeText(SingInstrumentActivity.this, "Sound added",
+                final Toast a = Toast.makeText(SingInstrumentActivity.this, "Sound added",
                         Toast.LENGTH_SHORT);
                 a.show();
                 Handler handler = new Handler();
@@ -136,6 +124,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
 
     }
+
     public void MediaRecorderReady() {
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -143,16 +132,19 @@ public class SingInstrumentActivity extends AppCompatActivity {
         mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         mediaRecorder.setOutputFile(AudioSavePathInDevice);
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu m){
-        getMenuInflater().inflate(R.menu.add_menu,m);
+    public boolean onCreateOptionsMenu(Menu m) {
+        getMenuInflater().inflate(R.menu.add_menu, m);
         return true;
     }
+
     public boolean onOptionsItemSelected(MenuItem item) {
         onClick();
         return super.onOptionsItemSelected(item);
     }
-    public void onClick () {
+
+    public void onClick() {
         Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
         startActivity(m);
         overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
