@@ -20,17 +20,20 @@ public class SingInstrumentActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     MediaRecorder mediaRecorder;
     String AudioSavePathInDevice;
+    static boolean clicked=false;
     static int j=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_instrument);
-        final Button recordIn= (Button)findViewById(R.id.recordIn);
-        recordIn.setOnTouchListener(new View.OnTouchListener() {
+
+        final Button record= (Button)findViewById(R.id.record);
+        record.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    recordIn.setBackgroundResource(android.R.drawable.presence_audio_away);
+            public void onClick(View view) {
+                if(clicked==false) {
+                    clicked=true;
+                    record.setBackgroundResource(android.R.drawable.presence_audio_away);
                     j++;
                     AudioSavePathInDevice =
                             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
@@ -39,19 +42,23 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     try {
                         mediaRecorder.prepare();
                         mediaRecorder.start();
+                        final Toast b=Toast.makeText(SingInstrumentActivity.this, "Record started",
+                                Toast.LENGTH_SHORT);
+                        b.show();
                     } catch (IllegalStateException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    recordIn.setBackgroundResource(android.R.drawable.presence_audio_online);
+                } else if (clicked==true) {
+                    clicked=false;
+                    record.setBackgroundResource(android.R.drawable.presence_audio_online);
                     try {
                         mediaRecorder.stop();
                         final Button Done = (Button) findViewById(R.id.ValidateIns);
                         Done.setEnabled(true);
-                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "Recording completed",
+                        final Toast a=Toast.makeText(SingInstrumentActivity.this, "Record completed",
                                 Toast.LENGTH_SHORT);
                         a.show();
                         Handler handler = new Handler();
@@ -76,10 +83,10 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
                     }
                 }
-                return true;
-
             }
         });
+
+
         Button playIns =(Button)findViewById(R.id.playIn);
         playIns.setOnClickListener(new View.OnClickListener() {
             @Override

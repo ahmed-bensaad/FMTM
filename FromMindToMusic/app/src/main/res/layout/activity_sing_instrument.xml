@@ -39,16 +39,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/playIn"
         android:background="@android:drawable/ic_media_play"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="56dp"
         android:layout_above="@+id/ValidateIns"
-        android:layout_toStartOf="@+id/ValidateIns" />
+        android:layout_alignStart="@+id/ValidateIns" />
 
     <Button
+        android:background="@android:drawable/presence_audio_online"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/recordIn"
-        android:background="@android:drawable/presence_audio_online"
-        android:layout_marginTop="84dp"
+        android:id="@+id/record"
+        android:layout_marginTop="95dp"
         android:layout_below="@+id/textView3"
-        android:layout_toEndOf="@+id/playIn" />
+        android:layout_alignStart="@+id/playIn" />
 </RelativeLayout>
