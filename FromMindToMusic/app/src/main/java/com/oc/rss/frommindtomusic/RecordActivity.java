@@ -49,7 +49,7 @@ public class RecordActivity extends AppCompatActivity {
 
         random = new Random();
 
-        buttonStart.setBackgroundResource(android.R.drawable.presence_audio_online);
+
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +57,6 @@ public class RecordActivity extends AppCompatActivity {
                 if (clicked == false) {
                     clicked = true;
                     if (checkPermission()) {
-                        buttonStart.setBackgroundResource(android.R.drawable.presence_audio_away);
                         i++;
                         AudioSavePathInDevice =
                                 Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
@@ -90,7 +89,7 @@ public class RecordActivity extends AppCompatActivity {
                     }
                 } else if (clicked = true) {
                     clicked = false;
-                    buttonStart.setBackgroundResource(android.R.drawable.presence_audio_online);
+                    
                     mediaRecorder.stop();
                     recordchrono.stop();
                     buttonPlayLastRecordAudio.setEnabled(true);
