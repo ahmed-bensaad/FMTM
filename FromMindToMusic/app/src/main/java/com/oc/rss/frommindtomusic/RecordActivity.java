@@ -54,7 +54,7 @@ public class RecordActivity extends AppCompatActivity {
                     i++;
                     AudioSavePathInDevice =
                             Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp"+"/"+
-                                    "template" +i+ "AudioRecording.3gp";
+                                    "template" +i+ "AudioRecording.wav";
 
                     MediaRecorderReady();
 
