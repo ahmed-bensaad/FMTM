@@ -54,7 +54,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
                 } else if (clicked == true) {
                     clicked = false;
-                    record.setBackgroundResource(android.R.drawable.presence_audio_online);
+                    record.setBackgroundResource(R.drawable.image3398);
                     mediaRecorder.stop();
                     final Button Done = (Button) findViewById(R.id.ValidateIns);
                     Done.setEnabled(true);

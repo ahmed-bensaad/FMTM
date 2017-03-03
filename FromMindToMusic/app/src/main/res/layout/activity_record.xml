@@ -23,15 +23,6 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="150dp"
-        android:id="@+id/button"
-        android:background="@drawable/image3398"
-        android:layout_height="150dp"
-        android:layout_marginBottom="35dp"
-        android:layout_above="@+id/recordchrono"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:id="@+id/button4"
@@ -56,5 +47,25 @@
         android:layout_marginBottom="25dp"
         android:layout_above="@+id/button3"
         android:layout_toEndOf="@+id/button3" />
+
+    <Button
+        android:layout_width="150dp"
+        android:id="@+id/button"
+        android:background="@drawable/image3398"
+        android:layout_height="150dp"
+        android:layout_marginBottom="13dp"
+        android:layout_above="@+id/recordchrono"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Sing your melody !"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:id="@+id/textView6"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/button3" />
 
 </RelativeLayout>

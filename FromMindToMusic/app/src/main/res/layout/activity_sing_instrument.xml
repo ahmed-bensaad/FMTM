@@ -35,20 +35,20 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:id="@+id/playIn"
-        android:background="@android:drawable/ic_media_play"
-        android:layout_marginBottom="56dp"
+        android:background="@drawable/d300_02x"
+        android:layout_marginBottom="44dp"
         android:layout_above="@+id/ValidateIns"
-        android:layout_alignStart="@+id/ValidateIns" />
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:background="@android:drawable/presence_audio_online"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/image3398"
+        android:layout_height="150dp"
         android:id="@+id/record"
-        android:layout_marginTop="95dp"
+        android:layout_width="150dp"
         android:layout_below="@+id/textView3"
-        android:layout_alignStart="@+id/playIn" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp" />
 </RelativeLayout>
