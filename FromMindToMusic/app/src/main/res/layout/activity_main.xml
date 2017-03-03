@@ -26,29 +26,11 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
+        app:srcCompat="@drawable/image_fond"
         android:id="@+id/imageView"
+        android:layout_height="300dp"
+        android:layout_above="@+id/Start"
+        android:layout_centerHorizontal="true" />
 
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:foregroundGravity="center_vertical|fill_vertical|fill_horizontal|center"
-        android:adjustViewBounds="false"
-        android:saveEnabled="false"
-        android:layout_alignTop="@+id/FMTM"
-        android:layout_alignStart="@+id/Start"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="83dp" />
-
-    <TextView
-        android:text="From Mind To Music"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:id="@+id/FMTM"
-        android:layout_width="350dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:fontFamily="sans-serif"
-        android:textSize="60sp"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
 </RelativeLayout>
