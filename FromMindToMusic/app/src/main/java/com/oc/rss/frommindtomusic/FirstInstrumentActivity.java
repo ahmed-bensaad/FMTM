@@ -10,8 +10,12 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstInstrumentActivity extends AppCompatActivity {
+import Body.Test_audio.src.Play;
 
+import static com.oc.rss.frommindtomusic.TRThread.notes;
+
+public class FirstInstrumentActivity extends AppCompatActivity {
+    String currentInstrument;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,19 +23,17 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         List<String> instruments = new ArrayList<String>();
-        instruments.add("Piano");
-        instruments.add("Violon");
+        instruments.add("Basse");
         instruments.add("Trompette");
-        instruments.add("Clarinette");
-        instruments.add("Sabre laser");
-
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        currentInstrument=spinner.getSelectedItem().toString();
     }
 
 
     public void onClick (View v) {
+       Play.play(notes,currentInstrument);
         Intent k = new Intent(FirstInstrumentActivity.this, ChoiceActivity.class);
         startActivity(k);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
