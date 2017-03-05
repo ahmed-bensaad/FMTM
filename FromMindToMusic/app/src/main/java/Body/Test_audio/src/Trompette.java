@@ -2,13 +2,14 @@ package Body.Test_audio.src;
 
 
 
+
 public class Trompette {
 
 	public static double[] jouer_note(double fréquence, double durée)
 	{
 		double fv = 4; // fréquence vibrato
 		double a =0.01; // excursion du vibrato
-		int Fe = 44100;
+		int Fe = 8000;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
 		int numFrames = (int) (durée * Fe);
@@ -67,7 +68,7 @@ public class Trompette {
 	
 	public static double[] jouer(double[] N, double[] R)
 	{
-		double fe =44100;
+		double fe =8000;
 		double duration = 0;
 		for(int i = 0 ; i<R.length;i++)
 		{

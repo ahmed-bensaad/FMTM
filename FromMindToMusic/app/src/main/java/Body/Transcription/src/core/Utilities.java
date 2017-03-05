@@ -1,8 +1,5 @@
 package Body.Transcription.src.core;
 
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -79,18 +76,40 @@ public class Utilities {
 	}
 		
 	public static final void positivePart(double[] input){
-		for(int i = 0 ; i < input.length ; i++) input[i] = max(input[i], 0) ;
+		for(int i = 0 ; i < input.length ; i++) input[i] = max(input[i], 0) ; 
 	}
 	
 	public static final void normalize (double[] input){
 		Double max = Collections.max(toList(input)) ; 
 		for (int i = 0 ; i < input.length; i++) input[i] = input[i]/max ; 
 	}
+	
 	public static final double max(double a, double b){
-
-		if (a >= b) return a ;
-		else return b ;
-
+		
+		if (a >= b) return a ; 
+		else return b ; 
+		
 	}
 	
+	public static final ArrayList<ArrayList<Double>> convertInDurations(ArrayList<ArrayList<Double>> input, double[] signalInput, double fe){
+		
+		ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>(input.size()) ;
+		double end = signalInput.length/fe ; 
+		for (int i = 0 ; i < input.size() - 1 ; i++) {
+			double duration = input.get(i+1).get(0) - input.get(i).get(0) ; 
+			double frequency = input.get(i).get(1) ; 
+			ArrayList<Double> outputI = new ArrayList<Double>(2) ; 
+			outputI.add(0, duration) ; 
+			outputI.add(1, frequency) ; 
+			output.add(outputI) ; 
+		}
+		double duration = end - input.get(input.size() - 1).get(0) ; 
+		double frequency = input.get(input.size() - 1).get(1) ; 
+		ArrayList<Double> outputI = new ArrayList<Double>(2) ; 
+		outputI.add(0, duration) ; 
+		outputI.add(1, frequency) ; 
+		output.add(outputI) ; 
+		
+		return output ; 
+	}
 }

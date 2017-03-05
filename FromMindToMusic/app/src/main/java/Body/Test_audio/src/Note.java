@@ -1,5 +1,6 @@
 package Body.Test_audio.src;
 
+
 public class Note {
 
 	private double frequence;

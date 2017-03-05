@@ -1,10 +1,9 @@
 package Body.Test_audio.src;
-
 public class OscFm {
 	
 	public static double[] jouer(double[] f, double d, double[] m) // f -> fréquence(t) en Hz, m -> amplitude(t), d -> durée en secondes
 	{
-		int sampleRate = 44100;		// Samples per second
+		int sampleRate = 8000;		// Samples per second
 		double Te = 1.0/sampleRate;
 		
 		// Calculate the number of frames required for specified duration

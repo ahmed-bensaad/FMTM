@@ -10,14 +10,13 @@ import Body.Transcription.src.core.Notes;
 
 public class TRThread extends Thread {
         private String str;
-        static ArrayList<ArrayList<Double>> notes;
+        static double[][] notes;
 
     public TRThread(String str) {
             this.str = str;
         }
         public void run() {
-            notes= Notes.notes(str);
-
+            notes=Notes.notes(str);
         }
     }
 

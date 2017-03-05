@@ -5,7 +5,7 @@ public class Basse {
 	public static double[] jouer_note(double fréquence, double durée,int d)
 	{
 		double e =0;
-		int Fe = 44100;
+		int Fe = 8000;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
 		int numFrames = (int) (durée * Fe);
@@ -56,7 +56,7 @@ public class Basse {
 	
 	public static double[] jouer(double[] N, double[] R,int d)
 	{
-		double fe =44100;
+		double fe =8000;
 		double duration = 0;
 		for(int i = 0 ; i<R.length;i++)
 		{
