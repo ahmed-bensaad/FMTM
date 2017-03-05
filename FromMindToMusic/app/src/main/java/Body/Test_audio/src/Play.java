@@ -2,6 +2,10 @@ package Body.Test_audio.src;
 
 
 
+import android.os.Environment;
+
+import com.oc.rss.frommindtomusic.RecordActivity;
+
 import java.io.File;
 
 import Body.WavFile.WavFile;
@@ -29,7 +33,7 @@ public class Play {
 				long numFrames = (long)(duration * sampleRate);
 
 				// Create a wav file with the name specified as the first argument
-				WavFile wavFile = WavFile.newWavFile(new File("outputSynth.wav"), 2, numFrames, 16, sampleRate);
+				WavFile wavFile = WavFile.newWavFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/temp/output"+ RecordActivity.i+".wav"), 2, numFrames, 16, sampleRate);
 
 				// Create a buffer of 100 frames
 				double[][] buffer = new double[2][100];
