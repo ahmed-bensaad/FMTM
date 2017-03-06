@@ -13,7 +13,8 @@ public class TRThread extends Thread {
         static double[][] notes;
 
     public TRThread(String str) {
-            this.str = str;
+        super();
+        this.str = str;
         }
         public void run() {
             notes=Notes.notes(str);

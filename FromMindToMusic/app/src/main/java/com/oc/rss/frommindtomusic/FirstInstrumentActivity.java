@@ -23,8 +23,8 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         List<String> instruments = new ArrayList<String>();
-        instruments.add("Basse");
-        instruments.add("Trompette");
+        instruments.add("Bass");
+        instruments.add("Trumpet");
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -33,7 +33,8 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
 
     public void onClick (View v) {
-       Play.play(notes,currentInstrument);
+
+        Play.play(notes,currentInstrument);
         Intent k = new Intent(FirstInstrumentActivity.this, ChoiceActivity.class);
         startActivity(k);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

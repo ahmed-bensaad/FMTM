@@ -2,9 +2,10 @@ package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.MediaRecorder;
+import android.media.MediaPlayer;
 import android.os.Environment;
 import android.os.Handler;
+import android.support.annotation.MainThread;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -12,17 +13,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import java.util.ArrayList;
-import java.util.Random;
+
+import java.io.IOException;
+
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class RecordActivity extends AppCompatActivity {
+    MediaPlayer mediaPlayer ;
 
     public static final int RequestPermissionCode = 1;
     Button buttonStart, buttonStop, buttonPlayLastRecordAudio,buttonValidate, buttonStopPlayingRecording;
-    public static int i=0;
-    MediaRecorder m =new MediaRecorder();
+    public static int i=1;
+
 
     private WavAudioRecorder mRecorder;
     private static final String mRcordFilePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/temp/testwave"+i+".wav";
@@ -40,14 +43,11 @@ public class RecordActivity extends AppCompatActivity {
         buttonStopPlayingRecording.setEnabled(false);
         buttonValidate.setEnabled(false);
 
-
-
         buttonStart.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View view) {
 
                                                if (checkPermission()) {
-                                                    i++;
                                                    mRecorder = WavAudioRecorder.getInstanse();
                                                    mRecorder.setOutputFile(mRcordFilePath);
                                                    if (WavAudioRecorder.State.INITIALIZING == mRecorder.getState()) {
@@ -62,6 +62,7 @@ public class RecordActivity extends AppCompatActivity {
                                                        mRecorder.stop();
                                                        mRecorder.reset();
                                                    }
+                                                   i++;
 
 
                                                final Toast a=Toast.makeText(RecordActivity.this, "Recording starting",
@@ -110,25 +111,20 @@ public class RecordActivity extends AppCompatActivity {
             }
         });
 
-/*
+
         buttonPlayLastRecordAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) throws IllegalArgumentException,
                     SecurityException, IllegalStateException {
 
-                buttonStop.setEnabled(false);
-                buttonStart.setEnabled(false);
-                buttonStopPlayingRecording.setEnabled(true);
-
 
                 try {
-                    m.setOutputFile(mRcordFilePath);
-                    m.prepare();
-                } catch (Exception e) {
+                    playAudio(view);
+
+                }
+                catch(Exception e){
                     e.printStackTrace();
                 }
-
-                m.start();
                 final Toast a=Toast.makeText(RecordActivity.this, "Recording playing",
                         Toast.LENGTH_SHORT);
                 a.show();
@@ -144,33 +140,46 @@ public class RecordActivity extends AppCompatActivity {
             }
         });
 
-        buttonStopPlayingRecording.setOnClickListener(new View.OnClickListener() {
+       buttonStopPlayingRecording.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 buttonStop.setEnabled(false);
                 buttonStart.setEnabled(true);
                 buttonStopPlayingRecording.setEnabled(false);
                 buttonPlayLastRecordAudio.setEnabled(true);
+                mediaPlayer.stop();
+                mediaPlayer.release();
 
-                if ( m!= null) {
-                    m.stop();
-                    m.release();
-                }
             }
         });
-*/
+
         buttonValidate.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view)
             {
+
                 Intent I = new Intent(RecordActivity.this,FirstInstrumentActivity.class);
                 Thread trt = new TRThread(mRcordFilePath);
                 trt.run();
                 startActivity(I);
-                //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }
         });
 
+    }
+    public void playAudio (View view) throws IOException
+    {
+        buttonStop.setEnabled(false);
+        buttonStart.setEnabled(false);
+        buttonStopPlayingRecording.setEnabled(true);
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(mRcordFilePath);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

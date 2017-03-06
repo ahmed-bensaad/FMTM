@@ -16,7 +16,6 @@ public class Play {
 		{
 			double[]D= notes[0] ; 
 			double[]N2= notes[1] ; 
-			for (int i = 0 ; i < D.length ; i++) System.out.println(D[i]) ; 
 
 
 			try
@@ -33,7 +32,7 @@ public class Play {
 				long numFrames = (long)(duration * sampleRate);
 
 				// Create a wav file with the name specified as the first argument
-				WavFile wavFile = WavFile.newWavFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/temp/output"+ RecordActivity.i+".wav"), 2, numFrames, 16, sampleRate);
+				WavFile wavFile = WavFile.newWavFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/perm/output"+ RecordActivity.i+".wav"), 2, numFrames, 16, sampleRate);
 
 				// Create a buffer of 100 frames
 				double[][] buffer = new double[2][100];
@@ -54,27 +53,33 @@ public class Play {
 				long frameCounter = 0;
 				int k = 0;
 				// Loop until all frames written
-				while (frameCounter < numFrames)
-				{
+				while (frameCounter < numFrames) {
 					// Determine how many frames to write, up to a maximum of the buffer size
 					long remaining = wavFile.getFramesRemaining();
 					int toWrite = (remaining > 100) ? 100 : (int) remaining;
-					
+
 					// Fill the buffer, one tone per channel
-					for (int s=0 ; s<toWrite ; s++, frameCounter++)
-					{
-						//buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / sampleRate);
-						//buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / sampleRate);
-						//System.out.println(k);
-						buffer[0][s] = Trompette.jouer(N2, D)[k];
-						//System.out.println(y[k]);
-						k++;
+					switch (instrument) {
+						case ("Trumpet") :{
+							for (int s = 0; s < toWrite; s++, frameCounter++) {
+								buffer[0][s] = Trompette.jouer(N2, D)[k];
+								k++;
+							}
+
+							// Write the buffer
+							wavFile.writeFrames(buffer, toWrite);
+						}
+						case("Bass"):{
+							for (int s = 0; s < toWrite; s++, frameCounter++) {
+								buffer[0][s] = Basse.jouer(N2,D,1)[k];
+								k++;
+							}
+
+							// Write the buffer
+							wavFile.writeFrames(buffer, toWrite);
+						}
 					}
-
-					// Write the buffer
-					wavFile.writeFrames(buffer, toWrite);
 				}
-
 				// Close the wavFile
 				wavFile.close();
 			}

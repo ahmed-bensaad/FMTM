@@ -39,8 +39,7 @@ public class ResultActivity extends AppCompatActivity {
                 stop.setEnabled(true);
 
                String AudioSavePathInDevice =
-                        Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
-                                "template" +i+ "AudioRecording.3gp";
+                       Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/perm/output"+i+".wav";
 
                 mediaPlayer = new MediaPlayer();
                 try {
