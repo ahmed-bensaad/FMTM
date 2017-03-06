@@ -1,5 +1,6 @@
 package pact21;
 import java.lang.Math;
+import java.util.*;
 public class Lecture {
 	
 	
@@ -13,6 +14,14 @@ public class Lecture {
 		String n = G[m];
 		String d =  n;
 		return d;
+	}
+	
+	public static double frequence(String O, String note){
+		double oct =Integer.parseInt(O);
+		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
+		int i = Arrays.asList(G).indexOf(note);
+		double f = Math.pow(Math.pow(2, 1/12),oct*12 + i - 45);
+		return f;
 	}
 	public static String [] frequenceToNote(double f []){
 		int n = f.length;
