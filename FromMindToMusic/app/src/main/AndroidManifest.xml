@@ -45,6 +45,9 @@
             android:screenOrientation="portrait"></activity>
         <activity android:name=".FirstInstrumentActivity"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+
     </application>
 
 </manifest>
