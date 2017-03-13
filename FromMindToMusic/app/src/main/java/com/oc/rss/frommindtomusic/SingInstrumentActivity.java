@@ -56,10 +56,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
                 } else if (clicked == true) {
                     clicked = false;
-<<<<<<< 9231e7e8ebcc92db4c291c65cd128af3489fd361
                     record.setBackgroundResource(R.drawable.image3398);
-=======
->>>>>>> dfd5117032f53f3353c57646458f3fc59705bcee
                     mediaRecorder.stop();
                     final Button Done = (Button) findViewById(R.id.ValidateIns);
                     Done.setEnabled(true);
