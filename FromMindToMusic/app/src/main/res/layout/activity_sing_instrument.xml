@@ -12,7 +12,7 @@
     tools:context="com.oc.rss.frommindtomusic.SingInstrumentActivity">
 
     <Button
-        android:text="DONE"
+        android:text="OK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ValidateIns"
@@ -20,7 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="?attr/colorControlNormal"
+        android:textColor="@android:color/black"
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp" />
 

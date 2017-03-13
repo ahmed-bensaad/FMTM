@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:id="@+id/textView2"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textColor="@android:color/white"
         android:layout_width="320dp"
         android:textAlignment="center"
