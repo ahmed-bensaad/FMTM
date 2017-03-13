@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -38,7 +37,7 @@ public class RecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
-        recordchrono=(Chronometer) findViewById(R.id.recordchrono);
+        recordchrono=(Chronometer) findViewById(R.id.recordchrono1);
         buttonStart = (Button) findViewById(R.id.button);
         buttonPlayLastRecordAudio = (Button) findViewById(R.id.button3);
         buttonStopPlayingRecording = (Button) findViewById(R.id.button4);
@@ -57,6 +56,7 @@ public class RecordActivity extends AppCompatActivity {
                 if (clicked == false) {
                     clicked = true;
                     if (checkPermission()) {
+                        buttonStart.setBackgroundResource(R.drawable.imagemicro);
                         i++;
                         AudioSavePathInDevice =
                                 Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
@@ -89,7 +89,7 @@ public class RecordActivity extends AppCompatActivity {
                     }
                 } else if (clicked = true) {
                     clicked = false;
-
+                    buttonStart.setBackgroundResource(R.drawable.image3398);
                     mediaRecorder.stop();
                     recordchrono.stop();
                     buttonPlayLastRecordAudio.setEnabled(true);

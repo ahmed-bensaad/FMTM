@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +23,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
     MediaRecorder mediaRecorder;
     String AudioSavePathInDevice;
     static boolean clicked = false;
-    Chronometer recordchrono1;
+    Chronometer recordchrono2;
 
     static int j = 0;
 
@@ -30,6 +31,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_instrument);
+        recordchrono2=(Chronometer) findViewById(R.id.recordchrono2);
 
         final Button record = (Button) findViewById(R.id.record);
         record.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +39,7 @@ public class SingInstrumentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (clicked == false) {
                     clicked = true;
+                    record.setBackgroundResource(R.drawable.imagemicro);
                     j++;
                     AudioSavePathInDevice =
                             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
@@ -45,6 +48,8 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     try {
                         mediaRecorder.prepare();
                         mediaRecorder.start();
+                        recordchrono2.setBase(SystemClock.elapsedRealtime());
+                        recordchrono2.start();
                         final Toast b = Toast.makeText(SingInstrumentActivity.this, "Record started",
                                 Toast.LENGTH_SHORT);
                         b.show();
@@ -58,6 +63,8 @@ public class SingInstrumentActivity extends AppCompatActivity {
                     clicked = false;
                     record.setBackgroundResource(R.drawable.image3398);
                     mediaRecorder.stop();
+
+                    recordchrono2.stop();
                     final Button Done = (Button) findViewById(R.id.ValidateIns);
                     Done.setEnabled(true);
                     final Toast a = Toast.makeText(SingInstrumentActivity.this, "Record completed",
