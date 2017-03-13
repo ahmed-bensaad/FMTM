@@ -21,18 +21,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="0dp"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"/>
+        android:textColor="?attr/colorControlNormal"
+        android:fontFamily="sans-serif-smallcaps" />
 
     <TextView
         android:text="Choose your instruments :"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chooseInstruments"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:textColor="@android:color/white"
         android:layout_marginBottom="299dp"
         android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center" />
 
     <Button
         android:text="Remove"
@@ -41,11 +44,12 @@
         android:onClick="remove"
         android:id="@+id/Remove_Ins"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/colorControlNormal"
         android:textSize="18sp"
-        android:textAllCaps="false"
         android:layout_above="@+id/ok"
-        android:layout_toEndOf="@+id/ok" />
+        android:layout_toEndOf="@+id/ok"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAllCaps="false" />
 
     <Button
         android:text="Add"
@@ -54,11 +58,12 @@
         android:onClick="add"
         android:id="@+id/Add_Ins"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/colorControlNormal"
         android:textSize="18sp"
         android:textAllCaps="false"
         android:layout_above="@+id/ok"
-        android:layout_toStartOf="@+id/ok" />
+        android:layout_toStartOf="@+id/ok"
+        android:fontFamily="sans-serif-smallcaps" />
 
     <LinearLayout
         android:orientation="vertical"

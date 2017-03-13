@@ -89,7 +89,7 @@ public class RecordActivity extends AppCompatActivity {
                     }
                 } else if (clicked = true) {
                     clicked = false;
-                    
+
                     mediaRecorder.stop();
                     recordchrono.stop();
                     buttonPlayLastRecordAudio.setEnabled(true);

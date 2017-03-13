@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ public class SingInstrumentActivity extends AppCompatActivity {
     MediaRecorder mediaRecorder;
     String AudioSavePathInDevice;
     static boolean clicked = false;
+    Chronometer recordchrono1;
+
     static int j = 0;
 
     @Override
@@ -34,7 +37,6 @@ public class SingInstrumentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (clicked == false) {
                     clicked = true;
-                    record.setBackgroundResource(android.R.drawable.presence_audio_away);
                     j++;
                     AudioSavePathInDevice =
                             Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
@@ -54,7 +56,10 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
                 } else if (clicked == true) {
                     clicked = false;
+<<<<<<< 9231e7e8ebcc92db4c291c65cd128af3489fd361
                     record.setBackgroundResource(R.drawable.image3398);
+=======
+>>>>>>> dfd5117032f53f3353c57646458f3fc59705bcee
                     mediaRecorder.stop();
                     final Button Done = (Button) findViewById(R.id.ValidateIns);
                     Done.setEnabled(true);

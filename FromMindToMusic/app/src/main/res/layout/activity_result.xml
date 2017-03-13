@@ -15,52 +15,49 @@
     android:weightSum="1">
 
     <Button
-        android:text="STOP"
-        android:id="@+id/button11"
+        android:text="Save project"
+        android:id="@+id/Save"
         android:textSize="20sp"
-        android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:layout_weight="0.23"
+        android:textColor="?attr/colorControlNormal"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="19dp"
-        android:layout_above="@+id/Save"
-        android:layout_alignStart="@+id/Save"
-        android:layout_width="200dp" />
+        android:layout_height="60dp"
+        android:layout_width="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-smallcaps" />
 
     <Button
         android:id="@+id/button10"
         android:textSize="20sp"
-        tools:text="Play"
-        android:text="PLAY"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners_button"
+        android:background="@drawable/d300_02x"
+        android:textColor="#FFFFFF"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_above="@+id/Save"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button11"
+        android:textSize="20sp"
+        android:layout_height="75dp"
+        android:background="@drawable/d300_22x"
         android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/button11"
-        android:layout_alignStart="@+id/button11"
-        android:layout_width="200dp" />
+        android:layout_width="75dp"
+        android:layout_marginEnd="37dp"
+        android:layout_above="@+id/Save"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="match_parent"
         app:srcCompat="@drawable/halle1"
         android:id="@+id/imageView3"
         android:layout_weight="0.72"
-        android:layout_above="@+id/button10"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
-        android:layout_height="350dp" />
-
-    <Button
-        android:text="Save project"
-        android:id="@+id/Save"
-        android:textSize="20sp"
-        android:background="@drawable/rounded_corners_button"
-        android:layout_weight="0.23"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="60dp"
-        android:layout_width="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>

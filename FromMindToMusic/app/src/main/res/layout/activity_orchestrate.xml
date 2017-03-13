@@ -21,7 +21,8 @@
         android:textColor="@android:color/white"
         android:textAllCaps="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-smallcaps" />
 
     <Button
         android:text="Auto"
@@ -29,12 +30,13 @@
         android:id="@+id/autoButton"
         android:onClick="onClick"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/colorControlNormal"
         android:layout_below="@+id/orchestrate"
         android:layout_alignStart="@+id/diyButton"
         android:layout_marginTop="90dp"
         android:textSize="25dp"
-        android:layout_width="170dp" />
+        android:layout_width="170dp"
+        android:fontFamily="sans-serif-smallcaps" />
 
     <Button
         android:text="DIY"
@@ -42,12 +44,13 @@
         android:id="@+id/diyButton"
         android:onClick="onClick"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/colorControlNormal"
         android:layout_marginTop="89dp"
         android:textSize="25dp"
         android:layout_width="170dp"
         android:layout_alignTop="@+id/autoButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-smallcaps" />
 
 
 </RelativeLayout>

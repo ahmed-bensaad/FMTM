@@ -12,15 +12,17 @@
 
     <Button
         android:text="OK"
+        android:fontFamily="sans-serif-smallcaps"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:background="@drawable/rounded_corners_button"
-        android:textColor="#FFFFFF"
+        android:textColor="?android:attr/colorControlNormal"
         android:id="@+id/button5"
         android:textSize="16sp"
         android:layout_marginBottom="22dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold" />
 
     <Button
         android:layout_width="75dp"

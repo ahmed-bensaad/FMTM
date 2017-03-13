@@ -40,7 +40,7 @@ public class ResultActivity extends AppCompatActivity {
 
                String AudioSavePathInDevice =
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
-                                "template" +i+ "AudioRecording.3gp";
+                                "template" +i+ "AudioRecording.wav";
 
                 mediaPlayer = new MediaPlayer();
                 try {
@@ -91,7 +91,7 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moveFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"temp",
-                        "template" +RecordActivity.i+ "AudioRecording.3gp",
+                        "template" +RecordActivity.i+ "AudioRecording.wav",
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+"FMTM"+"/" +"perm");
                 final Toast a=Toast.makeText(ResultActivity.this, "Audio successfully saved",
                         Toast.LENGTH_SHORT);

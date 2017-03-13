@@ -32,7 +32,8 @@
             android:id="@+id/textView2"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-smallcaps" />
 
         <Button
             android:text="Ok"
@@ -45,7 +46,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/rounded_corners_button"
-            android:textColor="#FFFFFF"/>
+            android:textColor="?attr/colorControlNormal"
+            android:fontFamily="sans-serif-smallcaps" />
 
         <Spinner
             android:layout_width="match_parent"
