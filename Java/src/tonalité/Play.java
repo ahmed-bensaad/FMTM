@@ -27,8 +27,8 @@ public class Play {
 				WavFile wavFile = WavFile.newWavFile(new File("output.wav"), 2, numFrames, 16, sampleRate);
 
 				// Create a buffer of 100 frames
-				double[][] buffer = new double[2][100];
-				double[] y=new double[(int)numFrames] ;
+				double[][] buffer = new double[2][100] ;
+				double[] y = new double[(int)numFrames] ;
 				switch (instrument) {
 					case "Basse":{
 					 y = Basse.jouer(N2, D, 1);
@@ -52,7 +52,7 @@ public class Play {
 
 					// Fill the buffer, one tone per channel
 					switch (instrument) {
-						case ("Trumpet") :{
+						case ("Trompette") :{
 							for (int s = 0; s < toWrite; s++, frameCounter++) {
 								buffer[0][s] = y[k];
 								k++;
@@ -61,19 +61,19 @@ public class Play {
 							// Write the buffer
 							wavFile.writeFrames(buffer, toWrite);
 						}
-						case("Bass"):{
-							for (int s = 0; s < toWrite; s++, frameCounter++) {
-								buffer[0][s] = Basse.jouer(N2,D,1)[k];
-								k++;
-							}
-
-							// Write the buffer
-							wavFile.writeFrames(buffer, toWrite);
+//						case("Basse"):{
+//							for (int s = 0; s < toWrite; s++, frameCounter++) {
+//								buffer[0][s] = Basse.jouer(N2,D,1)[k];
+//								k++;
+//							}
+//
+//							// Write the buffer
+//							wavFile.writeFrames(buffer, toWrite);
 						}
 					}
-				}
-				// Close the wavFile
-				wavFile.close();
+//				}
+//				// Close the wavFile
+//				wavFile.close();
 			}
 			catch (Exception e)
 			{

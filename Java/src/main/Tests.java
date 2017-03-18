@@ -22,7 +22,7 @@ public class Tests {
 		//Visualizer.temporalShow(transients, fe);
 		double[][] notes = Notes.notes(signal, fe, n, p) ; 
 		System.out.println("Fin transription");
-		Play.play(notes, "Bass") ;
+		Play.play(notes, "Basse") ;
 		System.out.println("Fin synthèse");
 		
 	}
