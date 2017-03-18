@@ -1,5 +1,4 @@
-package tonalité ; 
-
+package tonalité;
 public class OscFm {
 	
 	public static double[] jouer(double[] f, double d, double[] m) // f -> fréquence(t) en Hz, m -> amplitude(t), d -> durée en secondes
