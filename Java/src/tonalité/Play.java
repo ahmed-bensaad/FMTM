@@ -1,29 +1,16 @@
-package src;
+package tonalité;
+import audio.* ; 
 
-import java.io.File;
+import java.io.*;
 
 public class Play {
 
-		public static void jouer()
-		{
-			
-			// dans les lignes avant le try (ie les 11 prochaines) j'instancie juste un exemple
-			/* String[] N1={"do","do","si","si","do","do","la","mi","mi","sol#","sol#","la"};//note
-			String[] U={"c","c","c","c","dc","c","n+dc","c","c","dc","c","n"};//rythme
-			int[] O = {4,4,3,3,4,4,3,3,3,3,3,3};//octave
-			double[] N = new double[N1.length]; // contiendra la liste des note en fréquence
-			double[] T= new double[N1.length]; // contiendra la liste des rythmes 
-			
-			for(int i =0;i<N1.length;i++)
-			{
-				Note u = new Note(N1[i],O[i],U[i],60);
-				N2[i]=u.getfréquence();
-				D[i]=u.getdurée();
-			}*/
+		public static void jouer(double[][] notes){
+
 			
 			//exemple simple
-			double[] N = {440,220,440};  // liste de 3 notes en fréquence
-			double[] R = {0.25,0.5,0.25}; // liste de la durée des notes en secondes
+			double[] N = notes[1];  // liste 
+			double[] R = notes[0]; // liste 
 			
 			try
 			{

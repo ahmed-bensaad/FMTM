@@ -19,8 +19,9 @@ public class Tests {
 		int p = (int)(0.5*fe) ; 
 		int n = (int)(0.02*fe) ; 
 		double[][] notes = Notes.notes(signal, fe, n, p) ; 
+		System.out.println("fin de la partie transcription");
+		Play.jouer(notes);
 		
-		// fin de la partie transcription
 		
 		// début de la partie accompagnement
 		// fin de la partie accompagnement
