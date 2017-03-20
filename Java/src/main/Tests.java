@@ -19,6 +19,7 @@ public class Tests {
 		int p = (int)(0.5*fe) ; 
 		int n = (int)(0.02*fe) ; 
 		double[][] notes = Notes.notes(signal, fe, n, p) ; 
+		
 		// fin de la partie transcription
 		
 		// début de la partie accompagnement
