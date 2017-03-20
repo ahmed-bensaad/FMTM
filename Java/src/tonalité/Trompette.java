@@ -1,7 +1,4 @@
-package tonalité;
-
-
-
+package src;
 
 public class Trompette {
 
@@ -9,7 +6,7 @@ public class Trompette {
 	{
 		double fv = 4; // fréquence vibrato
 		double a =0.01; // excursion du vibrato
-		int Fe = 8000;
+		int Fe = 44100;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
 		int numFrames = (int) (durée * Fe);
@@ -34,7 +31,7 @@ public class Trompette {
 		for(int i=0;i<numFrames;i++)
 		{
 			double t= i*Te;
-			x1[i]=x1[i]* Enveloppe.enveloppe_ADSR(t, durée,0.5)+fréquence;
+			x1[i]=x1[i]*Enveloppe.enveloppe_ADSR(t, durée,0.5)+fréquence;
 		}
 		
 		for(int i=0;i<numFrames;i++)
@@ -68,7 +65,7 @@ public class Trompette {
 	
 	public static double[] jouer(double[] N, double[] R)
 	{
-		double fe =8000;
+		double fe =44100;
 		double duration = 0;
 		for(int i = 0 ; i<R.length;i++)
 		{
