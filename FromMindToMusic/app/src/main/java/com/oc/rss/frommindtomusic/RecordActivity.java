@@ -65,6 +65,7 @@ public class RecordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (clicked == false) {
                     clicked = true;
+                    recordchrono.start();
                     if (checkPermission()) {
                         mRecorder = WavAudioRecorder.getInstanse();
                         mRecorder.setOutputFile(mRcordFilePath);

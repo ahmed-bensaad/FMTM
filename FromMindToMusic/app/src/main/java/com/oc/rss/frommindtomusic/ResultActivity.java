@@ -27,6 +27,9 @@ import static com.oc.rss.frommindtomusic.RecordActivity.i;
 public class ResultActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     Button play,stop;
+    String AudioSavePathInDevice =
+            Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/perm/template"+i+".wav";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,19 +41,11 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 stop.setEnabled(true);
 
-               String AudioSavePathInDevice =
-                        Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +"FMTM"+"/" +"temp"+"/"+
-                                "template" +i+ "AudioRecording.wav";
-
-                mediaPlayer = new MediaPlayer();
                 try {
-                    mediaPlayer.setDataSource(AudioSavePathInDevice);
-                    mediaPlayer.prepare();
+                    playAudio(v);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                mediaPlayer.start();
                 final Toast a=Toast.makeText(ResultActivity.this, "Record Playing",
                         Toast.LENGTH_SHORT);
                 a.show();
@@ -167,6 +162,17 @@ public class ResultActivity extends AppCompatActivity {
     }
 
 
+    public void playAudio (View view) throws IOException
+    {
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(AudioSavePathInDevice);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
