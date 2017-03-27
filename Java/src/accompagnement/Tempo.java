@@ -2,7 +2,7 @@ package accompagnement;
 import java.util.*;
 
 public class Tempo {
-	public static double estfreqautoco(double[] s,double fe,int P)
+	public static double estfreqautoco(double[] s,double fe)
 	{
 		ArrayList <Double> Autoco_s = new ArrayList <Double>() ;
 		double moy_s = 0.0 ;
@@ -74,7 +74,7 @@ public class Tempo {
 		int bsup;
 		int binf;
 		double m;
-
+		int P = K/200;
 		for(int i = 0; i < Indcand.size(); i++)
 		{
 			binf= Math.max(Indcand.get(i) - P,0 );
