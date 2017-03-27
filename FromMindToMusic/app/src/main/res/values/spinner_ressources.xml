@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="instruments_array">
+        <item>Violon</item>
+        <item>Piano</item>
+        <item>Guitare</item>
+        <item>Guitare Basse</item>
+        <item>Saxophone</item>
+        <item>Synthétiseur</item>
+    </string-array>
+</resources>
