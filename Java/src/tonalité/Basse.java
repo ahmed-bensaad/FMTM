@@ -1,42 +1,42 @@
-package tonalité;
+package tonalitÃ©;
 
 public class Basse {
 
-	public static double[] jouer_note(double fréquence, double durée,int d)
+	public static double[] jouer_note(double frÃ©quence, double durÃ©e,int d)
 	{
 		double e =0;
 		int Fe = 44100;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
-		int numFrames = (int) (durée * Fe);
+		int numFrames = (int) (durÃ©e * Fe);
 		
 		double[] m = new double[numFrames];
 		
 		for(int i=0;i<numFrames;i++)
 		{
-			m[i]=d*fréquence;
+			m[i]=d*frÃ©quence;
 		}
 		
 		double[] f = new double[numFrames];
 		for(int i=0;i<numFrames;i++)
 		{
-			f[i]=fréquence+e;
+			f[i]=frÃ©quence+e;
 		}
 		double[] f2 = new double[numFrames];
 		for(int i=0;i<numFrames;i++)
 		{
-			f2[i]=4*fréquence+e;
+			f2[i]=4*frÃ©quence+e;
 		}
-		double[] y1 = OscFm.jouer(f, durée, m);
-		double[] y2 = OscFm.jouer(f2, durée, m);
+		double[] y1 = OscFm.jouer(f, durÃ©e, m);
+		double[] y2 = OscFm.jouer(f2, durÃ©e, m);
 		double[] y3 = new double[numFrames];
 		
 		for(int i = 0 ; i< numFrames;i++)
 		{
 			double t=Te*i;
-			y1[i]= y1[i]*Enveloppe.enveloppe_basse(durée,t,1);
-			y2[i]= y2[i]*Enveloppe.enveloppe_basse(durée,t,1);
-			y3[i]=fréquence+y1[i]+y2[i];
+			y1[i]= y1[i]*Enveloppe.enveloppe_basse(durÃ©e,t,1);
+			y2[i]= y2[i]*Enveloppe.enveloppe_basse(durÃ©e,t,1);
+			y3[i]=frÃ©quence+y1[i]+y2[i];
 		}
 		
 		double[] m2 = new double[numFrames];
@@ -45,10 +45,10 @@ public class Basse {
 		{
 			m2[i]=1;
 		}
-		double[] y4 =OscFm.jouer(y3, durée, m2);
+		double[] y4 =OscFm.jouer(y3, durÃ©e, m2);
 		for(int i=0;i<numFrames;i++)
 		{
-			y4[i]=y4[i]*Enveloppe.enveloppe_basse(durée, i*Te, 1);
+			y4[i]=y4[i]*Enveloppe.enveloppe_basse(durÃ©e, i*Te, 1);
 		}
 		
 		return y4;
@@ -84,9 +84,9 @@ public class Basse {
 
 
 /*
-function [y4]=basse(fp,Fe,d,m0)//même paramètre que pour la trompette
+function [y4]=basse(fp,Fe,d,m0)//mï¿½me paramï¿½tre que pour la trompette
     
-    //shéma du piano/guitare FM (instrument à voie libre)
+    //shï¿½ma du piano/guitare FM (instrument ï¿½ voie libre)
     
     e=0;
     
@@ -105,11 +105,11 @@ function [y4]=basse(fp,Fe,d,m0)//même paramètre que pour la trompette
     for i=1:n
        f(i)= fp;
     end     
-    y1=oscFM(f+e,m,Fe,d);      //premier oscillateur à fm=fp (environ)     
-    y2=oscFM(4*f+e,m,Fe,d);     //deuxième à fm=4*fp (environ)
+    y1=oscFM(f+e,m,Fe,d);      //premier oscillateur ï¿½ fm=fp (environ)     
+    y2=oscFM(4*f+e,m,Fe,d);     //deuxiï¿½me ï¿½ fm=4*fp (environ)
     
     for i = 1:n
-        y1(i)=y1(i)*enveloppe_basse(d,x(i),1);   // ajout des enveloppe sur les oscillateurs (la même que sur le signal total)
+        y1(i)=y1(i)*enveloppe_basse(d,x(i),1);   // ajout des enveloppe sur les oscillateurs (la mï¿½me que sur le signal total)
         y2(i)=y2(i)*enveloppe_basse(d,x(i),1);
     end
     

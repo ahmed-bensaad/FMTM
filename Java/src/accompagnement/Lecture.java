@@ -51,7 +51,7 @@ public class Lecture {
 			}
 		}
 
-		String notef;
+		String notef="";
 		if (i<=6){
 		    String []armf= new String[i];
 		    for(int m=0; m<i; m++){

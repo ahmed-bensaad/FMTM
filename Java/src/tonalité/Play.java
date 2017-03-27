@@ -1,4 +1,4 @@
-package tonalité;
+package tonalitÃ©;
 import audio.* ; 
 
 import java.io.*;
@@ -17,7 +17,7 @@ public class Play {
 				int sampleRate = 44100;		// Samples per second
 				double duration = 0;		// Seconds
 				
-				for(int i =0 ;i<N.length;i++) // on calcule la durée du wav en secondes
+				for(int i =0 ;i<N.length;i++) // on calcule la durï¿½e du wav en secondes
 				{
 					duration=duration+R[i];
 				}

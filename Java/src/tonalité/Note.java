@@ -1,15 +1,15 @@
-package tonalitÈ;
+package tonalit√©;
 
 
 public class Note {
 
-	private double frÈquence;
-	private double durÈe;
+	private double fr√©quence;
+	private double dur√©e;
 	private String note;
 	private int octave;
 	private String rythme;
 	
-	public Note(double frÈquence,double durÈe)
+	public Note(double fr√©quence,double dur√©e)
 	{
 		
 	}
@@ -20,7 +20,7 @@ public class Note {
 		this.rythme = rythme;
 		this.octave=octave;
 		
-		double t0 = 0.25 * 60 /Tempo;					// conversion rythme -> durÈe , ex : noire -> 1s
+		double t0 = 0.25 * 60 /Tempo;					// conversion rythme -> dur√©e , ex : noire -> 1s
 		String[] G ={"dc", "c", "cp","n","n+dc","np","vide","b"};
 		
 		int index=0;
@@ -31,9 +31,9 @@ public class Note {
 				index=j;
 			}
 		}
-		this.durÈe=t0*(index+1);
+		this.dur√©e=t0*(index+1);
 		
-		//conversion note -> frÈquence
+		//conversion note -> fr√©quence
 		
 		String[] H =  {"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		
@@ -46,7 +46,7 @@ public class Note {
 			}
 		}
 
-		this.frÈquence= Math.pow(2,((octave-3)+((double)(index-10))/12))*440;
+		this.fr√©quence= Math.pow(2,((octave-3)+((double)(index-10))/12))*440;
 		
 /*G={'do', 'do#', 're', 're#', 'mi', 'fa', 'fa#', 'sol', 'sol#', 'la', 'la#', 'si'};
 [nb, loc] = members(G,[n], "last");
@@ -57,13 +57,13 @@ f=2^((oct*12+i-46)/12)*440;
 		
 	}
 	
-	public double getfrÈquence()
+	public double getfr√©quence()
 	{
-		return frÈquence;
+		return fr√©quence;
 	}
-	public double getdurÈe()
+	public double getdur√©e()
 	{
-		return durÈe;
+		return dur√©e;
 	}
 	public String getnote()
 	{

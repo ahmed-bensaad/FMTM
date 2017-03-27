@@ -4,7 +4,7 @@ import transcription.*;
 import outils.* ; 
 import audio.* ; 
 import java.util.* ; 
-import tonalité.* ; 
+import tonalitÃ©.* ; 
 
 public class Tests {
 
@@ -15,7 +15,7 @@ public class Tests {
 		double[] signal = audio.getSignal() ; 
 		double fe = audio.getFe(); 
 		
-		// début de la partie transcription
+		// dï¿½but de la partie transcription
 		int p = (int)(0.5*fe) ; 
 		int n = (int)(0.02*fe) ; 
 		double[][] notes = Notes.notes(signal, fe, n, p) ; 
@@ -23,11 +23,11 @@ public class Tests {
 		Play.jouer(notes);
 		
 		
-		// début de la partie accompagnement
+		// dï¿½but de la partie accompagnement
 		// fin de la partie accompagnement
 		
-		// début de la partie synthèse 
-		// fin de la partie synthèse
+		// dï¿½but de la partie synthï¿½se 
+		// fin de la partie synthï¿½se
 
 		
 	}

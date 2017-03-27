@@ -1,9 +1,9 @@
-package tonalité;
+package tonalitÃ©;
 
 
 public class OscFm {
 	
-	public static double[] jouer(double[] f, double d, double[] m) // f -> fréquence(t) en Hz, m -> amplitude(t), d -> durée en secondes
+	public static double[] jouer(double[] f, double d, double[] m) // f -> frï¿½quence(t) en Hz, m -> amplitude(t), d -> durï¿½e en secondes
 	{
 		int sampleRate = 44100;		// Samples per second
 		double Te = 1.0/sampleRate;
@@ -31,14 +31,14 @@ public class OscFm {
 }
 
 /*  code scilab
-//on veut retourner s(t)=m(t)cos(phi(t)) avec phi(t)=2*pi*(intégrale entre 0 et t de f(t) + f(0)) cf poly. synthèse FM
+//on veut retourner s(t)=m(t)cos(phi(t)) avec phi(t)=2*pi*(intï¿½grale entre 0 et t de f(t) + f(0)) cf poly. synthï¿½se FM
 pi=3.14159;
 
-Te= 1/Fe; //temps échantillonage
+Te= 1/Fe; //temps ï¿½chantillonage
 
 x=[0:Te:d]; // axe des temps
 
-phi=[0:Te:d]; // definission de phi (cf.poly., méthode des rectangles)
+phi=[0:Te:d]; // definission de phi (cf.poly., mï¿½thode des rectangles)
 phi(1)=0;
 n=length(phi);
 for i=2:n
