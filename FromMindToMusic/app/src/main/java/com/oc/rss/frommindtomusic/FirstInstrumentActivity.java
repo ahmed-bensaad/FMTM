@@ -9,6 +9,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import Body.tonalité.*;
 
 public class FirstInstrumentActivity extends AppCompatActivity {
 
@@ -19,6 +20,8 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         List<String> instruments = new ArrayList<String>();
+        instruments.add("Bass");
+        instruments.add("Trumpet");
         instruments.add("Piano");
         instruments.add("Violon");
         instruments.add("Trompette");
@@ -32,6 +35,7 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
 
     public void onClick (View v) {
+        Play.jouer(TRThread.notes);
         Intent k = new Intent(FirstInstrumentActivity.this, ChoiceActivity.class);
         startActivity(k);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
