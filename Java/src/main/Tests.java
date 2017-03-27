@@ -3,7 +3,9 @@ package main;
 import transcription.*; 
 import outils.* ; 
 import audio.* ; 
-import java.util.* ; 
+import java.util.* ;
+
+import accompagnement.Harmonize;
 import tonalité.* ; 
 
 public class Tests {
@@ -24,6 +26,7 @@ public class Tests {
 		
 		
 		// d�but de la partie accompagnement
+		Harmonize.harmonize(notes);
 		// fin de la partie accompagnement
 		
 		// d�but de la partie synth�se 

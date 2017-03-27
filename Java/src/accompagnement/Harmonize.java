@@ -2,40 +2,26 @@ package accompagnement;
 import audio.*;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import tonalité.*;
 public class Harmonize {
-	public static ArrayList<ArrayList<Double>> harmonize(ArrayList<ArrayList<Double>> L){
-		int n = L.size();
-		ArrayList<ArrayList<Double>> accord = new ArrayList<ArrayList<Double>>();
-		double[] f = new double[n];
-		for(int row = 0; row < n; row++)
-		{
-			f[row]=L.get(row).get(1);
-		}
+	public static double[][] harmonize(double[][] liste){
+		int n = liste.length;
+		double[][] accord = new double[4][n];
+		double[] f = liste[1];
 		String [][] notes = Lecture.frequenceToNote(f);
 		String ton = Lecture.tonaliteMaj(notes);
 		String [][]acc;
+		accord[0]=liste[0];
 		for(int i=0; i<n; i++){
-			accord.get(i).set(0, L.get(i).get(0));
-
 			acc = Accord.accord(ton, notes[i][0], notes[i][1]);
-			accord.get(i).set(1, Lecture.noteToFrequence(acc[0][0], acc[0][1]));
-			accord.get(i).set(2, Lecture.noteToFrequence(acc[1][0], acc[1][1]));
-			accord.get(i).set(3, Lecture.noteToFrequence(acc[2][0], acc[2][1]));
+			accord[1][i]= Lecture.noteToFrequence(acc[0][0], acc[0][1]);
+			accord[2][i]= Lecture.noteToFrequence(acc[1][0], acc[1][1]);
+			accord[3][i]=Lecture.noteToFrequence(acc[2][0], acc[2][1]);
 		}
-		double[] N = new double[n];
-		double[] a1 = new double[n];
-		double[] a2 = new double[n];
-		double[] a3 = new double[n];
-		for(int k=0; k<n; k++){
-			N[k]=accord.get(k).get(0);
-			a1[k]=accord.get(k).get(1);
-			a2[k]=accord.get(k).get(2);
-			a3[k]=accord.get(k).get(3);
-		}
+		double[] N = accord[0];
+		double[] a1 = accord[1];
+		double[] a2 = accord[2];
+		double[] a3 = accord[3];
 		try
 		{
 			int sampleRate = 44100;		// Samples per second
@@ -43,7 +29,7 @@ public class Harmonize {
 			
 			for(int i =0 ;i<n;i++) // on calcule la dur�e du wav en secondes
 			{
-				duration=duration+L.get(i).get(0);
+				duration=duration+N[i];
 			}
 			
 			// Calculate the number of frames required for specified duration
