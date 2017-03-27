@@ -1,4 +1,4 @@
-package tonalité;
+package tonalitï¿½;
 
 
 public class Enveloppe {
@@ -51,6 +51,30 @@ public class Enveloppe {
 			return m;
 		}
 	}
+	public static double enveloppe_piano(double t, double duree){
+		double a = 0.02;
+		double d = 0.02;
+		double s = 0.75;
+		double r = 0.03;
+
+		if(0<=t && t<a)
+		{
+			return 1.0/a*t;
+		}
+		else if(a<=t && t<(a+d))
+		{
+			return 1.0-(1.0-s)/d*(t-a);
+		}
+		else if((a+d)<=t && t<(duree))
+		{
+			return s;
+		}
+		else
+		{
+			return s-s/r*(t-duree);
+		}
+	}
+	
 	
 	public static double enveloppe_basse(double d,double t,double m)
 	{
@@ -100,12 +124,12 @@ public class Enveloppe {
 
 
 /*
-function [y]=enveloppe_basse(d,t,m)// d = durée, m=amplitude
+function [y]=enveloppe_basse(d,t,m)// d = durï¿½e, m=amplitude
     a=1/48;
     c=1/2;
     b=d-a-c;
     v=3;//vitesse de chute
-    v2=0.00000005;//2ème vitesse de chute
+    v2=0.00000005;//2ï¿½me vitesse de chute
     t1=a;
     t2=a+b;
     t3=a+b+c;
@@ -136,7 +160,7 @@ function [y]=enveloppe_basse(d,t,m)// d = durée, m=amplitude
 endfunction
 
  
- function [y]=enveloppe_vibrato(t,d) //demi-trapèze (marche)
+ function [y]=enveloppe_vibrato(t,d) //demi-trapï¿½ze (marche)
     a=1/24;
     d2=1/24;
     s=d-3/16;
