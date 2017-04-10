@@ -4,33 +4,31 @@ import transcription.*;
 import outils.* ; 
 import audio.* ; 
 import java.util.* ;
-
-import accompagnement.Harmonize;
-import tonalitÃ©.* ; 
+import accompagnement.*;
+import tonalité.* ; 
 
 public class Tests {
 
 	public static void main(String[] args){
 				
 		// ouverture du fichier
-		Audio audio = new Audio(args[0]) ; 
-		double[] signal = audio.getSignal() ; 
-		double fe = audio.getFe(); 
 		
-		// dï¿½but de la partie transcription
-		int p = (int)(0.5*fe) ; 
-		int n = (int)(0.02*fe) ; 
-		double[][] notes = Notes.notes(signal, fe, n, p) ; 
-		System.out.println("fin de la partie transcription");
-		Play.jouer(notes);
+//		Audio audio = new Audio(args[0]) ;
+//		double[] signal = audio.getSignal() ; 
+//		double fe = audio.getFe(); 
+//		
+//		int p = (int)(0.3*fe) ;
+//		int n = (int)(0.009*fe) ;
+//		ArrayList<Integer> locations = TransientDetector.locations(signal, n, p) ; 
+//		double[] transients = new double[signal.length] ; 
+//		for (int i : locations) transients[i] = 1 ; 
+//		Visualizer.superpoze(signal,transients, fe);
 		
-		
-		// dï¿½but de la partie accompagnement
+		double[][] notes = Transcribe.transcribe(args[0]) ; 
 		Harmonize.harmonize(notes);
-		// fin de la partie accompagnement
 		
-		// dï¿½but de la partie synthï¿½se 
-		// fin de la partie synthï¿½se
+
+		
 
 		
 	}

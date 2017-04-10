@@ -1,43 +1,43 @@
-package tonalité;
+package tonalit�;
 
 public class Trompette {
 
-	public static double[] jouer_note(double fréquence, double durée)
+	public static double[] jouer_note(double frequence, double duree)
 	{
-		double fv = 4; // fréquence vibrato
+		double fv = 4; // frequence vibrato
 		double a =0.01; // excursion du vibrato
 		int Fe = 44100;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
-		int numFrames = (int) (durée * Fe);
+		int numFrames = (int) (duree * Fe);
 		
 		double[] m = new double[numFrames];
 		
 		for(int i=0;i<numFrames;i++)
 		{
-			m[i]=5*fréquence;
+			m[i]=5*frequence;
 		}
 		
 		double[] f = new double[numFrames]; 
 		
 		for(int i=0;i<numFrames;i++)
 		{
-			f[i]=fréquence;
+			f[i]=frequence;
 		}
 		
-		double[] x1 = OscFm.jouer(f, durée, m);
+		double[] x1 = OscFm.jouer(f, duree, m);
 		
 		
 		for(int i=0;i<numFrames;i++)
 		{
 			double t= i*Te;
-			x1[i]=x1[i]*Enveloppe.enveloppe_ADSR(t, durée,0.5)+fréquence;
+			x1[i]=x1[i]*Enveloppe.enveloppe_ADSR(t, duree,0.5)+frequence;
 		}
 		
 		for(int i=0;i<numFrames;i++)
 		{
 			double t= i*Te;
-			x1[i]=x1[i]*(1+Enveloppe.enveloppe_vibrato(t, durée)*Math.sin(2*Math.PI*fv*t));
+			x1[i]=x1[i]*(1+Enveloppe.enveloppe_vibrato(t, duree)*Math.sin(2*Math.PI*fv*t));
 		}
 		
 		double[] m2 = new double[numFrames]; 
@@ -49,15 +49,15 @@ public class Trompette {
 		for(int i=0;i<numFrames;i++)
 		{
 			double t= i*Te;
-			m2[i]=m2[i]*(1+Enveloppe.enveloppe_vibrato(t, durée)*Math.sin(2*Math.PI*fv*t));
+			m2[i]=m2[i]*(1+Enveloppe.enveloppe_vibrato(t, duree)*Math.sin(2*Math.PI*fv*t));
 		}
 		
-		double[] s = OscFm.jouer(x1, durée, m2);
+		double[] s = OscFm.jouer(x1, duree, m2);
 		
 		for(int i=0;i<numFrames;i++)
 		{
 			double t = i*Te;
-			s[i]=s[i]*Enveloppe.enveloppe_ADSR(t, durée,0.5);
+			s[i]=s[i]*Enveloppe.enveloppe_ADSR(t, duree,0.5);
 		}
 		
 		return s;
@@ -92,7 +92,7 @@ public class Trompette {
 }
 /*
 
-function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> amplitude du sinus modulant 
+function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> duree,  m0-> amplitude du sinus modulant 
     
    Te=1/Fe; // temps echantillonage
    
@@ -132,7 +132,7 @@ function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> ampli
     
    //sound(s,Fe);
     
-   // amelioration possible => Jitter, cuivrage, shéma plus complexe de l'instrument é vent
+   // amelioration possible => Jitter, cuivrage, shema plus complexe de l'instrument e vent
 endfunction
 
 

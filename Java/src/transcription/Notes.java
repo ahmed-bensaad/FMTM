@@ -2,9 +2,7 @@ package transcription;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.* ; 
-import javax.sound.*;
-import javax.sound.sampled.*;
+
 
 public class Notes {
 	
