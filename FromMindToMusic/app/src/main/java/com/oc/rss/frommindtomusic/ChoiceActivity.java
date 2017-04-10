@@ -45,16 +45,6 @@ public class ChoiceActivity extends AppCompatActivity {
 
         });
 
-        Button style= (Button) findViewById(R.id.style);
-        style.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentS = new Intent(ChoiceActivity.this,StyleActivity.class);
-                startActivity(intentS);
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-            }
-
-        });
     }
     static boolean f=false;
     @Override

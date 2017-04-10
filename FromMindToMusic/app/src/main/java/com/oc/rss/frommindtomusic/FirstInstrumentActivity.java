@@ -23,10 +23,6 @@ public class FirstInstrumentActivity extends AppCompatActivity {
         instruments.add("Bass");
         instruments.add("Trumpet");
         instruments.add("Piano");
-        instruments.add("Violon");
-        instruments.add("Trompette");
-        instruments.add("Clarinette");
-        instruments.add("Sabre laser");
 
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
