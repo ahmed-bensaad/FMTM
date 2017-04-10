@@ -84,8 +84,7 @@ public class RecordActivity extends AppCompatActivity {
                         i++;
 
 
-                        final Toast a = Toast.makeText(RecordActivity.this, "Recording",
-                                Toast.LENGTH_SHORT);
+                        final Toast a = Toast.makeText(RecordActivity.this, "Recording", Toast.LENGTH_SHORT);
                         a.show();
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
