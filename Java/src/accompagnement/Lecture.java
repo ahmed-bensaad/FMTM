@@ -8,7 +8,7 @@ public class Lecture {
 		double x=Math.log(f/440)/Math.log(Math.pow(2.0,(1.0/12.0)));
 		int y= (int) (Math.round(x) + 45) ;
 		int oct = (int) (y/12) ;
-		int m = y% 12;
+		int m = (y%12 +12)%12;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		String n = G[m];
 		String[] d =  {n, Integer.toString(oct)};

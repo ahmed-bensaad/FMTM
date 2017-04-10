@@ -25,7 +25,8 @@ public class Tests {
 //		Visualizer.superpoze(signal,transients, fe);
 		
 		double[][] notes = Transcribe.transcribe(args[0]) ; 
-		Harmonize.harmonize(notes);
+		//Play.jouer(notes);
+		double[][] harmonized = Harmonize.harmonize(notes);
 		
 
 		
