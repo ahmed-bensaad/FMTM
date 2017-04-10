@@ -1,4 +1,4 @@
-package Body.tonalité ;
+package Body.tonalité;
 
 
 public class Enveloppe {
@@ -51,6 +51,30 @@ public class Enveloppe {
 			return m;
 		}
 	}
+	public static double enveloppe_piano(double t, double duree){
+		double a = 0.02;
+		double d = 0.02;
+		double s = 0.75;
+		double r = 0.03;
+
+		if(0<=t && t<a)
+		{
+			return 1.0/a*t;
+		}
+		else if(a<=t && t<(a+d))
+		{
+			return 1.0-(1.0-s)/d*(t-a);
+		}
+		else if((a+d)<=t && t<(duree))
+		{
+			return s;
+		}
+		else
+		{
+			return s-s/r*(t-duree);
+		}
+	}
+	
 	
 	public static double enveloppe_basse(double d,double t,double m)
 	{

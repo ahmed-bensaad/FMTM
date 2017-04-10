@@ -4,7 +4,7 @@ public class Trompette {
 
 	public static double[] jouer_note(double fréquence, double durée)
 	{
-		double fv = 4; // fr�quence vibrato
+		double fv = 4; // fréquence vibrato
 		double a =0.01; // excursion du vibrato
 		int Fe = 44100;
 		double Te = 1.0/Fe;
@@ -92,7 +92,7 @@ public class Trompette {
 }
 /*
 
-function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> dur�e,  m0-> amplitude du sinus modulant 
+function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> durée,  m0-> amplitude du sinus modulant 
     
    Te=1/Fe; // temps echantillonage
    
@@ -132,7 +132,7 @@ function [s]= trompette(fp,fm,Fe,d,m0) // fp -> hauteur, d-> dur�e,  m0-> ampl
     
    //sound(s,Fe);
     
-   // amelioration possible => Jitter, cuivrage, sh�ma plus complexe de l'instrument � vent
+   // amelioration possible => Jitter, cuivrage, shéma plus complexe de l'instrument é vent
 endfunction
 
 
