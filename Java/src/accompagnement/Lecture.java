@@ -5,7 +5,7 @@ public class Lecture {
 
 	public static String[] note(double f)
 	{
-		double x=Math.log(f/440)/Math.log(Math.pow(2,(1/12)));
+		double x=Math.log(f/440)/Math.log(Math.pow(2.0,(1.0/12.0)));
 		int y= (int) (Math.round(x) + 45) ;
 		int oct = Math.floorDiv(y,12);
 		int m = y% 12;
@@ -27,13 +27,13 @@ public class Lecture {
 		int o = Integer.parseInt(oct);
 		int l=0;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
-		for(int j=0 ; j<14 ; j++)
+		for(int j=0 ; j<12 ; j++)
 		{
 			if(G[j].equals(note)){
 				l=j;
 			}
 		}
-		double r = Math.pow(2, 1/12);
+		double r = Math.pow(2.0, 1.0/12.0);
 		double f = 440*Math.pow(r, o*12+l-45);
 		return f;
 
@@ -43,11 +43,11 @@ public class Lecture {
 
 		String[] GM ={"do", "sol", "re", "la", "mi", "si", "fa#", "reb", "lab", "mib", "sib", "fa"};
 		String[] arm={"fa", "do", "sol", "re", "la", "mi", "si"};
-		int i=-1;
-		for(int j=0 ; j<14 ; j++)
+		int i=0;
+		for(int j=0 ; j<12 ; j++)
 		{
 			if(GM[j].equals(ton)){
-				i=j-1;
+				i=j;
 			}
 		}
 
@@ -58,7 +58,7 @@ public class Lecture {
 		    	armf[m] = arm[m];
 		    }
 		    int h = 0;
-		    for(int k=0 ; k<i+1 ; k++)
+		    for(int k=0 ; k<i ; k++)
 			{
 				if(armf[k].equals(note)){
 					h=1;
@@ -77,7 +77,7 @@ public class Lecture {
 		    i=12-i;
 		    String[] armf= new String[i];
 		    for(int m=0; m<i; m++){
-		    	armf[m]=arm[7-m];
+		    	armf[m]=arm[6-m];
 		    }
 		    int h = 0;
 		    for(int k=0 ; k<i+1 ; k++)
