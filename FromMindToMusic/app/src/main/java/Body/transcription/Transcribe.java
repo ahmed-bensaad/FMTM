@@ -10,8 +10,8 @@ public class Transcribe {
 		double[] signal = audio.getSignal() ; 
 		double fe = audio.getFe(); 
 		
-		int p = (int)(0.5*fe) ;
-		int n = (int)(0.02*fe) ; 
+		int p = (int)(0.3*fe) ;
+		int n = (int)(0.02*fe) ;
 		double[][] notes = Notes.notes(signal, fe, n, p) ;
         return notes;
 
