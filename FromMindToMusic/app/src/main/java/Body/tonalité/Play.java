@@ -9,13 +9,13 @@ import java.io.*;
 
 public class Play {
 
-		public static void jouer(double[][] notes){
+		public static void jouer(double[][] notes,String ch){
 
 			
 			//exemple simple
 			double[] N = notes[1];  // liste 
 			double[] R = notes[0]; // liste 
-			
+			double[] y=null;
 			try
 			{
 				int sampleRate = 44100;		// Samples per second
@@ -35,7 +35,18 @@ public class Play {
 				// Create a buffer of 100 frames
 				double[][] buffer = new double[2][100];
 				//double[] y = Trompette.jouer(N2,D);
-				double[] y = Trompette.jouer(N,R); 
+				switch(ch){
+					case "Trumpet":{
+						 y = Trompette.jouer(N,R);
+						break;}
+					case "Bass":{
+						 y = Basse.jouer(N,R,1);
+						break;}
+					case "Piano":{
+						 y = Piano.jouer(N,R);
+						break;}
+
+				}
 				// Initialise a local frame counter
 				long frameCounter = 0;
 				int k = 0;
