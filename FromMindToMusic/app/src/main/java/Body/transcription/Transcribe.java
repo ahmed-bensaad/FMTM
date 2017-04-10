@@ -1,6 +1,7 @@
 package Body.transcription;
 
 import Body.audio.* ;
+import Body.accompagnement.* ;
 
 public class Transcribe {
 
