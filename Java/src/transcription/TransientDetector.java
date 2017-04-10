@@ -1,6 +1,6 @@
 package transcription;
 
-import outils.* ; 
+import outils.* ;
 import java.util.*;
 
 public class TransientDetector {
@@ -60,6 +60,8 @@ public class TransientDetector {
 	
 	public static final ArrayList<Integer> findpeaks(double[] input, int p){
 		
+		double supremeMax  = Utilities.max(input) ; 
+		
 		ArrayList<Integer> rawMax = new ArrayList<Integer>() ; 
 		ArrayList<Integer> filteredMax = new ArrayList<Integer>() ; 
 		
@@ -100,7 +102,7 @@ public class TransientDetector {
 				if (input[i] > localMax) localMax = input[i] ; 
 			}
 						
-			if(input[m] == localMax) filteredMax.add(m) ; 
+			if(input[m] == localMax && input[m] > 0.05*supremeMax) filteredMax.add(m) ; 
 			
 		}
 		

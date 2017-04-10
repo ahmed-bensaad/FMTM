@@ -1,4 +1,4 @@
-package tonalitÃ©;
+package tonalité;
 
 
 public class Enveloppe {

@@ -1,8 +1,11 @@
 package accompagnement;
+
+
 import audio.*;
 import java.io.BufferedReader;
 import java.io.File;
-import tonalitÃ©.*;
+import tonalité.*;
+
 public class Harmonize {
 	public static double[][] harmonize(double[][] liste){
 		int n = liste.length;

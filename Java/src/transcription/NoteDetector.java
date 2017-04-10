@@ -1,5 +1,5 @@
 package transcription;
-import outils.* ; 
+import outils.* ;
 
 
 public class NoteDetector {

@@ -1,7 +1,6 @@
-package tonalitÃ©;
-import audio.* ; 
-
-import java.io.*;
+package tonalité;
+import audio.* ;
+import java.io.* ; 
 
 public class Play {
 
@@ -26,7 +25,7 @@ public class Play {
 				long numFrames = (long)(duration * sampleRate);
 
 				// Create a wav file with the name specified as the first argument
-				WavFile wavFile = WavFile.newWavFile(new File("monWav2.wav"), 2, numFrames, 16, sampleRate);
+				WavFile wavFile = WavFile.newWavFile(new File("melody.wav"), 2, numFrames, 16, sampleRate);
 
 				// Create a buffer of 100 frames
 				double[][] buffer = new double[2][100];
