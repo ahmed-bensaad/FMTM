@@ -7,7 +7,7 @@ public class Lecture {
 	{
 		double x=Math.log(f/440)/Math.log(Math.pow(2,(1/12)));
 		int y= (int) (Math.round(x) + 45) ;
-		int oct = (int)(y/12);
+		int oct = Math.floorDiv(y,12);
 		int m = y% 12;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		String n = G[m];
@@ -51,7 +51,7 @@ public class Lecture {
 			}
 		}
 
-		String notef = null;
+		String notef="";
 		if (i<=6){
 		    String []armf= new String[i];
 		    for(int m=0; m<i; m++){
