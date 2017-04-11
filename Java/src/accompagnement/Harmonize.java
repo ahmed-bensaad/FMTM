@@ -11,7 +11,7 @@ public class Harmonize {
 		
 		int n = liste[0].length;
 		double[][] accord = new double[4][n];
-		double[] f = liste[0];
+		double[] f = liste[1];
 		String [][] notes = Lecture.frequenceToNote(f);
 		String ton = Lecture.tonaliteMaj(notes);
 		String [][]acc;
@@ -21,7 +21,7 @@ public class Harmonize {
 			acc = Accord.accord(ton, notes[i][0], notes[i][1]);
 			accord[1][i]= Lecture.noteToFrequence(acc[0][0], acc[0][1]);
 			accord[2][i]= Lecture.noteToFrequence(acc[1][0], acc[1][1]);
-			accord[3][i]=Lecture.noteToFrequence(acc[2][0], acc[2][1]);
+			accord[3][i]= Lecture.noteToFrequence(acc[2][0], acc[2][1]);
 		}
 		double[] N = accord[0];
 		double[] a1 = accord[1];
@@ -47,10 +47,10 @@ public class Harmonize {
 			double[][] buffer = new double[2][100];
 			//double[] y = Trompette.jouer(N2,D);
 			double[] y1 = Trompette.jouer(a1,N);
-			double[] y2 =Piano.jouer(a1,N);
+			double[] y2 = Piano.jouer(a1,N);
 			double[] y3 = Piano.jouer(a2,N);
-			double[] y4= Piano.jouer(a3,N);
-			double[] y= new double[y1.length];
+			double[] y4 = Piano.jouer(a3,N);
+			double[] y = new double[y1.length];
 			for(int i=0; i<n; i++){
 				y[i]=y1[i]+y2[i]+y3[i]+y4[i];
 			}

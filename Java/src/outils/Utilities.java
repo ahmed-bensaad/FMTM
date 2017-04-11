@@ -21,7 +21,7 @@ public class Utilities {
 
 	}
 	
-	public static final double[] fft(double input[]) {
+	public static final double[] absFft(double input[]) {
 
 	    //fft works on data length = some power of two
 	    int fftLength;
@@ -46,7 +46,74 @@ public class Utilities {
 	    //apply fft on input
 	    Complex[] complexTransInput = fft.transform(tempInput, TransformType.FORWARD);
 
-	    for (int i = 0; i < Math.floor(complexTransInput.length/2); i++) {
+	    return abs(complexTransInput,tempInput) ; 
+	}
+	
+	public static final Complex[] fft(double input[]) {
+
+	    //fft works on data length = some power of two
+	    int fftLength;
+	    int length = input.length;  //initialized with input's length
+	    int power = 0;
+	    while (true) {
+	        int powOfTwo = (int) Math.pow(2, power);  //maximum no. of values to be applied fft on
+
+	        if (powOfTwo == length) {
+	            fftLength = powOfTwo;
+	            break;
+	        }
+	        if (powOfTwo > length) {
+	            fftLength = (int) Math.pow(2, (power - 1));
+	            break;
+	        }
+	        power++;
+	    }
+
+	    double[] tempInput = Arrays.copyOf(input, fftLength);
+	    FastFourierTransformer fft = new FastFourierTransformer(DftNormalization.STANDARD);
+	    //apply fft on input
+	    Complex[] complexTransInput = fft.transform(tempInput, TransformType.FORWARD);
+
+	    return complexTransInput ;
+	    
+	}
+	
+	public static final Complex[] ifft(Complex input[]) {
+
+	    //fft works on data length = some power of two
+	    int fftLength;
+	    int length = input.length;  //initialized with input's length
+	    int power = 0;
+	    while (true) {
+	        int powOfTwo = (int) Math.pow(2, power);  //maximum no. of values to be applied fft on
+
+	        if (powOfTwo == length) {
+	            fftLength = powOfTwo;
+	            break;
+	        }
+	        if (powOfTwo > length) {
+	            fftLength = (int) Math.pow(2, (power - 1));
+	            break;
+	        }
+	        power++;
+	    }
+
+	    Complex[] tempInput = Arrays.copyOf(input, fftLength);
+	    FastFourierTransformer fft = new FastFourierTransformer(DftNormalization.STANDARD);
+	    //apply fft on input
+	    Complex[] complexTransInput = fft.transform(tempInput, TransformType.INVERSE);
+
+	    return complexTransInput ; 
+	}
+	
+	public static final Complex[] xcorr(double[] input){
+		
+		return ifft(multiply(fft(input),fft(oppose(input)))) ; 
+	}
+
+	public static final double[] abs(Complex[] complexTransInput, double[] tempInput){
+		
+		for (int i = 0; i < Math.floor(complexTransInput.length/2); i++) {
 	        double real = (complexTransInput[i].getReal());
 	        double img = (complexTransInput[i].getImaginary());
 
@@ -117,6 +184,42 @@ public class Utilities {
 		double M = Double.MIN_VALUE ; 
 		for (int i = 0 ; i < input.length ; i++) if (input[i] > M) M = input[i] ; 
 		return M ; 
+		
+	}
+	
+	public static final Complex[] multiply(Complex[] input1,Complex[] input2){
+		
+		Complex[] result = new Complex[input1.length] ; 
+		for (int i = 0 ; i < result.length ; i++) result[i] = input1[i].multiply(input2[i]) ; 
+		return result ; 
+	}
+	
+	public static final double[] oppose(double[] input){
+		
+		double[] result = new double[input.length] ; 
+		for (int i = 0 ; i < result.length ; i++) result[i] = (-1)*input[i]; 
+		return result ; 
+		}
+		
+	public static final double[] getReal(Complex[] input){
+	
+		double[] result = new double[input.length] ; 
+		for (int i = 0 ; i < result.length ; i++) result[i] = input[i].getReal() ; 
+		return result ; 
+	
+	}
+	
+	public static final int argMax(ArrayList<Double> input){
+		
+		int arg = 0  ; 
+		double M = Double.MIN_VALUE ; 
+		for (int i = 0 ; i < input.size() ; i++){
+			if (input.get(i) > M){
+				M = input.get(i) ; 
+				arg = i ; 
+			}
+		}
+		return arg ; 
 		
 	}
 }
