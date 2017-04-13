@@ -5,26 +5,20 @@ public class Tempo {
 	public static double estfreqautoco(double[] s,double fe)
 	{
 		ArrayList <Double> Autoco_s = new ArrayList <Double>() ;
+		
 		double moy_s = 0.0 ;
-		for(int i = 0 ; i< s.length ; i++)
-		{
-			moy_s = moy_s + s[i];
-		}
+		for(int i = 0 ; i< s.length ; i++) moy_s = moy_s + s[i];
 		moy_s = moy_s / s.length;
-		for(int i = 0 ; i < s.length ;i++)
-		{   
+		
+		for(int i = 0 ; i < s.length ;i++){   
 			Autoco_s.add(0.0) ;
-			for(int j = 0 ; i+j < s.length; j++)
-		{
-		Autoco_s.set(i, (s[j] - moy_s) * (s[j+i] - moy_s) + Autoco_s.get(i));
-		}
+			for(int j = 0 ; i+j < s.length; j++){
+				Autoco_s.set(i, (s[j] - moy_s) * (s[j+i] - moy_s) + Autoco_s.get(i));
+			}
 		}
 		double R0 = Autoco_s.get(0);
-		for(int i = 0 ; i< s.length; i++)
-		{
-				Autoco_s.set(i, Autoco_s.get(i)/R0);
+		for(int i = 0 ; i< s.length; i++) Autoco_s.set(i, Autoco_s.get(i)/R0);
 				/*System.out.println("Autoco_s["+ i +"] ="+ Autoco_s.get(i));*/
-		}
 
 
 
@@ -38,8 +32,7 @@ public class Tempo {
 		int indml;
 		indml = 0;
 
-		for(int i = 0; i < K - 1; i++)
-		{
+		for(int i = 0; i < K - 1; i++){
 			D1.add(0.0);
 			D1.set(i, Autoco_s.get(i + 1) - Autoco_s.get(i));
 			D1.set(i, Math.signum(D1.get(i)));
@@ -47,8 +40,7 @@ public class Tempo {
 		}
 
 
-		for(int i = 0; i < K - 2; i++)
-		{
+		for(int i = 0; i < K - 2; i++){
 			D2.add(0.0);
 			D2.set(i, D1.get(i + 1) - D1.get(i));
 			/*System.out.println("D2["+ i +"] ="+ D2.get(i));*/
@@ -58,8 +50,7 @@ public class Tempo {
 		int k = 0;
 		ArrayList <Integer> Indcand = new ArrayList<Integer>();
 
-		for(int i = 0; i < K-2; i++)
-		{
+		for(int i = 0; i < K-2; i++){
 			if(D2.get(i) == -2)
 
 			{ 

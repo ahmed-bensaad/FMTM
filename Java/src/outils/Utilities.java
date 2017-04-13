@@ -123,6 +123,13 @@ public class Utilities {
 	    return tempInput;
 	}
 		
+	public static final double[] abs(Complex[] input){
+		double output[] = new double[input.length];
+		for (int i = 0 ; i < input.length ; i++) output[i] = input[i].abs() ; 
+		return output ; 
+		
+		
+	}
 	public static final void positivePart(double[] input){
 		for(int i = 0 ; i < input.length ; i++) input[i] = max(input[i], 0) ; 
 	}
@@ -222,6 +229,7 @@ public class Utilities {
 		return arg ; 
 		
 	}
+	
 }
 
 

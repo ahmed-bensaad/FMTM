@@ -10,6 +10,8 @@ public class Harmonize2 {
 		
 		double[] durations = notes[0] ; 
 		double[] frequencies = notes[1] ; 
+//		double[] frequencies = new double[notes[1].length] ; 
+//		for (int i = 0 ; i < frequencies.length ; i ++) frequencies[i] = Lecture.noteToFrequence(Lecture.note(notes[1][i])) ; 
 
 		ArrayList<Chord> chords = new ArrayList<Chord>() ;
 		
@@ -18,7 +20,7 @@ public class Harmonize2 {
 		
 		for (int i = 0 ; i < numChords*4 ; i = i+4){
 			double[] notesChord = {frequencies[i],frequencies[i+1],frequencies[i+2],frequencies[i+3]} ;
-			double durationChord = notes[0][i]+notes[0][i+1]+notes[0][i+2]+notes[0][i+3] ; 
+			double durationChord = durations[i]+durations[i+1]+durations[i+2]+durations[i+3] ; 
 			Chord chord = new Chord(notesChord,durationChord) ; 
 			chords.add(chord) ; 
 			}
@@ -42,7 +44,9 @@ public class Harmonize2 {
 	
 	public static final void harmonize2(double[][] notes){
 		
-		double[] N = notes[1] ;  // liste 
+		double[] N = notes[1] ; 
+//		double[] N = new double[notes[1].length] ; 
+//		for (int i = 0 ; i < N.length ; i ++) N[i] = Lecture.noteToFrequence(Lecture.note(notes[1][i])) ;// liste 
 		double[] R = notes[0] ; // liste 
 		
 		ArrayList<Chord> chords = divideInChords(notes) ; 
@@ -91,11 +95,11 @@ public class Harmonize2 {
 			double[][] buffer = new double[2][100];
 			//double[] y = Trompette.jouer(N2,D);
 			 
-			double[] y = Trompette.jouer(N,R); 
-			double[] y1 = Basse.jouer(N1,R1,1); 
-			double[] y2 = Basse.jouer(N2,R2,1); 
-			double[] y3 = Basse.jouer(N3,R3,1); 
-			double[] y4 = Basse.jouer(N4,R4,1); 
+			double[] y = Basse.jouer(N,R,3); 
+			double[] y1 = Trompette.jouer(N1,R1); 
+			double[] y2 = Trompette.jouer(N2,R2); 
+			double[] y3 = Trompette.jouer(N3,R3); 
+			double[] y4 = Trompette.jouer(N4,R4); 
 			
 			// Initialise a local frame counter
 			long frameCounter = 0;
@@ -113,8 +117,8 @@ public class Harmonize2 {
 					//buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / sampleRate);
 					//buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / sampleRate);
 					//System.out.println(k);
-					buffer[0][s] = y[k]/4 + y1[k]/5 +y2[k]/5 + y3[k]/5 + y4[k]/5;
-					// 
+					buffer[0][s] = y[k]/5   ;
+					//y1[k]/5 +y2[k]/5 + y3[k]/5 + y4[k]/5
 					//System.out.println(y[k]);
 					k++;
 				}
