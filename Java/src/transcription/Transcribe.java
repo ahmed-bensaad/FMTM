@@ -13,8 +13,8 @@ public class Transcribe {
 		
 		int p = (int)(0.3*fe) ;
 		int n = (int)(0.008*fe) ;
-		double[][] notes = Notes.notes(signal, fe, n, p) ;
-        return notes;
+		
+		return Notes.notes(signal, fe, n, p) ;
 
 		
 

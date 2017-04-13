@@ -11,8 +11,6 @@ import org.apache.commons.math3.transform.TransformType;
 
 public class Utilities {
 	
-	
-
 	public static final double[] deriv(double[] input){
 		
 		double[] output = new double[input.length-1]; 
@@ -106,9 +104,9 @@ public class Utilities {
 	    return complexTransInput ; 
 	}
 	
-	public static final Complex[] xcorr(double[] input){
+	public static final double[] xcorr(double[] input){
 		
-		return ifft(multiply(fft(input),fft(oppose(input)))) ; 
+		return getReal(ifft(multiply(fft(input),conjugate(fft(input))))) ; 
 	}
 
 	public static final double[] abs(Complex[] complexTransInput, double[] tempInput){
@@ -130,6 +128,7 @@ public class Utilities {
 		
 		
 	}
+	
 	public static final void positivePart(double[] input){
 		for(int i = 0 ; i < input.length ; i++) input[i] = max(input[i], 0) ; 
 	}
@@ -186,6 +185,20 @@ public class Utilities {
 		
 	}
 	
+	public static final int argMin(double[] input){
+		
+		int arg = 0  ; 
+		double M = Double.MAX_VALUE ; 
+		for (int i = 0 ; i < input.length ; i++){
+			if (input[i] < M){
+				M = input[i] ; 
+				arg = i ; 
+			}
+		}
+		return arg ; 
+		
+	}
+	
 	public static final double max(double[] input){
 		
 		double M = Double.MIN_VALUE ; 
@@ -201,10 +214,10 @@ public class Utilities {
 		return result ; 
 	}
 	
-	public static final double[] oppose(double[] input){
+	public static final Complex[] conjugate(Complex[] input){
 		
-		double[] result = new double[input.length] ; 
-		for (int i = 0 ; i < result.length ; i++) result[i] = (-1)*input[i]; 
+		Complex[] result = new Complex[input.length] ; 
+		for (int i = 0 ; i < result.length ; i++) result[i] = input[i].conjugate(); 
 		return result ; 
 		}
 		
@@ -228,6 +241,24 @@ public class Utilities {
 		}
 		return arg ; 
 		
+	}
+	
+	public static final double minDistance(double from, ArrayList<Double> to){
+		
+		double[] distances = new double[to.size()] ; 
+		for (int i = 0 ; i < to.size() ; i++) distances[i] = abs(to.get(i)-from) ; 
+		
+		int argMin = argMin(distances) ; 
+		return to.get(argMin) ; 
+	
+		
+		
+		
+	}
+	
+	public static final double abs(double a){
+		if (a<0) return -a ; 
+		return a ; 
 	}
 	
 }

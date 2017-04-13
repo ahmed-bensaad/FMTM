@@ -68,7 +68,7 @@ public class TransientDetector {
 		double[] dInput = Utilities.deriv(input) ; 
 		double[] d2Input = Utilities.deriv(dInput) ; 
 		
-		for (int i = 1 ; i < dInput.length ; i++) if (dInput[i-1]*dInput[i] < 0 && d2Input[i] < 0) rawMax.add(i) ; 
+		for (int i = 1 ; i < dInput.length  ; i++) if (dInput[i-1]*dInput[i] < 0 && d2Input[i] < 0) rawMax.add(i) ; 
 		
 		int L = input.length - 1 ; 
 		

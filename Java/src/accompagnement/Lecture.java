@@ -23,13 +23,13 @@ public class Lecture {
 		return notes;
 
 	}
-	public static double noteToFrequence(String[] noteOct){
-		int o = Integer.parseInt(noteOct[1]);
+	public static double noteToFrequence(String note,String oct){
+		int o = Integer.parseInt(oct);
 		int l=0;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		for(int j=0 ; j<12 ; j++)
 		{
-			if(G[j].equals(noteOct[0])){
+			if(G[j].equals(note)){
 				l=j;
 			}
 		}

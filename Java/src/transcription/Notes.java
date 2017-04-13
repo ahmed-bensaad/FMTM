@@ -2,7 +2,7 @@ package transcription;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import divers.* ; 
 
 public class Notes {
 	
