@@ -1,16 +1,17 @@
 package accompagnement;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Chord {
 	
-	private double[] notes ; 
+	private ArrayList<Double> notes ; 
 	private double duration ;
 	
-	public double[] getNotes() {
+	public ArrayList<Double> getNotes() {
 		return notes;
 	}
-	public void setNotes(double[] notes) {
+	public void setNotes(ArrayList<Double> notes) {
 		this.notes = notes;
 	}
 	public double getDuration() {
@@ -19,15 +20,16 @@ public class Chord {
 	public void setDuration(double duration) {
 		this.duration = duration;
 	}
-	public Chord(double[] notes, double duration) {
+	public Chord(ArrayList<Double> notes, double duration) {
 		super();
 		this.notes = notes;
 		this.duration = duration;
 	}
 	@Override
 	public String toString() {
-		return "Chord [notes=" + Arrays.toString(notes) + ", duration=" + duration + "]";
-	} 
+		return "Chord [notes=" + notes + ", duration=" + duration + "]";
+	}
+
 	
 	
 	

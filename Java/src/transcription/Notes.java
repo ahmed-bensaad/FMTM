@@ -6,7 +6,7 @@ import divers.* ;
 
 public class Notes {
 	
-	public static double[][] notes(double[] signal, double fe, int n, int p){
+	public static Transcript notes(double[] signal, double fe, int n, int p){
 
 
 		// Gets the list of musical events and the number of these events 
@@ -31,7 +31,7 @@ public class Notes {
 				arrayOutput[0][i] = output2.get(i).get(0) ; 
 				arrayOutput[1][i] = output2.get(i).get(1) ; 
 			}
-			return arrayOutput ; 
+			return new Transcript(arrayOutput,tr) ;
 			
 		
 
@@ -53,7 +53,7 @@ public class Notes {
 		
 	}
 
-	private static final ArrayList<ArrayList<Double>> convertInDurations(ArrayList<ArrayList<Double>> input, double[] signal, double fe){
+	public static final ArrayList<ArrayList<Double>> convertInDurations(ArrayList<ArrayList<Double>> input, double[] signal, double fe){
 
 		ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>(input.size()) ;
 		double end = signal.length/fe ; 

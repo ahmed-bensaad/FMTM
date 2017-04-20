@@ -23,13 +23,13 @@ public class Lecture {
 		return notes;
 
 	}
-	public static double noteToFrequence(String note,String oct){
-		int o = Integer.parseInt(oct);
+	public static double frequence(String [] note){
+		int o = Integer.parseInt(note[1]);
 		int l=0;
 		String[] G={"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		for(int j=0 ; j<12 ; j++)
 		{
-			if(G[j].equals(note)){
+			if(G[j].equals(note[0])){
 				l=j;
 			}
 		}
@@ -38,6 +38,21 @@ public class Lecture {
 		return f;
 
 	}
+	public static double[] noteToFrequence(String [][] notes){
+		int n = notes.length;
+		double [] freq = new double[n];
+		for(int i = 0; i<n; i++){
+			freq[i]=frequence(notes[i]);
+		
+		}
+		return freq;
+	}
+	
+	public static double[] notesToFrequencies(double[] frequencies){
+		
+		return noteToFrequence(frequenceToNote(frequencies));
+	}
+	
 	public static String concateneNnT(String note, String ton){
 		String[] n={"do", "do#", "re", "re#", "mi", "mi#", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 

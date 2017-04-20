@@ -82,7 +82,7 @@ public class Trompette {
 			
 			for(int j =0; j<y.length;j++)
 			{
-				s[k]=y[j];
+				if (k < s.length) s[k]=y[j] ;
 				k++;
 			}
 			

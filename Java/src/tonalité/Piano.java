@@ -4,11 +4,11 @@ package tonalité;
 public class Piano {
 	public static double[] jouer_note(double frequence, double duree)
 	{
-		double alpha0 = 0.9;
+		double alpha0 = 1;
 		double sigmaalpha = 0.1;
-		double sigmaphi = 10.0;
+		double sigmaphi = 1;
 		double phi0 = 10.0;
-		double fm = 5.0;
+		double fm = 5;
 		double e =0;
 		int Fe = 44100;
 		double Te = 1.0/Fe;
@@ -44,7 +44,7 @@ public class Piano {
 		}
 		for(int i=0;i<numFrames;i++)
 		{
-			y[i]=y[i]*Enveloppe.enveloppe_piano(i*Te, duree);
+			y[i]=0.5*y[i]*Enveloppe.enveloppe_ADSR(i*Te, duree,0.5);
 		}
 		return y;
 	}
@@ -67,12 +67,11 @@ public class Piano {
 			
 			for(int j =0; j<y.length;j++)
 			{
-				s[k]=y[j];
+				if (k < s.length) s[k]=y[j];
 				k++;
 			}
 			
 		}
 		return s;
 	}
-
 }

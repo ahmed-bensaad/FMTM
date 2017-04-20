@@ -63,19 +63,26 @@ public class Basse {
 			duration=duration+R[i];
 		}
 		
-		int numFrames =  (int) (duration*fe); 
+		int numFrames =  (int) (duration*fe) ; 
 
 		double[] s = new double[numFrames];
-		int k =0;
-		for(int i =0; i<N.length;i++)
+		int k = 0;
+		for(int i = 0 ; i < N.length ; i++)
 		{
 			double[] y=jouer_note(N[i],R[i],d);
 			
-			for(int j =0; j<y.length;j++)
+				
+			
+			for(int j =0; j<y.length ;j++)
 			{
-				s[k]=y[j];
+				if (k < numFrames){
+				s[k]=y[j] ;
 				k++;
+				}
+				
 			}
+			
+			
 			
 		}
 		return s;
