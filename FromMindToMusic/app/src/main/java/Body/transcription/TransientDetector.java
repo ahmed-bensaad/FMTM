@@ -60,13 +60,15 @@ public class TransientDetector {
 	
 	public static final ArrayList<Integer> findpeaks(double[] input, int p){
 		
+		double supremeMax  = Utilities.max(input) ; 
+		
 		ArrayList<Integer> rawMax = new ArrayList<Integer>() ; 
 		ArrayList<Integer> filteredMax = new ArrayList<Integer>() ; 
 		
 		double[] dInput = Utilities.deriv(input) ; 
 		double[] d2Input = Utilities.deriv(dInput) ; 
 		
-		for (int i = 1 ; i < dInput.length ; i++) if (dInput[i-1]*dInput[i] < 0 && d2Input[i] < 0) rawMax.add(i) ; 
+		for (int i = 1 ; i < dInput.length  ; i++) if (dInput[i-1]*dInput[i] < 0 && d2Input[i] < 0) rawMax.add(i) ; 
 		
 		int L = input.length - 1 ; 
 		
@@ -100,7 +102,7 @@ public class TransientDetector {
 				if (input[i] > localMax) localMax = input[i] ; 
 			}
 						
-			if(input[m] == localMax) filteredMax.add(m) ; 
+			if(input[m] == localMax && input[m] > 0.05*supremeMax) filteredMax.add(m) ; 
 			
 		}
 		

@@ -20,7 +20,7 @@ public class Note {
 		this.rythme = rythme;
 		this.octave=octave;
 		
-		double t0 = 0.25 * 60 /Tempo;					// conversion rythme -> durée , ex : noire -> 1s
+		double t0 = 0.25 * 60 /Tempo;					// conversion rythme -> dur�e , ex : noire -> 1s
 		String[] G ={"dc", "c", "cp","n","n+dc","np","vide","b"};
 		
 		int index=0;
@@ -33,7 +33,7 @@ public class Note {
 		}
 		this.durée=t0*(index+1);
 		
-		//conversion note -> fréquence
+		//conversion note -> fr�quence
 		
 		String[] H =  {"do", "do#", "re", "re#", "mi", "fa", "fa#", "sol", "sol#", "la", "la#", "si"};
 		

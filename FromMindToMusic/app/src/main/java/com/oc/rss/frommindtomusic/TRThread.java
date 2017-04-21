@@ -11,13 +11,19 @@ import Body.transcription.*;
 public class TRThread extends Thread {
         private String str;
         static double[][] notes;
+        static ArrayList<Integer> tr ;
+        static double[] signal ;
 
     public TRThread(String str) {
         super();
         this.str = str;
         }
         public void run() {
-            notes=Transcribe.transcribe(str);
+
+            Transcript transcript = Transcribe.transcribe(str) ;
+            notes = transcript.getNotes();
+            tr = transcript.getTr();
+            signal = transcript.getSignal() ;
         }
     }
 

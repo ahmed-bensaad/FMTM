@@ -17,6 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="37dp"
+        android:textSize="26sp"
+        android:textColor="@android:color/white"
         android:text="Harmonized Sound"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -39,4 +41,21 @@
         android:layout_marginEnd="32dp"
         android:layout_alignBottom="@+id/playh"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playh"
+        android:layout_alignStart="@+id/playh"
+        android:layout_marginBottom="57dp"
+        android:text="play" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/stoph"
+        android:layout_alignTop="@+id/button8"
+        android:text="stop" />
 </RelativeLayout>

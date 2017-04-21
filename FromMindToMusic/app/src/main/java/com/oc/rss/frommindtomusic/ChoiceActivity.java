@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import Body.accompagnement.Harmonize;
+import Body.transcription.* ;
 
 public class ChoiceActivity extends AppCompatActivity {
 
@@ -30,7 +30,8 @@ public class ChoiceActivity extends AppCompatActivity {
         harmonize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Harmonize.harmonize(TRThread.notes);
+                HarmonizeChords.harmonize(TRThread.notes,TRThread.signal,TRThread.tr,44100);
+                HarmonizeNotes.harmonize(TRThread.notes) ;
                 Intent In = new Intent(ChoiceActivity.this,HarmonizeActivity.class);
                 startActivity(In);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

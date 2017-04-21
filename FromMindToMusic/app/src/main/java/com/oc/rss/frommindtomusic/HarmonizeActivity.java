@@ -18,7 +18,10 @@ import java.io.IOException;
 public class HarmonizeActivity extends AppCompatActivity {
     String path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/"+"harmoized" +
             "template" + RecordActivity.i + "AudioRecording.wav";
+    String path1=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/"+"harmoized" +
+            "template2" + RecordActivity.i + "AudioRecording.wav";
     MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +38,31 @@ public class HarmonizeActivity extends AppCompatActivity {
             }
         });
         Button stoph = (Button) findViewById(R.id.stoph);
+        stoph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+
+                }
+            }
+        });
+        Button playh2 = (Button) findViewById(R.id.button8);
+        playh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    mediaPlayer.setDataSource(path1);
+                    mediaPlayer.prepare();
+                    mediaPlayer.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                }
+
+        });
+        Button stoph2 = (Button) findViewById(R.id.button9);
         stoph.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

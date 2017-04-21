@@ -2,41 +2,41 @@ package Body.tonalité;
 
 public class Basse {
 
-	public static double[] jouer_note(double fréquence, double durée,int d)
+	public static double[] jouer_note(double frequence, double duree,int d)
 	{
 		double e =0;
 		int Fe = 44100;
 		double Te = 1.0/Fe;
 		// Calculate the number of frames required for specified duration
-		int numFrames = (int) (durée * Fe);
+		int numFrames = (int) (duree * Fe);
 		
 		double[] m = new double[numFrames];
 		
 		for(int i=0;i<numFrames;i++)
 		{
-			m[i]=d*fréquence;
+			m[i]=d*frequence;
 		}
 		
 		double[] f = new double[numFrames];
 		for(int i=0;i<numFrames;i++)
 		{
-			f[i]=fréquence+e;
+			f[i]=frequence+e;
 		}
 		double[] f2 = new double[numFrames];
 		for(int i=0;i<numFrames;i++)
 		{
-			f2[i]=4*fréquence+e;
+			f2[i]=4*frequence+e;
 		}
-		double[] y1 = OscFm.jouer(f, durée, m);
-		double[] y2 = OscFm.jouer(f2, durée, m);
+		double[] y1 = OscFm.jouer(f, duree, m);
+		double[] y2 = OscFm.jouer(f2, duree, m);
 		double[] y3 = new double[numFrames];
 		
 		for(int i = 0 ; i< numFrames;i++)
 		{
 			double t=Te*i;
-			y1[i]= y1[i]*Enveloppe.enveloppe_basse(durée,t,1);
-			y2[i]= y2[i]*Enveloppe.enveloppe_basse(durée,t,1);
-			y3[i]=fréquence+y1[i]+y2[i];
+			y1[i]= y1[i]*Enveloppe.enveloppe_basse(duree,t,1);
+			y2[i]= y2[i]*Enveloppe.enveloppe_basse(duree,t,1);
+			y3[i]=frequence+y1[i]+y2[i];
 		}
 		
 		double[] m2 = new double[numFrames];
@@ -45,10 +45,10 @@ public class Basse {
 		{
 			m2[i]=1;
 		}
-		double[] y4 =OscFm.jouer(y3, durée, m2);
+		double[] y4 =OscFm.jouer(y3, duree, m2);
 		for(int i=0;i<numFrames;i++)
 		{
-			y4[i]=y4[i]*Enveloppe.enveloppe_basse(durée, i*Te, 1);
+			y4[i]=y4[i]*Enveloppe.enveloppe_basse(duree, i*Te, 1);
 		}
 		
 		return y4;
@@ -63,19 +63,26 @@ public class Basse {
 			duration=duration+R[i];
 		}
 		
-		int numFrames =  (int) (duration*fe); 
+		int numFrames =  (int) (duration*fe) ; 
 
 		double[] s = new double[numFrames];
-		int k =0;
-		for(int i =0; i<N.length;i++)
+		int k = 0;
+		for(int i = 0 ; i < N.length ; i++)
 		{
 			double[] y=jouer_note(N[i],R[i],d);
 			
-			for(int j =0; j<y.length;j++)
+				
+			
+			for(int j =0; j<y.length ;j++)
 			{
-				s[k]=y[j];
+				if (k < numFrames){
+				s[k]=y[j] ;
 				k++;
+				}
+				
 			}
+			
+			
 			
 		}
 		return s;
