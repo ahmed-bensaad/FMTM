@@ -2,9 +2,10 @@ package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.SystemClock;
+import android.support.v4.os.AsyncTaskCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -21,12 +23,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+
+import Body.transcription.NoteObject;
+import Body.transcription.NotesList;
 
 import static com.oc.rss.frommindtomusic.RecordActivity.i;
 
 public class ResultActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     Button play,stop;
+    TextView part;
     String AudioSavePathInDevice =
             Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/perm/template"+i+".wav";
 
@@ -34,32 +41,54 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        part=(TextView)findViewById(R.id.part);
 
          play = (Button) findViewById(R.id.button10);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                part.setText("");
                 stop.setEnabled(true);
+                NotesList ntlst = new NotesList();
+                Handler handler=new Handler();
+                final ArrayList<NoteObject> partition = ntlst.getNotesList(TRThread.notes);
+                part.setText(part.getText()+" "+partition.get(0).getNoteAndOct());
+                for (int i = 1; i < partition.size(); i++) {
+                    final int finalI = i;
+                    Runnable r=new Runnable() {
+                        public void run() {
+                            part.setText(part.getText()+" "+partition.get(finalI).getNoteAndOct());
+                        }
+                    };
+                    handler.postDelayed(r, (long)(1000 * partition.get(i-1).getDuration()));
 
-                try {
+
+                }
+               try {
                     playAudio(v);
-                } catch (IOException e) {
+                }
+
+
+                catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
                 final Toast a=Toast.makeText(ResultActivity.this, "Record Playing",
                         Toast.LENGTH_SHORT);
                 a.show();
-                Handler handler = new Handler();
+                 handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         a.cancel();
                     }
                 }, 1000);
-            }
+
+        }
         });
 
-        stop = (Button) findViewById(R.id.button11);
+        stop= (Button)findViewById(R.id.button11);
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +201,11 @@ public class ResultActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        }
+
     }
 
 
-}
+

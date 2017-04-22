@@ -16,9 +16,9 @@ import java.io.IOException;
  * Created by Raphael on 09/01/2017.
  */
 public class HarmonizeActivity extends AppCompatActivity {
-    String path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/"+"harmoized" +
+    String path=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "perm" + "/"+"harmonized/" +
             "template" + RecordActivity.i + "AudioRecording.wav";
-    String path1=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/"+"harmoized" +
+    String path1=Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "perm" + "/"+"harmonized/" +
             "template2" + RecordActivity.i + "AudioRecording.wav";
     MediaPlayer mediaPlayer;
 
@@ -49,7 +49,7 @@ public class HarmonizeActivity extends AppCompatActivity {
             }
         });
         Button playh2 = (Button) findViewById(R.id.button8);
-        playh.setOnClickListener(new View.OnClickListener() {
+        playh2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -63,7 +63,7 @@ public class HarmonizeActivity extends AppCompatActivity {
 
         });
         Button stoph2 = (Button) findViewById(R.id.button9);
-        stoph.setOnClickListener(new View.OnClickListener() {
+        stoph2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (mediaPlayer != null) {
