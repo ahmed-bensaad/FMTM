@@ -1,15 +1,25 @@
 package Body.transcription;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Notes {
-	
+
+	private static int compteur = 0 ;
 	public static Transcript notes(double[] signal, double fe, int n, int p){
 
 
-		// Gets the list of musical events and the number of these events 
-		ArrayList <Integer> tr = TransientDetector.locations(signal,n,p) ; 
+		// Gets the list of musical events and the number of these events
+		Log.e("progfiling","Début détection d'attaque") ;
+
+		ArrayList <Integer> tr = TransientDetector.locations(signal,n,p) ;
+
+		Log.e("progfiling","Fin détection d'attaque") ;
+
+		Log.e("progfiling","Début détection notes") ;
+
 		int N = tr.size() ; 
 		ArrayList<ArrayList<Double>> output = new ArrayList<ArrayList<Double>>() ; 
 		
@@ -46,8 +56,11 @@ public class Notes {
 			noteSignal = Arrays.copyOfRange(signal, tr.get(i), tr.get(j)) ; 
 		}
 		ArrayList<Double> note = new ArrayList <Double>(2); 
-		note.add(tr.get(i)/fe) ; 
-		note.add(NoteDetector.note(noteSignal, fe)) ; 
+		note.add(tr.get(i)/fe) ;
+		compteur+=1 ;
+		Log.e("Profiling","Début autocor" + compteur) ;
+		note.add(EfficientNoteDetector.note(noteSignal, fe)) ;
+		Log.e("Profiling","Fin autocor" + compteur) ;
 		if(note.get(1) > 50) output.add(note) ; 
 		
 	}
@@ -69,8 +82,10 @@ public class Notes {
 		ArrayList<Double> outputI = new ArrayList<Double>(2) ; 
 		outputI.add(0, duration) ; 
 		outputI.add(1, frequency) ; 
-		output.add(outputI) ; 
-		
+		output.add(outputI) ;
+
+		Log.e("progfiling","Fin détection notes") ;
+
 		return output ; 
 	}
 

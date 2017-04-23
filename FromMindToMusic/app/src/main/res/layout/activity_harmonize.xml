@@ -28,10 +28,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/d300_02x"
-        android:layout_marginBottom="107dp"
+        android:layout_marginBottom="72dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="39dp" />
+        android:layout_toStartOf="@+id/textView7"
+        android:layout_marginEnd="35dp" />
 
     <Button
         android:id="@+id/stoph"
@@ -44,20 +44,20 @@
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/playh"
-        android:layout_alignStart="@+id/playh"
-        android:layout_marginBottom="57dp"
-        android:text="play" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/d300_02x"
+        android:layout_alignTop="@+id/button9"
+        android:layout_alignStart="@+id/playh" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/d300_22x"
+        android:layout_above="@+id/stoph"
         android:layout_alignStart="@+id/stoph"
-        android:layout_alignTop="@+id/button8"
-        android:text="stop" />
+        android:layout_marginBottom="43dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -69,4 +69,33 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
         android:text="" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF"
+        android:layout_above="@+id/button8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp"
+        android:text="Version 1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:textColor="#FFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/playh"
+        android:layout_alignStart="@+id/textView8"
+        android:text="Version 2" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:textColor="#FFFF"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Tonalité: "
+        android:layout_below="@+id/stoph"
+        android:layout_alignEnd="@+id/textView9" />
 </RelativeLayout>

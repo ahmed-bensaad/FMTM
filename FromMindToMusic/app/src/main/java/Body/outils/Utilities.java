@@ -1,5 +1,7 @@
 package Body.outils;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,7 +11,12 @@ import org.apache.commons.math3.transform.DftNormalization;
 import org.apache.commons.math3.transform.FastFourierTransformer;
 import org.apache.commons.math3.transform.TransformType;
 
+import biz.source_code.dsp.filter.IirFilter;
+import biz.source_code.dsp.filter.IirFilterCoefficients;
+
 public class Utilities {
+
+	static int compteur = 0 ;
 	
 	public static final double[] deriv(double[] input){
 		
@@ -105,7 +112,7 @@ public class Utilities {
 	}
 	
 	public static final double[] xcorr(double[] input){
-		
+
 		return getReal(ifft(multiply(fft(input),conjugate(fft(input))))) ; 
 	}
 
@@ -134,8 +141,21 @@ public class Utilities {
 	}
 	
 	public static final double[] filter(double[] b, double[] a, double[] x){
-		
-		int N = x.length ; 
+
+		compteur += 1 ;
+		Log.e("progfiling","Début filter " + compteur) ;
+		IirFilterCoefficients coeff = new IirFilterCoefficients() ;
+		coeff.a = a ;
+		coeff.b = b ;
+
+		double[] y = new double[x.length] ;
+		IirFilter filt = new IirFilter(coeff) ;
+		for (int i = 0 ; i < y.length ; i++) y[i] = filt.step(x[i]) ;
+		Log.e("progfiling","Fin filter " + compteur) ;
+
+		return y ;
+
+		/*int N = x.length ;
 		int Na = a.length ; 
 		int Nb = b.length ; 
 		double[] y = new double[N] ; 
@@ -148,8 +168,7 @@ public class Utilities {
 			y[n] = y[n]/a[0] ; 
 			
 		}
-		
-		return y ; 
+		*/
 	}
 	
 	public static final double max(double a, double b){

@@ -47,9 +47,9 @@ public class PlayArray {
                 {
                     //buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / sampleRate);
                     //buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / sampleRate);
-                    //System.out.println(k);
+                    //Log.e("progfiling",k);
                     buffer[0][s] = array[k];
-                    //System.out.println(y[k]);
+                    //Log.e("progfiling",y[k]);
                     k++;
                 }
 

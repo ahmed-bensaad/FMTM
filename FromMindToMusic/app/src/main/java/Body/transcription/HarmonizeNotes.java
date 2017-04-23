@@ -3,9 +3,10 @@ import Body.accompagnement.* ;
 
 public class HarmonizeNotes {
 	
-	public static final void harmonize(double[][] notes){
+	public static final String harmonize(double[][] notes){
 		
-		Harmonize.harmonize(notes);
+		return Harmonize.harmonize(notes);
+
 		
 	}
 

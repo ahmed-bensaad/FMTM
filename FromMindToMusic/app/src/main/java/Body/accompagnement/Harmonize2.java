@@ -1,5 +1,6 @@
 package Body.accompagnement;
 import android.os.Environment;
+import android.util.Log;
 
 import com.oc.rss.frommindtomusic.RecordActivity;
 
@@ -51,8 +52,7 @@ public class Harmonize2 {
 		double[] R = notes[0] ; 
 		
 		ArrayList<Chord> chords = divideInChords(notes,tempo,fe) ; 
-		System.out.println(chords);
-		int numChords = chords.size() ; 
+		int numChords = chords.size() ;
 		
 		
 		double[] N1 = new double[numChords] ;  
@@ -95,7 +95,6 @@ public class Harmonize2 {
 
 		// Calculate the number of frames required for specified duration
 		long numFrames = (long)(duration * sampleRate);
-		System.out.println(numFrames);
 
 		try
 		{

@@ -60,7 +60,7 @@ public class ResultActivity extends AppCompatActivity {
                             part.setText(part.getText()+" "+partition.get(finalI).getNoteAndOct());
                         }
                     };
-                    handler.postDelayed(r, (long)(1000 * partition.get(i-1).getDuration()));
+                    handler.postDelayed(r, (long)(1000 *(partition.get(i-1).getDuration())));
 
 
                 }
@@ -182,10 +182,10 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         catch (FileNotFoundException fnfe1) {
-            Log.e("tag", fnfe1.getMessage());
+            Log.e("progfiling","tag" +  fnfe1.getMessage());
         }
         catch (Exception e) {
-            Log.e("tag", e.getMessage());
+            Log.e("progfiling","tag" +  e.getMessage());
         }
 
     }

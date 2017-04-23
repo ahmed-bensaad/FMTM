@@ -31,8 +31,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ResultActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".InstrumentsChoiceActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name=".HarmonizeActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".OrchestrateActivity"

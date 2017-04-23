@@ -7,6 +7,7 @@ import com.oc.rss.frommindtomusic.RecordActivity;
 import java.io.File;
 
 import Body.audio.WavFile;
+import Body.outils.Utilities;
 import Body.tonalité.Basse;
 import Body.tonalité.Piano;
 import Body.tonalité.Trompette;
@@ -21,6 +22,7 @@ public class Orchestrate {
 
         double[] y2 = null ;
 
+        Utilities.normalize(y) ;
 
         switch(ch){
             case "Trumpet":{

@@ -20,20 +20,11 @@ public class OrchestrateActivity extends AppCompatActivity {
 
     }
 public void onClick (View v){
-    switch (v.getId()){
-        case R.id.autoButton:
-            Intent i = new Intent(OrchestrateActivity.this, InstrumentsChoiceActivity.class);
-            startActivity(i);
-            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-            break;
-        case R.id.diyButton:
             Intent j = new Intent(OrchestrateActivity.this, DoItYourselfActivity.class);
             startActivity(j);
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
-            break;
 
 
-    }
 }
     @Override
     public boolean onCreateOptionsMenu(Menu m){

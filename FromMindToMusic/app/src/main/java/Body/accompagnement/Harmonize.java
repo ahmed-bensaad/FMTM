@@ -2,6 +2,7 @@ package Body.accompagnement;
 
 
 import android.os.Environment;
+import android.util.Log;
 
 import com.oc.rss.frommindtomusic.RecordActivity;
 
@@ -13,14 +14,13 @@ import java.util.Arrays;
 import Body.tonalité.*;
 
 public class Harmonize {
-	public static void harmonize(double[][] liste){
+	public static String harmonize(double[][] liste){
 		
 		int n = liste[0].length;
 		double[][] accord = new double[4][n];
 		double[] f = liste[1];
 		String [][] notes = Lecture.frequenceToNote(f);
 		String ton = Lecture.tonaliteMaj(notes);
-		System.out.println(ton) ;
 		String [][]acc;
 		accord[0]=liste[0];
 		
@@ -83,9 +83,9 @@ public class Harmonize {
 				{
 					//buffer[0][s] = Math.sin(2.0 * Math.PI * 400 * frameCounter / sampleRate);
 					//buffer[1][s] = Math.sin(2.0 * Math.PI * 500 * frameCounter / sampleRate);
-					//System.out.println(k);
+					//Log.e("progfiling",k);
 					buffer[0][s] = y[k];
-					//System.out.println(y[k]);
+					//Log.e("progfiling",y[k]);
 					k++;
 				}
 
@@ -100,7 +100,8 @@ public class Harmonize {
 		{
 			System.err.println(e);
 		}
-			
+
+		return ton ;
 
 	}
 

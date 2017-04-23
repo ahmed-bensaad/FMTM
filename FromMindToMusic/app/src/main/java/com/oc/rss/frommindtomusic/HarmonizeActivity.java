@@ -28,13 +28,14 @@ public class HarmonizeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_harmonize);
         Button playh = (Button) findViewById(R.id.playh);
+        ((TextView)findViewById(R.id.textView10)).setText("Key: "+getIntent().getStringExtra("key"));
         Integer tempo=(int)(getIntent().getDoubleExtra("tempo",000));
         ((TextView) findViewById(R.id.textView)).setText(tempo.toString()+" BPM");
         playh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    playAudio(view);
+                    playAudio(view,path);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -56,9 +57,7 @@ public class HarmonizeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    mediaPlayer.setDataSource(path1);
-                    mediaPlayer.prepare();
-                    mediaPlayer.start();
+                    playAudio(view,path1);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -94,7 +93,7 @@ public class HarmonizeActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
     }
-    public void playAudio (View view) throws IOException
+    public void playAudio (View view,String path) throws IOException
     {
        mediaPlayer = new MediaPlayer();
         try {

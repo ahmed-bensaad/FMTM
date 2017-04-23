@@ -25,32 +25,18 @@
         android:fontFamily="sans-serif-smallcaps" />
 
     <Button
-        android:text="Auto"
-        android:layout_height="wrap_content"
-        android:id="@+id/autoButton"
-        android:onClick="onClick"
-        android:background="@drawable/rounded_corners_button"
-        android:textColor="?attr/colorControlNormal"
-        android:layout_below="@+id/orchestrate"
-        android:layout_alignStart="@+id/diyButton"
-        android:layout_marginTop="90dp"
-        android:textSize="25dp"
-        android:layout_width="170dp"
-        android:fontFamily="sans-serif-smallcaps" />
-
-    <Button
-        android:text="DIY"
-        android:layout_height="wrap_content"
         android:id="@+id/diyButton"
-        android:onClick="onClick"
-        android:background="@drawable/rounded_corners_button"
-        android:textColor="?attr/colorControlNormal"
-        android:layout_marginTop="89dp"
-        android:textSize="25dp"
         android:layout_width="170dp"
-        android:layout_alignTop="@+id/autoButton"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orchestrate"
         android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-smallcaps" />
+        android:layout_marginTop="148dp"
+        android:background="@drawable/rounded_corners_button"
+        android:fontFamily="sans-serif-smallcaps"
+        android:onClick="onClick"
+        android:text="Begin"
+        android:textColor="?attr/colorControlNormal"
+        android:textSize="25dp" />
 
 
 </RelativeLayout>
