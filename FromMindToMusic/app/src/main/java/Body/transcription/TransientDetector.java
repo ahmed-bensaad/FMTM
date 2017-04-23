@@ -61,12 +61,12 @@ public class TransientDetector {
 				
 	public static final ArrayList<Integer> locations(double[] input, int N, int p){
 
-		/*N = N/4 ;
+		N = N/4 ;
 		p =  4*p/5 ;
-		double[] downSampled = new double[(int)input.length/4] ;
-		for (int i = 0 ; i%4 == 0 && i < input.length ; i+=4) downSampled[i/4] = input[i] ;*/
+		double[] downSampled = new double[input.length/4] ;
+		for (int i = 0 ; i%4 == 0 && i < input.length ; i+=4) downSampled[i/4] = input[i] ;
 		ArrayList<Integer> peaks = findpeaks(TransientDetector.transients(input,N),p) ;
-//		for (Integer i : peaks) i = i*4 ;
+		for (Integer i : peaks) i = i*4 ;
 		return peaks ;
 
 	}

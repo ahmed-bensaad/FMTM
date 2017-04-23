@@ -5,7 +5,7 @@ public class Lecture {
 
 	public static String[] note(double f)
 	{
-		double x=Math.log(f/440)/Math.log(Math.pow(2.0,(1.0/12.0)));
+		double x = Math.log(f/440)/Math.log(Math.pow(2.0,(1.0/12.0)));
 		int y= (int) (Math.round(x) + 45) ;
 		int oct = (int) (y/12) ;
 		int m = (y%12 +12)%12;
@@ -14,15 +14,18 @@ public class Lecture {
 		String[] d =  {n, Integer.toString(oct)};
 		return d;
 	}
+	
+
 	public static String [][] frequenceToNote(double f []){
 		int n = f.length;
 		String [][] notes = new String [n][2];
 		for(int i =0; i<n; i++){
-			notes[i]= note(f[i]);
+			notes[i] = note(f[i]);
 		}
 		return notes;
 
 	}
+
 	public static double frequence(String [] note){
 		int o = Integer.parseInt(note[1]);
 		int l=0;
