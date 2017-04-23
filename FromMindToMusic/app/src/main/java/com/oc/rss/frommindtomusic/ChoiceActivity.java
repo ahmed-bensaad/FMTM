@@ -30,9 +30,10 @@ public class ChoiceActivity extends AppCompatActivity {
         harmonize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HarmonizeChords.harmonize(TRThread.notes,TRThread.signal,TRThread.tr,44100);
+                double tempo = HarmonizeChords.harmonize(TRThread.notes,TRThread.signal,TRThread.tr,44100);
                 HarmonizeNotes.harmonize(TRThread.notes) ;
                 Intent In = new Intent(ChoiceActivity.this,HarmonizeActivity.class);
+                In.putExtra("tempo",tempo);
                 startActivity(In);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             }

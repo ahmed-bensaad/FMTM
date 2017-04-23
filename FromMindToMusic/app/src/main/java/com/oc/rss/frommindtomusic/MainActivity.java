@@ -11,7 +11,7 @@ import android.widget.Button;
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
-    File f,f1,f2,f3;
+    File f,f1,f2,f3,f4;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         f3 = new File(Environment.getExternalStorageDirectory()+"/"+"FMTM"+"/"+"perm","harmonized");
         if (!f3.exists()) {
             f3.mkdirs();
+        } f4 = new File(Environment.getExternalStorageDirectory()+"/"+"FMTM"+"/"+"perm","orchestrated");
+        if (!f4.exists()) {
+            f4.mkdirs();
         }
         Button b= (Button) findViewById(R.id.Start);
         b.setOnClickListener(new View.OnClickListener(){

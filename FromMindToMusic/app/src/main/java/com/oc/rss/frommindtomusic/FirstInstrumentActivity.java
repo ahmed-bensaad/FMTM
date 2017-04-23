@@ -39,7 +39,7 @@ public class FirstInstrumentActivity extends AppCompatActivity {
 
     public void onClick (View v) {
         s=spinner.getSelectedItem().toString();
-        Play.jouer(TRThread.notes,s);
+        TRThread.setArray(Play.jouer(TRThread.notes,s));
         Intent k = new Intent(FirstInstrumentActivity.this, ChoiceActivity.class);
         startActivity(k);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);

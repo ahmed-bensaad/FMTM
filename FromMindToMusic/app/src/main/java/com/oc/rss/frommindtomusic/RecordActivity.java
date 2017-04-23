@@ -95,6 +95,7 @@ public class RecordActivity extends AppCompatActivity {
                         }, 1000);
                     } else {
                         requestPermission();
+                        onClick(view);
                     }
                 } else if (clicked = true) {
                     clicked = false;

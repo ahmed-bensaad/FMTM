@@ -9,25 +9,40 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-public class DoItYourselfActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class DoItYourselfActivity extends AppCompatActivity {
+    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_it_yourself);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
+         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        List<String> instruments = new ArrayList<String>();
+        instruments.add("Bass");
+        instruments.add("Trumpet");
+        instruments.add("Piano");
+
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,R.layout.spinner_item, instruments);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+/*// Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.instruments_array, R.layout.spinner_item);
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
     }
     public void onClick (View v){
 
                 Intent i = new Intent(DoItYourselfActivity.this, SingInstrumentActivity.class);
-                startActivity(i);
+        String ch= spinner.getSelectedItem().toString();
+        i.putExtra("instrum",ch);
+        startActivity(i);
         overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
 
 

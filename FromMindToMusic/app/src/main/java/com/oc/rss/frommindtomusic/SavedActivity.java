@@ -1,25 +1,31 @@
 package com.oc.rss.frommindtomusic;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SavedActivity extends AppCompatActivity {
+import java.io.IOException;
 
+public class SavedActivity extends AppCompatActivity {
+String path= Environment.getExternalStorageDirectory().getAbsolutePath() + "/FMTM/perm/orchestrated/template"+ SingInstrumentActivity.j+".wav";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved);
 
-        Button end = (Button)findViewById(R.id.end);
-        end.setOnClickListener(new View.OnClickListener() {
+        Button play = (Button)findViewById(R.id.end);
+        play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (SavedActivity.this,ResultActivity.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                try {
+                    playAudio(v);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -33,4 +39,16 @@ public class SavedActivity extends AppCompatActivity {
             }
         });
     }
+    public void playAudio (View view) throws IOException
+    {
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(path);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -9,7 +9,7 @@ import java.io.*;
 
 public class Play {
 
-		public static void jouer(double[][] notes,String ch){
+		public static double[] jouer(double[][] notes,String ch){
 
 			
 			//exemple simple
@@ -85,7 +85,7 @@ public class Play {
 				System.err.println(e);
 			}
 				
-	
+		return y ;
 			
 		}
 	

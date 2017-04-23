@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -27,6 +28,8 @@ public class HarmonizeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_harmonize);
         Button playh = (Button) findViewById(R.id.playh);
+        Integer tempo=(int)(getIntent().getDoubleExtra("tempo",000));
+        ((TextView) findViewById(R.id.textView)).setText(tempo.toString()+" BPM");
         playh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

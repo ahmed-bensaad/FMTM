@@ -8,6 +8,8 @@ import com.oc.rss.frommindtomusic.RecordActivity;
 import Body.audio.*;
 import java.io.BufferedReader;
 import java.io.File;
+import java.util.Arrays;
+
 import Body.tonalité.*;
 
 public class Harmonize {
@@ -32,9 +34,9 @@ public class Harmonize {
 		double[] a1 = accord[1];
 		double[] a2 = accord[2];
 		double[] a3 = accord[3];
-
-		for (int i = 0 ; i < liste[1].length ; i ++) liste[1][i] = liste[1][i]*2 ;
-		double[] y0 = Trompette.jouer(liste[1], N) ;
+		double[] listebis = Arrays.copyOf(liste[1],liste[1].length) ;
+		for (int i = 0 ; i < liste[1].length ; i ++) listebis[i] = listebis[i]*2 ;
+		double[] y0 = Trompette.jouer(listebis, N) ;
 		double[] y1 = Piano.jouer(a1, N) ;
 		double[] y2 = Piano.jouer(a2, N) ;
 		double[] y3 = Piano.jouer(a3, N) ;

@@ -26,7 +26,7 @@
         android:fontFamily="sans-serif-smallcaps" />
 
     <Button
-        android:text="View results"
+        android:text="Play last edited sound"
         android:id="@+id/end"
         android:layout_marginTop="63dp"
         android:background="@drawable/rounded_corners_button"
@@ -44,10 +44,9 @@
         android:background="@drawable/rounded_corners_button"
         android:textColor="?attr/colorControlNormal"
         android:textSize="26sp"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
         android:fontFamily="sans-serif-smallcaps"
         android:layout_width="200dp"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

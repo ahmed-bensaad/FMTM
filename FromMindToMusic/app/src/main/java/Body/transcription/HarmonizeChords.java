@@ -6,7 +6,7 @@ import Body.accompagnement.* ;
 
 public class HarmonizeChords {
 	
-	public static final void harmonize(double[][] notes,double[] signal,ArrayList<Integer> tr, double fe){
+	public static final double harmonize(double[][] notes,double[] signal,ArrayList<Integer> tr, double fe){
 		
 		double[] durations = Arrays.copyOf(notes[0], notes[0].length) ; 
 		double[] frequencies = Arrays.copyOf(notes[1], notes[1].length) ; 
@@ -15,7 +15,7 @@ public class HarmonizeChords {
 		frequencies = Lecture.notesToFrequencies(frequencies) ; 
 		Harmonize2.quantize(notesbis, tempo, fe);
 		Harmonize2.harmonize(tempo, notesbis, signal, fe);
-		
+		return tempo ;
 		
 	}
 

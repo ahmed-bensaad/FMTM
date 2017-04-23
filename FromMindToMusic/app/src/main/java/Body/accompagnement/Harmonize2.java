@@ -36,26 +36,14 @@ public class Harmonize2 {
 			chords.add(new Chord(notesChord,barLength)) ; 
 			T += barLength ; 
 		}
-		
-		
+
 		return chords ; 
 		
 		}
 			
 			
 		 
-		
-	public static final boolean allNotes(double[] durations, ArrayList<Chord> chords){
-		
-		int i = 0 ; 
-		int size = durations.length ; 
-		for (Chord c : chords) i += c.getNotes().size(); 
-		System.out.println(i);
-		if (i==size) return true ; 
-		return false ; 
-	}
-		
-	
+
 		
 	public static final void harmonize(double tempo, double[][] notes, double[] signal, double fe){
 		

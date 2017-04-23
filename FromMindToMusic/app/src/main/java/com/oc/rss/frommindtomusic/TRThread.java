@@ -13,6 +13,7 @@ public class TRThread extends Thread {
         static double[][] notes;
         static ArrayList<Integer> tr ;
         static double[] signal ;
+        static double[] array ;
 
     public TRThread(String str) {
         super();
@@ -25,5 +26,13 @@ public class TRThread extends Thread {
             tr = transcript.getTr();
             signal = transcript.getSignal() ;
         }
+
+    public static double[] getArray() {
+        return array;
     }
+
+    public static void setArray(double[] array) {
+        TRThread.array = array;
+    }
+}
 

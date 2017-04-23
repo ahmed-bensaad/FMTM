@@ -18,20 +18,27 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import Body.accompagnement.Orchestrate;
+import Body.accompagnement.PlayArray;
+import Body.transcription.Transcribe;
+
 public class SingInstrumentActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
-    MediaRecorder mediaRecorder;
     String AudioSavePathInDevice;
     static boolean clicked = false;
     Chronometer recordchrono2;
+    private WavAudioRecorder mRecorder;
 
-    static int j = 0;
+    public static int j = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_instrument);
         recordchrono2=(Chronometer) findViewById(R.id.recordchrono2);
+        AudioSavePathInDevice =
+                Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
+                        "Demo_ins" + j + ".wav";
 
         final Button record = (Button) findViewById(R.id.record);
         record.setOnClickListener(new View.OnClickListener() {
@@ -39,30 +46,48 @@ public class SingInstrumentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (clicked == false) {
                     clicked = true;
-                    record.setBackgroundResource(R.drawable.imagemicro);
-                    j++;
-                    AudioSavePathInDevice =
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "FMTM" + "/" + "temp" + "/" +
-                                    "Demo_ins" + j + ".3gp";
-                    MediaRecorderReady();
-                    try {
-                        mediaRecorder.prepare();
-                        mediaRecorder.start();
-                        recordchrono2.setBase(SystemClock.elapsedRealtime());
-                        recordchrono2.start();
-                        final Toast b = Toast.makeText(SingInstrumentActivity.this, "Record started",
-                                Toast.LENGTH_SHORT);
-                        b.show();
-                    } catch (IllegalStateException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    recordchrono2.start();
+
+                        mRecorder = WavAudioRecorder.getInstanse();
+                        mRecorder.setOutputFile(AudioSavePathInDevice);
+                        if (WavAudioRecorder.State.INITIALIZING == mRecorder.getState()) {
+                            mRecorder.prepare();
+                            mRecorder.start();
+                        } else if (WavAudioRecorder.State.ERROR == mRecorder.getState()) {
+                            mRecorder.release();
+                            mRecorder = WavAudioRecorder.getInstanse();
+                            mRecorder.setOutputFile(AudioSavePathInDevice);
+
+                        } else {
+                            mRecorder.stop();
+                            mRecorder.reset();
+                        }
+
+
+
+                        final Toast a = Toast.makeText(SingInstrumentActivity.this, "Recording", Toast.LENGTH_SHORT);
+                        a.show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                a.cancel();
+                            }
+                        }, 1000);
+
+                } else if (clicked = true) {
+                    clicked = false;
+                    record.setBackgroundResource(R.drawable.image3398);
+                    mRecorder.stop();
+                    recordchrono2.stop();
+                    mRecorder.reset();
+
+
+
 
                 } else if (clicked == true) {
                     clicked = false;
                     record.setBackgroundResource(R.drawable.image3398);
-                    mediaRecorder.stop();
 
                     recordchrono2.stop();
                     final Button Done = (Button) findViewById(R.id.ValidateIns);
@@ -89,15 +114,12 @@ public class SingInstrumentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) throws IllegalArgumentException,
                     SecurityException, IllegalStateException {
-                mediaPlayer = new MediaPlayer();
                 try {
-                    mediaPlayer.setDataSource(AudioSavePathInDevice);
-                    mediaPlayer.prepare();
+                    playAudio(view);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                mediaPlayer.start();
                 final Toast a = Toast.makeText(SingInstrumentActivity.this, "Record playing",
                         Toast.LENGTH_SHORT);
                 a.show();
@@ -114,6 +136,10 @@ public class SingInstrumentActivity extends AppCompatActivity {
         valid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double[][] newNotes = Transcribe.transcribe(AudioSavePathInDevice).getNotes() ;
+                String ch=getIntent().getStringExtra("instrum");
+                TRThread.setArray(Orchestrate.orchestrate(TRThread.array,newNotes,ch));
+                PlayArray.Play(TRThread.getArray());
                 Intent i = new Intent(SingInstrumentActivity.this, SavedActivity.class);
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                 final Toast a = Toast.makeText(SingInstrumentActivity.this, "Sound added",
@@ -134,13 +160,6 @@ public class SingInstrumentActivity extends AppCompatActivity {
 
     }
 
-    public void MediaRecorderReady() {
-        mediaRecorder = new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(AudioSavePathInDevice);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu m) {
@@ -148,15 +167,26 @@ public class SingInstrumentActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        onClick();
-        return super.onOptionsItemSelected(item);
-    }
+        Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
+        public boolean onOptionsItemSelected(MenuItem item) {
+            onClick();
+            return super.onOptionsItemSelected(item);
+        }
 
     public void onClick() {
-        Intent m = new Intent(SingInstrumentActivity.this, DoItYourselfActivity.class);
         startActivity(m);
         overridePendingTransition(R.anim.slide_back_in, R.anim.slide_back_out);
 
+    }
+    public void playAudio (View view) throws IOException
+    {
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(AudioSavePathInDevice);
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
