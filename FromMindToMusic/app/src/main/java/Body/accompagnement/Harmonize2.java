@@ -83,7 +83,8 @@ public class Harmonize2 {
 		double[] y4 = Arrays.copyOf(Piano.jouer(N4,R4), y.length) ;
 
 		double[] Y = new double[y.length] ;
-		for (int i = 0 ; i < Y.length ; i++) Y[i] = y[i]/3 + y1[i]/6 + y2[i]/6 + y3[i]/6 + y4[i]/6 ;
+		for (int i = 0 ; i < Y.length ; i++) Y[i] = y[i] + y1[i] + y2[i] + y3[i] + y4[i] ;
+		Utilities.normalize(Y) ;
 
 		int sampleRate = 44100;		// Samples per second
 		double duration = 0;		// Seconds

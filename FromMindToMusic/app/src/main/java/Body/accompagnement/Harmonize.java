@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.util.Arrays;
 
+import Body.outils.Utilities;
 import Body.tonalité.*;
 
 public class Harmonize {
@@ -41,7 +42,9 @@ public class Harmonize {
 		double[] y2 = Piano.jouer(a2, N) ;
 		double[] y3 = Piano.jouer(a3, N) ;
 		double[] y = new double[y1.length] ;
-		for (int i = 0 ; i < y.length ; i++) y[i] = y0[i]/3 + y1[i]/5 + y2[i]/5 + y3[i]/5 ;
+		for (int i = 0 ; i < y.length ; i++) y[i] = y0[i] + y1[i] + y2[i] + y3[i] ;
+
+		Utilities.normalize(y);
 
 		double[] R = liste[0] ;
 		int sampleRate = 44100;		// Samples per second
